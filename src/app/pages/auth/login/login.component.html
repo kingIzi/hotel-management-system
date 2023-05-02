@@ -1,0 +1,74 @@
+<div
+  class="flex flex-col justify-center w-full bg-white px-12 py-12 lg:px-20 space-y-4 shadow-sm rounded"
+>
+  <div class="w-full">
+    <h1 class="font-irishGrover text-primary text-5xl text-center">
+      Karibu Yenu
+    </h1>
+    <h6 class="font-irishGrover text-primary text-xl text-center">
+      Please login
+    </h6>
+  </div>
+  <form class="grid grid-cols-2 w-full gap-y-2">
+    <div class="mb-3 col-span-full relative">
+      <input
+        type="email"
+        class="bg-lighter w-full text-sm font-incosolata p-1 rounded border pl-8 placeholder-gray-300"
+        placeholder="Enter email"
+      />
+      <span class="absolute top-1/2 -translate-y-1/2 left-2">
+        <i class="bi bi-person-fill text-mblack"></i>
+      </span>
+    </div>
+    <div class="mb-3 col-span-full relative">
+      <input
+        type="password"
+        class="bg-lighter w-full text-sm font-incosolata p-1 rounded border pl-8 placeholder-gray-300"
+        placeholder="Enter password"
+      />
+      <span class="absolute top-1/2 -translate-y-1/2 left-2">
+        <i class="bi bi-unlock-fill"></i>
+      </span>
+    </div>
+    <div class="col-span-full">
+      <p class="text-red-500 font-incosolata text-center text-sm">
+        Incorrect password. Try again.
+      </p>
+    </div>
+    <div
+      class="col-span-full w-full flex flex-row items-center justify-between"
+    >
+      <div class="flex flex-row items-center">
+        <input id="remember-me" type="checkbox" class="accent-primary mt-0.5" />
+        <label for="remember-me" class="text-sm font-incosolata"
+          >Remember me.</label
+        >
+      </div>
+      <a
+        class="font-incosolata text-sm text-link cursor-pointer hover:underline"
+        >Forgot password</a
+      >
+    </div>
+    <div
+      class="col-span-full my-8 w-full flex flex-row items-center justify-center"
+    >
+      <a
+        routerLink="/main/dashboard"
+        class="bg-primary group hover:bg-mblack duration-150 py-2 px-8 flex flex-row space-x-2"
+      >
+        <p
+          class="text-md font-incosolata group-hover:text-amber-50 text-lighter"
+        >
+          Login
+        </p>
+        <i class="bi bi-arrow-right text-lighter group-hover:text-amber-50"></i>
+      </a>
+    </div>
+  </form>
+  <div class="flex flex-row items-center justify-center">
+    <span class="font-incosolata text-sm">Not registered. </span>
+    <a class="font-incosolata text-sm text-link cursor-pointer hover:underline"
+      >Click here.</a
+    >
+  </div>
+</div>

@@ -1,0 +1,199 @@
+<nav
+  id="sidenav-1"
+  class="absolute lg:hidden left-0 py-4 top-0 z-[1035] h-full w-60 flex flex-col -translate-x-full overflow-hidden bg-white shadow-[0_4px_12px_0_rgba(0,0,0,0.07),_0_2px_4px_rgba(0,0,0,0.05)] data-[te-sidenav-hidden='false']:translate-x-0"
+  data-te-sidenav-init
+  data-te-sidenav-hidden="true"
+  data-te-sidenav-position="absolute"
+>
+  <div
+    class="w-full px-2 border-b border-mgrey flex flex-row items-center space-x-1 py-4"
+  >
+    <button
+      id="dropdownMenuButton1"
+      data-te-dropdown-toggle-ref
+      aria-expanded="false"
+      data-te-ripple-init
+      data-te-ripple-color="light"
+      class="w-[3.6rem] h-12 bg-primary rounded-full grid place-items-center"
+    >
+      <i class="bi bi-person-fill text-xl text-lighter"></i>
+    </button>
+    <div class="basis-full flex flex-col">
+      <p class="text-xl font-incosolata">Izi Kapampa</p>
+      <div class="w-full flex flex-row items-center space-x-1">
+        <span class="w-2 h-2 bg-green-600 rounded-full"></span>
+        <p class="text-xl font-incosolata text-gray-400">Manager</p>
+      </div>
+    </div>
+  </div>
+  <ul class="relative mt-10 list-none" data-te-sidenav-menu-ref>
+    <li class="relative" *ngFor="let navbarItem of navbarItems">
+      <a
+        [routerLink]="navbarItem.routerLink"
+        [routerLinkActive]="['bg-primary', 'text-lighter', 'hover:text-white']"
+        class="flex flex-row w-full items-center space-x-3 px-2 py-4 hover:text-primary cursor-pointer"
+      >
+        <span>
+          <i [ngClass]="navbarItem.bootstrapIcon"></i>
+        </span>
+        <p class="font-incosolata text-lg capitalize tracking-wider">
+          {{ navbarItem.title }}
+        </p>
+      </a>
+    </li>
+  </ul>
+  <span
+    class="absolute bottom-2 left-1/2 -translate-x-1/2 flex flex-row items-center justify-center space-x-1 w-full"
+  >
+    <p class="text-sm font-incosolata">Copyright 2023</p>
+    <i class="bi bi-c-circle"></i>
+  </span>
+</nav>
+
+<nav
+  class="absolute hidden lg:flex left-0 py-4 top-0 z-[1035] h-full w-60 flex-col -translate-x-full overflow-hidden bg-white shadow-[0_4px_12px_0_rgba(0,0,0,0.07),_0_2px_4px_rgba(0,0,0,0.05)] data-[te-sidenav-hidden='false']:translate-x-0"
+  data-te-sidenav-init
+  data-te-sidenav-hidden="false"
+  data-te-sidenav-position="absolute"
+>
+  <div
+    class="w-full px-2 border-b border-mgrey flex flex-row items-center space-x-1 py-4"
+  >
+    <button
+      id="dropdownMenuButton1"
+      data-te-dropdown-toggle-ref
+      aria-expanded="false"
+      data-te-ripple-init
+      data-te-ripple-color="light"
+      class="w-[3.6rem] h-12 bg-primary rounded-full grid place-items-center"
+    >
+      <i class="bi bi-person-fill text-xl text-lighter"></i>
+    </button>
+    <div class="basis-full flex flex-col">
+      <p class="text-xl font-incosolata">Izi Kapampa</p>
+      <div class="w-full flex flex-row items-center space-x-1">
+        <span class="w-2 h-2 bg-green-600 rounded-full"></span>
+        <p class="text-xl font-incosolata text-gray-400">Manager</p>
+      </div>
+    </div>
+  </div>
+  <ul class="relative mt-10 list-none" data-te-sidenav-menu-ref>
+    <li class="relative" *ngFor="let navbarItem of navbarItems">
+      <a
+        class="flex flex-row items-center space-x-3 px-2 py-4 hover:text-primary"
+        [routerLink]="navbarItem.routerLink"
+        [routerLinkActive]="['bg-primary', 'text-lighter', 'hover:text-white']"
+      >
+        <span>
+          <i [ngClass]="navbarItem.bootstrapIcon"></i>
+        </span>
+        <p class="font-incosolata text-lg">{{ navbarItem.title }}</p>
+      </a>
+    </li>
+  </ul>
+  <span
+    class="absolute bottom-2 left-1/2 -translate-x-1/2 flex flex-row items-center justify-center space-x-1 w-full"
+  >
+    <p class="text-sm font-incosolata">Copyright 2023</p>
+    <i class="bi bi-c-circle"></i>
+  </span>
+</nav>
+
+<!-- <nav
+  id="sidenav-1"
+  class="absolute lg:hidden left-0 py-4 top-0 z-[1035] h-full w-60 flex flex-col -translate-x-full overflow-hidden bg-white shadow-[0_4px_12px_0_rgba(0,0,0,0.07),_0_2px_4px_rgba(0,0,0,0.05)] data-[te-sidenav-hidden='false']:translate-x-0"
+  data-te-sidenav-init
+  data-te-sidenav-hidden="true"
+  data-te-sidenav-position="absolute"
+>
+  <div
+    class="w-full px-2 border-b border-mgrey flex flex-row items-center space-x-1 py-4"
+  >
+    <button
+      id="dropdownMenuButton1"
+      data-te-dropdown-toggle-ref
+      aria-expanded="false"
+      data-te-ripple-init
+      data-te-ripple-color="light"
+      class="w-[3.6rem] h-12 bg-primary rounded-full grid place-items-center"
+    >
+      <i class="bi bi-person-fill text-xl text-lighter"></i>
+    </button>
+    <div class="basis-full flex flex-col">
+      <p class="text-xl font-incosolata">Izi Kapampa</p>
+      <div class="w-full flex flex-row items-center space-x-1">
+        <span class="w-2 h-2 bg-green-600 rounded-full"></span>
+        <p class="text-xl font-incosolata text-gray-400">Manager</p>
+      </div>
+    </div>
+  </div>
+  <ul class="relative mt-10 list-none" data-te-sidenav-menu-ref>
+    <li class="relative" *ngFor="let navbarItem of navbarItems">
+      <a
+        class="flex flex-row items-center space-x-3 px-2 py-4 hover:text-primary"
+        [routerLink]="navbarItem.routerLink"
+        [routerLinkActive]="['bg-primary', 'text-lighter', 'hover:text-white']"
+      >
+        <span>
+          <i [ngClass]="navbarItem.bootstrapIcon"></i>
+        </span>
+        <p class="font-incosolata text-lg">{{ navbarItem.title }}</p>
+      </a>
+    </li>
+  </ul>
+  <span
+    class="absolute bottom-2 left-1/2 -translate-x-1/2 flex flex-row items-center justify-center space-x-1 w-full"
+  >
+    <p class="text-sm font-incosolata">Copyright 2023</p>
+    <i class="bi bi-c-circle"></i>
+  </span>
+</nav>
+
+<nav
+  class="absolute hidden lg:flex left-0 py-4 top-0 z-[1035] h-full w-60 flex-col -translate-x-full overflow-hidden bg-white shadow-[0_4px_12px_0_rgba(0,0,0,0.07),_0_2px_4px_rgba(0,0,0,0.05)] data-[te-sidenav-hidden='false']:translate-x-0"
+  data-te-sidenav-init
+  data-te-sidenav-hidden="false"
+  data-te-sidenav-position="absolute"
+>
+  <div
+    class="w-full px-2 border-b border-mgrey flex flex-row items-center space-x-1 py-4"
+  >
+    <button
+      id="dropdownMenuButton1"
+      data-te-dropdown-toggle-ref
+      aria-expanded="false"
+      data-te-ripple-init
+      data-te-ripple-color="light"
+      class="w-[3.6rem] h-12 bg-primary rounded-full grid place-items-center"
+    >
+      <i class="bi bi-person-fill text-xl text-lighter"></i>
+    </button>
+    <div class="basis-full flex flex-col">
+      <p class="text-xl font-incosolata">Izi Kapampa</p>
+      <div class="w-full flex flex-row items-center space-x-1">
+        <span class="w-2 h-2 bg-green-600 rounded-full"></span>
+        <p class="text-xl font-incosolata text-gray-400">Manager</p>
+      </div>
+    </div>
+  </div>
+  <ul class="relative mt-10 list-none" data-te-sidenav-menu-ref>
+    <li class="relative" *ngFor="let navbarItem of navbarItems">
+      <a
+        class="flex flex-row items-center space-x-3 px-2 py-4 hover:text-primary"
+        [routerLink]="navbarItem.routerLink"
+        [routerLinkActive]="['bg-primary', 'text-lighter', 'hover:text-white']"
+      >
+        <span>
+          <i [ngClass]="navbarItem.bootstrapIcon"></i>
+        </span>
+        <p class="font-incosolata text-lg">{{ navbarItem.title }}</p>
+      </a>
+    </li>
+  </ul>
+  <span
+    class="absolute bottom-2 left-1/2 -translate-x-1/2 flex flex-row items-center justify-center space-x-1 w-full"
+  >
+    <p class="text-sm font-incosolata">Copyright 2023</p>
+    <i class="bi bi-c-circle"></i>
+  </span>
+</nav> -->

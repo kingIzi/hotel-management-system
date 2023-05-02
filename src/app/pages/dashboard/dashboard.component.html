@@ -1,0 +1,65 @@
+<div class="space-y-4 h-full py-4 px-4">
+  <div class="flex flex-row items-center">
+    <span class="text-primary">
+      <i class="bi bi-house-fill"></i>
+    </span>
+    <a class="font-incosolata text-sm">/ Dashboard</a>
+  </div>
+  <section class="grid grid-cols-2 md:grid-cols-4 w-full bg-white shadow-lg">
+    <div
+      class="w-full bg-white border py-4 md:py-8 border-mgrey flex flex-col space-y-1 items-center justify-center"
+      *ngFor="let resume of resumes"
+    >
+      <span [style]="'color:' + resume.color">
+        <i [ngClass]="resume.bootstrapIcon" class="text-2xl"></i>
+      </span>
+      <p class="text-black font-incosolata text-2xl font-bold">
+        {{ resume.total }}
+      </p>
+      <h3 class="text-xl font-incosolata tracking-wide">
+        {{ resume.title }}
+      </h3>
+    </div>
+  </section>
+  <section
+    class="grid grid-cols-1 lg:grid-cols-2 gap-y-8 gap-x-2 w-full px-2 py-3 bg-white shadow-lg my-2"
+  >
+    <div class="space-y-4">
+      <h4 class="text-2xl text-black font-incosolata pt-3 pb-2">
+        Payments this Week
+      </h4>
+      <div
+        #chatHolder
+        class="w-full h-72 border border-mgrey grid place-items-center"
+      >
+        <google-chart
+          [data]="data"
+          [title]="title"
+          [type]="type"
+          [width]="chatHolder.clientWidth"
+          [height]="chatHolder.clientHeight"
+        >
+        </google-chart>
+      </div>
+    </div>
+    <div class="space-y-4">
+      <h4 class="text-2xl text-black font-incosolata pt-3 pb-2">
+        Check In Monthly Rates
+      </h4>
+      <div
+        #chartHolder2
+        class="w-full h-72 border border-mgrey grid place-items-center"
+      >
+        <google-chart
+          [data]="data"
+          [title]="title"
+          [type]="type"
+          [width]="chartHolder2.clientWidth"
+          [height]="chartHolder2.clientHeight"
+        >
+        </google-chart>
+      </div>
+    </div>
+  </section>
+  <br />
+</div>
