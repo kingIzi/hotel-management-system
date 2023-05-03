@@ -21,6 +21,13 @@ const routes: Routes = [
             (m) => m.ReservationsComponent
           ),
       },
+      {
+        path: 'rooms',
+        loadComponent: () =>
+          import('../../../pages/manage-rooms/manage-rooms.component').then(
+            (m) => m.ManageRoomsComponent
+          ),
+      },
     ],
   },
 ];
