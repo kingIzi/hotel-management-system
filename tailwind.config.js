@@ -14,10 +14,12 @@ module.exports = {
         mblack: "#1E1E1E",
         mgrey: "#E3E3E3",
         link: "#53A2EA",
+        sunset: "#DFAC28",
       },
       fontFamily: {
-        incosolata: ["Inconsolata", "sans serif"],
+        incosolata: ["Inconsolata", "monospace"],
         irishGrover: ["Irish Grover", "sans-serif"],
+        inspiration: ["Inspiration", "cursive"],
       },
     },
   },

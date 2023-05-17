@@ -1,28 +1,599 @@
 <div class="space-y-4 h-full py-4 px-4">
-  <div class="flex flex-row items-center">
-    <span class="text-primary">
-      <i class="bi bi-house-fill"></i>
-    </span>
-    <a class="font-incosolata text-sm hover:underline capitalize"
-      >/ Manage Rooms</a
+  <app-router-navs [navLinks]="availableLinks"></app-router-navs>
+  <div class="bg-white p-4 shadow flex flex-col space-y-4">
+    <h4
+      class="text-xl lg:text-2xl font-incosolata col-span-full py-4 border-b border-mgrey"
     >
-  </div>
-  <section
-    class="grid grid-cols-1 gap-y-4 gap-x-4 lg:grid-cols-2 w-full bg-white shadow-lg p-2"
-  >
-    <div
-      class="w-full py-4 flex flex-row items-center justify-between border-b col-span-full"
-    >
-      <h4 class="text-xl lg:text-2xl font-incosolata border-mgrey mb-4">
-        Manage Rooms:
-      </h4>
-      <button class="flex flex-row items-center space-x-2 bg-primary px-2 py-3">
-        <span>
-          <i class="bi bi-plus-lg text-sm text-lighter"></i>
-        </span>
-        <p class="text-lighter text-sm font-incosolata">Add Room</p>
-      </button>
+      Room(s) Management
+    </h4>
+    <div class="flex flex-col w-full">
+      <div class="grid grid-cols-2 lg:grid-cols-4 w-full gap-x-3">
+        <h4 class="text-md lg:text-2xl font-incosolata col-span-full py-2">
+          Filter
+        </h4>
+        <div class="mb-3">
+          <label for="room-no" class="capitalize block text-sm font-incosolata"
+            >Type<span class="text-sm text-red-600 font-incosolata"></span>
+          </label>
+          <select
+            id="type"
+            placeholder="Select a room type"
+            class="appearance-none w-full text-sm font-incosolata border border-gray-300 bg-white px-4 py-2 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+          >
+            <option class="text-sm font-incosolata text-neutral-400" value="">
+              any
+            </option>
+            <option
+              class="text-sm font-incosolata"
+              *ngFor="let type of roomTypes"
+              [value]="type"
+              [ngValue]="type"
+            >
+              {{ type }}
+            </option>
+          </select>
+        </div>
+        <div class="mb-3">
+          <label for="room-no" class="capitalize block text-sm font-incosolata"
+            >Availability<span
+              class="text-sm text-red-600 font-incosolata"
+            ></span>
+          </label>
+          <select
+            id="type"
+            placeholder="Select a room type"
+            class="appearance-none w-full text-sm font-incosolata border border-gray-300 bg-white px-4 py-2 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+          >
+            <option class="text-sm font-incosolata text-neutral-400" value="">
+              any
+            </option>
+            <option class="text-sm font-incosolata">Available</option>
+            <option class="text-sm font-incosolata">Booked</option>
+          </select>
+        </div>
+        <div class="mb-3">
+          <label for="room-no" class="capitalize block text-sm font-incosolata"
+            >Status<span class="text-sm text-red-600 font-incosolata"></span>
+          </label>
+          <select
+            id="type"
+            placeholder="Select a room type"
+            class="appearance-none w-full text-sm font-incosolata border border-gray-300 bg-white px-4 py-2 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+          >
+            <option class="text-sm font-incosolata text-neutral-400" value="">
+              any
+            </option>
+            <option class="text-sm font-incosolata">Dirty</option>
+            <option class="text-sm font-incosolata">Touched</option>
+            <option class="text-sm font-incosolata">Clean</option>
+          </select>
+        </div>
+        <div class="mb-3 flex flex-col">
+          <label for="checking" class="capitalize block text-sm font-incosolata"
+            >Checking<span class="text-sm text-red-600 font-incosolata"></span>
+          </label>
+          <div id="checking" class="flex mt-1.5 flex-row flex-wrap">
+            <div
+              class="mb-[0.125rem] mr-2 inline-block min-h-[1.5rem] pl-[1.5rem]"
+            >
+              <input
+                class="relative float-left -ml-[1.5rem] mr-1 mt-0.5 h-5 w-5 appearance-none rounded-full border-2 border-solid border-neutral-300 before:pointer-events-none before:absolute before:h-4 before:w-4 before:scale-0 before:rounded-full before:bg-transparent before:opacity-0 before:shadow-[0px_0px_0px_13px_transparent] before:content-[''] after:absolute after:z-[1] after:block after:h-4 after:w-4 after:rounded-full after:content-[''] checked:border-primary checked:before:opacity-[0.16] checked:after:absolute checked:after:left-1/2 checked:after:top-1/2 checked:after:h-[0.625rem] checked:after:w-[0.625rem] checked:after:rounded-full checked:after:border-primary checked:after:bg-primary checked:after:content-[''] checked:after:[transform:translate(-50%,-50%)] hover:cursor-pointer hover:before:opacity-[0.04] hover:before:shadow-[0px_0px_0px_13px_rgba(0,0,0,0.6)] focus:shadow-none focus:outline-none focus:ring-0 focus:before:scale-100 focus:before:opacity-[0.12] focus:before:shadow-[0px_0px_0px_13px_rgba(0,0,0,0.6)] focus:before:transition-[box-shadow_0.2s,transform_0.2s] checked:focus:border-primary checked:focus:before:scale-100 checked:focus:before:shadow-[0px_0px_0px_13px_#3b71ca] checked:focus:before:transition-[box-shadow_0.2s,transform_0.2s] dark:border-neutral-600 dark:checked:border-primary dark:checked:after:border-primary dark:checked:after:bg-primary dark:focus:before:shadow-[0px_0px_0px_13px_rgba(255,255,255,0.4)] dark:checked:focus:border-primary dark:checked:focus:before:shadow-[0px_0px_0px_13px_#3b71ca]"
+                type="radio"
+                name="inlineRadioOptions"
+                id="any"
+                value="option1"
+                checked
+              />
+              <label
+                class="mt-px inline-block pl-[0.15rem] hover:cursor-pointer text-sm font-incosolata"
+                for="any"
+                >Any</label
+              >
+            </div>
+            <div
+              class="mb-[0.125rem] mr-2 inline-block min-h-[1.5rem] pl-[1.5rem]"
+            >
+              <input
+                class="relative float-left -ml-[1.5rem] mr-1 mt-0.5 h-5 w-5 appearance-none rounded-full border-2 border-solid border-neutral-300 before:pointer-events-none before:absolute before:h-4 before:w-4 before:scale-0 before:rounded-full before:bg-transparent before:opacity-0 before:shadow-[0px_0px_0px_13px_transparent] before:content-[''] after:absolute after:z-[1] after:block after:h-4 after:w-4 after:rounded-full after:content-[''] checked:border-primary checked:before:opacity-[0.16] checked:after:absolute checked:after:left-1/2 checked:after:top-1/2 checked:after:h-[0.625rem] checked:after:w-[0.625rem] checked:after:rounded-full checked:after:border-primary checked:after:bg-primary checked:after:content-[''] checked:after:[transform:translate(-50%,-50%)] hover:cursor-pointer hover:before:opacity-[0.04] hover:before:shadow-[0px_0px_0px_13px_rgba(0,0,0,0.6)] focus:shadow-none focus:outline-none focus:ring-0 focus:before:scale-100 focus:before:opacity-[0.12] focus:before:shadow-[0px_0px_0px_13px_rgba(0,0,0,0.6)] focus:before:transition-[box-shadow_0.2s,transform_0.2s] checked:focus:border-primary checked:focus:before:scale-100 checked:focus:before:shadow-[0px_0px_0px_13px_#3b71ca] checked:focus:before:transition-[box-shadow_0.2s,transform_0.2s] dark:border-neutral-600 dark:checked:border-primary dark:checked:after:border-primary dark:checked:after:bg-primary dark:focus:before:shadow-[0px_0px_0px_13px_rgba(255,255,255,0.4)] dark:checked:focus:border-primary dark:checked:focus:before:shadow-[0px_0px_0px_13px_#3b71ca]"
+                type="radio"
+                name="inlineRadioOptions"
+                id="checked"
+                value="option1"
+              />
+              <label
+                class="mt-px inline-block pl-[0.15rem] hover:cursor-pointer text-sm font-incosolata"
+                for="checked"
+                >Checked</label
+              >
+            </div>
+            <div class="mb-[0.125rem] inline-block min-h-[1.5rem] pl-[1.5rem]">
+              <input
+                class="relative float-left -ml-[1.5rem] mr-1 mt-0.5 h-5 w-5 appearance-none rounded-full border-2 border-solid border-neutral-300 before:pointer-events-none before:absolute before:h-4 before:w-4 before:scale-0 before:rounded-full before:bg-transparent before:opacity-0 before:shadow-[0px_0px_0px_13px_transparent] before:content-[''] after:absolute after:z-[1] after:block after:h-4 after:w-4 after:rounded-full after:content-[''] checked:border-primary checked:before:opacity-[0.16] checked:after:absolute checked:after:left-1/2 checked:after:top-1/2 checked:after:h-[0.625rem] checked:after:w-[0.625rem] checked:after:rounded-full checked:after:border-primary checked:after:bg-primary checked:after:content-[''] checked:after:[transform:translate(-50%,-50%)] hover:cursor-pointer hover:before:opacity-[0.04] hover:before:shadow-[0px_0px_0px_13px_rgba(0,0,0,0.6)] focus:shadow-none focus:outline-none focus:ring-0 focus:before:scale-100 focus:before:opacity-[0.12] focus:before:shadow-[0px_0px_0px_13px_rgba(0,0,0,0.6)] focus:before:transition-[box-shadow_0.2s,transform_0.2s] checked:focus:border-primary checked:focus:before:scale-100 checked:focus:before:shadow-[0px_0px_0px_13px_#3b71ca] checked:focus:before:transition-[box-shadow_0.2s,transform_0.2s] dark:border-neutral-600 dark:checked:border-primary dark:checked:after:border-primary dark:checked:after:bg-primary dark:focus:before:shadow-[0px_0px_0px_13px_rgba(255,255,255,0.4)] dark:checked:focus:border-primary dark:checked:focus:before:shadow-[0px_0px_0px_13px_#3b71ca]"
+                type="radio"
+                name="inlineRadioOptions"
+                id="not-checked"
+                value="option2"
+              />
+              <label
+                class="mt-px inline-block pl-[0.15rem] hover:cursor-pointer text-sm font-incosolata"
+                for="not-checked"
+                >Not Checked</label
+              >
+            </div>
+          </div>
+        </div>
+        <div class="flex flex-row justify-start items-center">
+          <button class="bg-primary inset-0 h-fit font-incosolata p-2">
+            <span class="text-lighter text-sm font-incosolata font-normal"
+              ><i class="bi bi-funnel"></i> Filter
+            </span>
+          </button>
+        </div>
+      </div>
+      <div
+        class="w-full py-4 mt-8 flex flex-row items-center justify-between col-span-full"
+      >
+        <div class="flex flex-row-items-center space-x-2">
+          <div>
+            <p class="text-sm mt-2 font-incosolata text-black">Show(s):</p>
+          </div>
+          <div class="max-w-[5rem]">
+            <select
+              [ngModel]="showing"
+              (ngModelChange)="valueChanged($event)"
+              class="appearance-none w-full border border-gray-300 bg-white px-4 py-2 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+            >
+              <option *ngFor="let show of showings" [ngValue]="show">
+                {{ show }}
+              </option>
+            </select>
+          </div>
+          <div class="hidden lg:block">
+            <p class="text-sm mt-2 font-incosolata text-black">Entries</p>
+          </div>
+        </div>
+        <!-- <div class="relative mt-0 w-auto lg:w-1/3" data-te-input-wrapper-init>
+          <input
+            type="search"
+            class="peer block min-h-[auto] text-black font-incosolata text-sm w-full rounded border-0 bg-transparent px-3 py-[0.32rem] leading-[1.6] outline-none transition-all duration-200 ease-linear focus:placeholder:opacity-100 peer-focus:text-primary data-[te-input-state-active]:placeholder:opacity-100 motion-reduce:transition-none placeholder:text-gray-300 [&:not([data-te-input-placeholder-active])]:placeholder:opacity-0"
+            id="exampleFormControlInput1"
+            placeholder="Search..."
+          />
+        </div> -->
+        <div class="relative mt-0 w-1/2 lg:w-1/3">
+          <div class="relative flex w-full flex-wrap items-stretch">
+            <input
+              type="search"
+              class="relative text-sm font-incosolata m-0 block w-[1px] min-w-0 flex-auto rounded border border-solid border-neutral-300 bg-transparent bg-clip-padding px-3 py-[0.25rem] font-normal leading-[1.6] text-neutral-700 outline-none transition duration-200 ease-in-out focus:z-[3] focus:border-primary focus:text-neutral-700 focus:shadow-[inset_0_0_0_1px_rgb(59,113,202)] focus:outline-none dark:border-neutral-600 dark:text-neutral-200 dark:placeholder:text-neutral-200 dark:focus:border-primary"
+              placeholder="Search"
+              aria-label="Search"
+              aria-describedby="button-addon2"
+            />
+
+            <!--Search icon-->
+            <span
+              class="input-group-text cursor-pointer flex items-center whitespace-nowrap rounded px-3 py-1.5 text-center text-base font-normal text-neutral-700"
+              id="basic-addon2"
+            >
+              <i class="bi bi-search"></i>
+            </span>
+          </div>
+        </div>
+      </div>
     </div>
-  </section>
-  <div class="w-full"></div>
+    <section class="relative hidden max-h-96 lg:block overflow-auto">
+      <table #roomsTable class="relative w-full">
+        <thead>
+          <tr class="shadow-2xl bg-primary">
+            <th
+              #tableContainer
+              [attr.data-column]="i !== roomsHeaders.length - 1 ? header : ''"
+              [attr.data-order]="i !== roomsHeaders.length - 1 ? 'desc' : ''"
+              *ngFor="let header of roomsHeaders; index as i"
+              class="sticky top-0 px-3 py-3 text-lighter bg-primary font-incosolata font-bold bg-grey2 {{
+                i === 0 ? 'rounded-tl-xl' : ''
+              }}"
+            >
+              <p class="font-primary text-lighter">
+                {{ header }}
+                <span
+                  *ngIf="
+                    tableContainer.dataset['order'] == 'desc' &&
+                    i !== roomsHeaders.length - 1
+                  "
+                  ><i class="bi bi-caret-up"></i>
+                </span>
+                <span
+                  *ngIf="
+                    tableContainer.dataset['order'] == 'asc' &&
+                    i !== roomsHeaders.length - 1
+                  "
+                  ><i class="bi bi-caret-down"></i>
+                </span>
+              </p>
+            </th>
+            <th
+              class="sticky text-lighter bg-primary rounded-tr-xl top-0 px-3 py-3 font-incosolata font-bold bg-grey2"
+            >
+              Action
+            </th>
+          </tr>
+        </thead>
+        <tbody class="bg-white">
+          <tr *ngFor="let room of rooms; index as ind">
+            <td class="p-3 text-center border font-incosolata border-grey2">
+              {{ room.roomNo }}
+            </td>
+            <td class="p-3 text-center border font-incosolata border-grey2">
+              {{ room.type }}
+            </td>
+            <td class="p-3 text-center border font-incosolata border-grey2">
+              <button
+                data-te-toggle="tooltip"
+                title="{{ room.status === 'Dirty' ? 'Dirty Room' : '' }} {{
+                  room.status === 'Touched' ? 'Recently Touched up' : ''
+                }} {{ room.status === 'Clean' ? 'Room is clean' : '' }}"
+                class="text-sm shadow {{
+                  room.status === 'Dirty' ? 'bg-amber-700' : ''
+                }} {{ room.status === 'Touched' ? 'bg-orange-200' : '' }} {{
+                  room.status === 'Clean' ? 'bg-white' : ''
+                }} text-black font-incosolata px-2 rounded-lg"
+              >
+                {{ room.status }}
+              </button>
+            </td>
+            <td class="p-3 text-center border font-incosolata border-grey2">
+              <app-booked-reservation
+                [reservation]="room"
+                [roomIndex]="ind"
+              ></app-booked-reservation>
+              <button
+                [attr.data-te-toggle]="!room.isAvailableRoom ? 'modal' : null"
+                [attr.data-te-target]="
+                  !room.isAvailableRoom ? '#booked-' + ind : null
+                "
+                data-te-ripple-init
+                data-te-toggle="tooltip"
+                title="{{
+                  room.isAvailableRoom ? 'Make reservation' : 'View reservation'
+                }}"
+                [attr.data-te-ripple-color]="'light'"
+                [routerLink]="
+                  room.isAvailableRoom ? '/main/reservations' : null
+                "
+                [class]="room.isAvailableRoom ? 'bg-green-600' : 'bg-red-600'"
+                class="text-sm text-lighter font-incosolata px-2 rounded-lg shadow"
+              >
+                {{ room.isAvailableRoom ? "Available" : "Booked" }}
+              </button>
+            </td>
+            <td class="p-3 text-center border font-incosolata border-grey2">
+              <app-check-in-reservation
+                [reservation]="room"
+                [roomIndex]="ind"
+              ></app-check-in-reservation>
+              <button
+                *ngIf="room.isCheckIn"
+                data-te-toggle="tooltip"
+                title="{{ room.isAvailableRoom ? '' : 'Client Checked In' }}"
+                data-te-ripple-init
+                [attr.data-te-ripple-color]="'light'"
+                class="text-sm text-lighter {{
+                  room.isCheckIn ? 'bg-red-600 cursor-default' : 'bg-primary'
+                }} {{
+                  room.isAvailableRoom ? 'cursor-default' : ''
+                }}  font-incosolata px-2 rounded-lg shadow"
+              >
+                {{ room.isCheckIn ? "Checked" : "Check In" }}
+              </button>
+              <button
+                *ngIf="!room.isCheckIn"
+                data-te-toggle="tooltip"
+                title="{{
+                  room.isAvailableRoom ? 'Room is available' : 'Check in client'
+                }}"
+                [attr.data-te-toggle]="
+                  !room.isCheckIn && !room.isAvailableRoom ? 'modal' : null
+                "
+                [attr.data-te-target]="
+                  !room.isCheckIn && !room.isAvailableRoom
+                    ? '#check-in-modal-' + ind
+                    : null
+                "
+                data-te-ripple-init
+                [attr.data-te-ripple-color]="'light'"
+                class="text-sm text-lighter {{
+                  room.isCheckIn ? 'bg-red-600 cursor-default' : 'bg-primary'
+                }} {{
+                  room.isAvailableRoom ? 'cursor-default' : ''
+                }}  font-incosolata px-2 rounded-lg shadow"
+              >
+                {{ room.isCheckIn ? "Checked" : "Check In" }}
+              </button>
+            </td>
+            <td class="p-3 text-center border border-grey2">
+              <app-check-out-reservation
+                [reservation]="room"
+                [roomIndex]="ind"
+              ></app-check-out-reservation>
+              <button
+                [attr.data-te-toggle]="
+                  !room.isAvailableRoom && room.isCheckIn ? 'modal' : ''
+                "
+                data-te-toggle="tooltip"
+                title="{{
+                  !room.isAvailableRoom && room.isCheckIn
+                    ? 'Check out client'
+                    : 'Client not checked in'
+                }}"
+                [attr.data-te-target]="'#check-out-modal-' + ind"
+                data-te-ripple-init
+                data-te-ripple-color="light"
+                class="text-sm {{
+                  !room.isAvailableRoom && room.isCheckIn
+                    ? 'cursor-pointer'
+                    : 'cursor-default'
+                }} font-incosolata bg-secondary text-lighter px-2 rounded-lg shadow"
+              >
+                Check out
+              </button>
+            </td>
+            <td class="p-3 text-center border border-grey2">
+              <button
+                data-te-dropdown-toggle-ref
+                aria-expanded="false"
+                data-te-ripple-init
+                data-te-ripple-color="light"
+                data-te-toggle="tooltip"
+                title="options"
+              >
+                <i class="bi bi-three-dots-vertical"></i>
+              </button>
+              <ul
+                *ngIf="!room.isAvailableRoom"
+                class="absolute z-[1000] float-left m-0 hidden min-w-max list-none overflow-hidden rounded-lg border-none bg-white bg-clip-padding text-left text-base shadow-lg [&[data-te-dropdown-show]]:block"
+                aria-labelledby="dropdownMenuButton1"
+                data-te-dropdown-menu-ref
+              >
+                <li>
+                  <a
+                    class="w-full cursor-pointer whitespace-nowrap bg-transparent px-4 py-2 hover:bg-neutral-100 active:text-neutral-800 active:no-underline disabled:pointer-events-none disabled:bg-transparent disabled:text-neutral-400 flex flex-row items-center"
+                    data-te-dropdown-item-ref
+                  >
+                    <span
+                      class="text-primary text-sm font-incosolata font-normal"
+                      ><i class="bi bi-eye"></i> view reservation
+                    </span>
+                  </a>
+                </li>
+                <li>
+                  <a
+                    class="w-full cursor-pointer whitespace-nowrap bg-transparent px-4 py-2 hover:bg-neutral-100 active:text-neutral-800 active:no-underline disabled:pointer-events-none disabled:bg-transparent disabled:text-neutral-400 flex flex-row items-center"
+                    data-te-dropdown-item-ref
+                  >
+                    <span
+                      class="text-primary text-sm font-incosolata font-normal"
+                      ><i class="bi bi-pen"></i> edit reservation
+                    </span>
+                  </a>
+                </li>
+                <li>
+                  <a
+                    class="w-full cursor-pointer whitespace-nowrap bg-transparent px-4 py-2 hover:bg-neutral-100 active:text-neutral-800 active:no-underline disabled:pointer-events-none disabled:bg-transparent disabled:text-neutral-400 flex flex-row items-center"
+                    data-te-dropdown-item-ref
+                  >
+                    <span
+                      class="text-red-600 text-sm font-incosolata font-normal"
+                      ><i class="bi bi-eraser"></i> Cancel reservation
+                    </span>
+                  </a>
+                </li>
+              </ul>
+              <ul
+                *ngIf="room.isAvailableRoom"
+                class="absolute z-[1000] float-left m-0 hidden min-w-max list-none overflow-hidden rounded-lg border-none bg-white bg-clip-padding text-left text-base shadow-lg [&[data-te-dropdown-show]]:block"
+                aria-labelledby="dropdownMenuButton1"
+                data-te-dropdown-menu-ref
+              >
+                <li>
+                  <a
+                    class="w-full cursor-pointer whitespace-nowrap bg-transparent px-4 py-2 hover:bg-neutral-100 active:text-neutral-800 active:no-underline disabled:pointer-events-none disabled:bg-transparent disabled:text-neutral-400 flex flex-row items-center"
+                    data-te-dropdown-item-ref
+                  >
+                    <span
+                      class="text-primary text-sm font-incosolata font-normal"
+                      ><i class="bi bi-person"></i> add reservation
+                    </span>
+                  </a>
+                </li>
+              </ul>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+    <section
+      class="relative grid gap-x-2 gap-y-4 sm:grid-cols-2 md:grid-cols-3 lg:hidden"
+    >
+      <div
+        *ngFor="let room of rooms; let ind = index"
+        [class]="
+          ind % 2 === 0
+            ? 'bg-mgrey border-none'
+            : 'border border-mgrey bg-transparent'
+        "
+        class="w-full bg-mgrey flex flex-col px-4 rounded-lg shadow"
+      >
+        <app-booked-reservation
+          [reservation]="room"
+          [roomIndex]="ind"
+        ></app-booked-reservation>
+        <app-check-in-reservation
+          [reservation]="room"
+          [roomIndex]="ind"
+        ></app-check-in-reservation>
+        <app-check-out-reservation
+          [reservation]="room"
+          [roomIndex]="ind"
+        ></app-check-out-reservation>
+        <div class="flex flex-row items-center justify-between py-2">
+          <p class="text-sm font-incosolata">{{ room.roomNo }}</p>
+          <p class="text-sm font-incosolata">{{ room.type }}</p>
+        </div>
+        <div class="flex flex-row items-center justify-between py-2">
+          <button
+            [attr.data-te-toggle]="!room.isAvailableRoom ? 'modal' : null"
+            [attr.data-te-target]="
+              !room.isAvailableRoom ? '#booked-' + ind : null
+            "
+            data-te-ripple-init
+            data-te-toggle="tooltip"
+            title="{{
+              room.isAvailableRoom ? 'Make reservation' : 'View reservation'
+            }}"
+            [attr.data-te-ripple-color]="'light'"
+            [routerLink]="room.isAvailableRoom ? '/main/reservations' : null"
+            [class]="room.isAvailableRoom ? 'bg-green-600' : 'bg-red-600'"
+            class="text-sm text-lighter font-incosolata px-2 rounded-lg shadow"
+          >
+            {{ room.isAvailableRoom ? "Available" : "Booked" }}
+          </button>
+          <button
+            *ngIf="room.isCheckIn"
+            data-te-toggle="tooltip"
+            title="{{ room.isAvailableRoom ? '' : 'Client Checked In' }}"
+            data-te-ripple-init
+            [attr.data-te-ripple-color]="'light'"
+            class="text-sm text-lighter {{
+              room.isCheckIn ? 'bg-red-600 cursor-default' : 'bg-primary'
+            }} {{
+              room.isAvailableRoom ? 'cursor-default' : ''
+            }}  font-incosolata px-2 rounded-lg shadow"
+          >
+            {{ room.isCheckIn ? "Checked" : "Check In" }}
+          </button>
+          <button
+            *ngIf="!room.isCheckIn"
+            data-te-toggle="tooltip"
+            title="{{
+              room.isAvailableRoom ? 'Room is available' : 'Check in client'
+            }}"
+            [attr.data-te-toggle]="
+              !room.isCheckIn && !room.isAvailableRoom ? 'modal' : null
+            "
+            [attr.data-te-target]="
+              !room.isCheckIn && !room.isAvailableRoom
+                ? '#check-in-modal-' + ind
+                : null
+            "
+            data-te-ripple-init
+            [attr.data-te-ripple-color]="'light'"
+            class="text-sm text-lighter {{
+              room.isCheckIn ? 'bg-red-600 cursor-default' : 'bg-primary'
+            }} {{
+              room.isAvailableRoom ? 'cursor-default' : ''
+            }}  font-incosolata px-2 rounded-lg shadow"
+          >
+            {{ room.isCheckIn ? "Checked" : "Check In" }}
+          </button>
+        </div>
+        <div class="flex flex-row items-center justify-between py-2">
+          <button
+            [attr.data-te-toggle]="
+              !room.isAvailableRoom && room.isCheckIn ? 'modal' : ''
+            "
+            data-te-toggle="tooltip"
+            title="{{
+              !room.isAvailableRoom && room.isCheckIn
+                ? 'Check out client'
+                : 'Client not checked in'
+            }}"
+            [attr.data-te-target]="'#check-out-modal-' + ind"
+            data-te-ripple-init
+            data-te-ripple-color="light"
+            class="text-sm {{
+              !room.isAvailableRoom && room.isCheckIn
+                ? 'cursor-pointer'
+                : 'cursor-default'
+            }} font-incosolata bg-secondary text-lighter px-2 rounded-lg shadow"
+          >
+            Check out
+          </button>
+          <button
+            data-te-dropdown-toggle-ref
+            aria-expanded="false"
+            data-te-ripple-init
+            data-te-ripple-color="light"
+            data-te-toggle="tooltip"
+            title="options"
+          >
+            <i class="bi bi-three-dots-vertical"></i>
+          </button>
+          <ul
+            *ngIf="!room.isAvailableRoom"
+            class="absolute z-[1000] float-left m-0 hidden min-w-max list-none overflow-hidden rounded-lg border-none bg-white bg-clip-padding text-left text-base shadow-lg [&[data-te-dropdown-show]]:block"
+            aria-labelledby="dropdownMenuButton1"
+            data-te-dropdown-menu-ref
+          >
+            <li>
+              <a
+                class="w-full cursor-pointer whitespace-nowrap bg-transparent px-4 py-2 hover:bg-neutral-100 active:text-neutral-800 active:no-underline disabled:pointer-events-none disabled:bg-transparent disabled:text-neutral-400 flex flex-row items-center"
+                data-te-dropdown-item-ref
+              >
+                <span class="text-primary text-sm font-incosolata font-normal"
+                  ><i class="bi bi-eye"></i> view reservation
+                </span>
+              </a>
+            </li>
+            <li>
+              <a
+                class="w-full cursor-pointer whitespace-nowrap bg-transparent px-4 py-2 hover:bg-neutral-100 active:text-neutral-800 active:no-underline disabled:pointer-events-none disabled:bg-transparent disabled:text-neutral-400 flex flex-row items-center"
+                data-te-dropdown-item-ref
+              >
+                <span class="text-primary text-sm font-incosolata font-normal"
+                  ><i class="bi bi-pen"></i> edit reservation
+                </span>
+              </a>
+            </li>
+            <li>
+              <a
+                class="w-full cursor-pointer whitespace-nowrap bg-transparent px-4 py-2 hover:bg-neutral-100 active:text-neutral-800 active:no-underline disabled:pointer-events-none disabled:bg-transparent disabled:text-neutral-400 flex flex-row items-center"
+                data-te-dropdown-item-ref
+              >
+                <span class="text-red-600 text-sm font-incosolata font-normal"
+                  ><i class="bi bi-eraser"></i> Cancel reservation
+                </span>
+              </a>
+            </li>
+          </ul>
+          <ul
+            *ngIf="room.isAvailableRoom"
+            class="absolute z-[1000] float-left m-0 hidden min-w-max list-none overflow-hidden rounded-lg border-none bg-white bg-clip-padding text-left text-base shadow-lg [&[data-te-dropdown-show]]:block"
+            aria-labelledby="dropdownMenuButton1"
+            data-te-dropdown-menu-ref
+          >
+            <li>
+              <a
+                class="w-full cursor-pointer whitespace-nowrap bg-transparent px-4 py-2 hover:bg-neutral-100 active:text-neutral-800 active:no-underline disabled:pointer-events-none disabled:bg-transparent disabled:text-neutral-400 flex flex-row items-center"
+                data-te-dropdown-item-ref
+              >
+                <span class="text-primary text-sm font-incosolata font-normal"
+                  ><i class="bi bi-person"></i> add reservation
+                </span>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+    <div class="flex flex-row items-center justify-between">
+      <p class="font-incosolata text-sm font-normal">Showing 5 of 20 entries</p>
+      <app-pagination
+        [limit]="pageLimit"
+        (setPagePlus)="pagePlus()"
+        (setPageMinus)="pageMinus()"
+        [page]="page"
+      ></app-pagination>
+    </div>
+  </div>
 </div>

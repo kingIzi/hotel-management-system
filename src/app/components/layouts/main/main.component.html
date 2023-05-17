@@ -1,6 +1,6 @@
-<app-sidebar></app-sidebar>
+<!-- <app-sidebar></app-sidebar>
 <div
-  class="w-screen h-screen border border-red-500 bg-mgrey overflow-hidden relative overflow-y-auto"
+  class="w-screen h-screen bg-mgrey overflow-hidden relative overflow-y-auto"
 >
   <div
     class="grid grid-cols-12 grid-rows-6 grid-flow-row-dense auto-rows-max h-full"
@@ -8,8 +8,21 @@
     <div class="col-span-full row-start-auto row-end-1 h-20 lg:hidden">
       <app-header></app-header>
     </div>
-    <div class="col-span-full lg:col-start-3 row-span-full p-4">
+    <div
+      class="col-span-full lg:col-start-3 row-span-full p-4 border-2 border-green-600 h-full w-full"
+    >
       <router-outlet></router-outlet>
     </div>
   </div>
+</div> -->
+
+<div class="w-screen h-screen bg-mgrey overflow-hidden relative flex flex-row">
+  <div class="flex-shrink-0 w-60 lg:block hidden">
+    <app-sidebar></app-sidebar>
+  </div>
+  <div class="flex-grow flex flex-col overflow-y-auto">
+    <app-header class="lg:hidden"></app-header>
+    <router-outlet></router-outlet>
+  </div>
 </div>
+<app-sidebar class="lg:hidden"></app-sidebar>

@@ -1,0 +1,185 @@
+<div
+  data-te-modal-init
+  class="fixed left-0 top-0 z-[1055] hidden h-full w-full overflow-y-auto overflow-x-hidden outline-none"
+  data-te-backdrop="static"
+  data-te-keyboard="false"
+  tabindex="-1"
+  aria-labelledby="staticBackdropLabel"
+  aria-hidden="true"
+  [id]="'check-in-modal-' + roomIndex"
+>
+  <div
+    data-te-modal-dialog-ref
+    class="pointer-events-none relative w-auto translate-y-[-50px] opacity-0 transition-all duration-300 ease-in-out min-[576px]:mx-auto min-[576px]:mt-7 min-[576px]:max-w-[500px]"
+  >
+    <div
+      class="min-[576px]:shadow-[0_0.5rem_1rem_rgba(#000, 0.15)] pointer-events-auto relative flex w-full flex-col rounded-md border-none bg-white bg-clip-padding text-current shadow-lg outline-none"
+    >
+      <div
+        class="flex flex-shrink-0 items-center justify-between rounded-t-md border-b-2 border-neutral-100 border-opacity-100 p-4 dark:border-opacity-50"
+      >
+        <!--Modal title-->
+        <h5
+          class="text-4xl font-medium leading-normal text-black font-incosolata"
+          id="exampleModalLabel"
+        >
+          Room Check In
+        </h5>
+        <!--Close button-->
+        <button
+          type="button"
+          class="box-content rounded-none border-none hover:no-underline hover:opacity-75 focus:opacity-100 focus:shadow-none focus:outline-none"
+          data-te-modal-dismiss
+          aria-label="Close"
+        >
+          <i class="bi bi-x-lg"></i>
+        </button>
+      </div>
+
+      <!--Modal body-->
+      <div data-te-modal-body-ref class="relative p-4 flex flex-col">
+        <div class="relative flex flex-col">
+          <ul class="mt-7 border border-gray-500">
+            <li>
+              <div
+                class="p-2 border bg-neutral-200 w-full flex flex-row items-center justify-between"
+              >
+                <p class="text-sm font-incosolata font-normal text-left">
+                  Customer name:
+                </p>
+                <p class="text-sm font-incosolata font-normal text-right">
+                  {{ reservation.name }}
+                </p>
+              </div>
+            </li>
+            <li>
+              <div
+                class="p-2 w-full border border-mgrey flex flex-row items-center justify-between"
+              >
+                <p class="text-sm font-incosolata font-normal text-left">
+                  Room type:
+                </p>
+                <p class="text-sm font-incosolata font-normal text-right">
+                  {{ reservation.type }}
+                </p>
+              </div>
+            </li>
+            <li>
+              <div
+                class="p-2 bg-neutral-200 w-full border border-mgrey flex flex-row items-center justify-between"
+              >
+                <p class="text-sm font-incosolata font-normal text-left">
+                  Room No:
+                </p>
+                <p class="text-sm font-incosolata font-normal text-right">
+                  {{ reservation.roomNo }}
+                </p>
+              </div>
+            </li>
+            <li>
+              <div
+                class="p-2 w-full border border-mgrey flex flex-row items-center justify-between"
+              >
+                <p class="text-sm font-incosolata font-normal text-left">
+                  Check In:
+                </p>
+                <p class="text-sm font-incosolata font-normal text-right">
+                  {{ reservation.checkIn }}
+                </p>
+              </div>
+            </li>
+            <li>
+              <div
+                class="p-2 bg-neutral-200 w-full border border-mgrey flex flex-row items-center justify-between"
+              >
+                <p class="text-sm font-incosolata font-normal text-left">
+                  Check Out:
+                </p>
+                <p class="text-sm font-incosolata font-normal text-right">
+                  {{ reservation.checkOut }}
+                </p>
+              </div>
+            </li>
+            <li>
+              <div
+                class="p-2 w-full border border-mgrey flex flex-row items-center justify-between"
+              >
+                <p class="text-sm font-incosolata font-normal text-left">
+                  Unit Price:
+                </p>
+                <p class="text-sm font-incosolata font-normal text-right">
+                  {{ reservation.amount }}
+                </p>
+              </div>
+            </li>
+            <!-- <li>
+              <div
+                class="p-2 bg-neutral-200 w-full border border-mgrey flex flex-row items-center justify-between"
+              >
+                <p class="text-sm font-incosolata font-normal text-left">
+                  Payment status:
+                </p>
+                <p
+                  class="text-sm font-incosolata tracking-wide font-normal text-right text-lighter bg-warning-600 p-2 rounded"
+                >
+                  Unpaid
+                </p>
+              </div>
+            </li> -->
+          </ul>
+          <div class="w-full flex flex-col pt-2 space-y-4">
+            <h4 class="text-center text-xl font-bold font-incosolata">
+              Advance Payment
+            </h4>
+            <div class="w-full">
+              <label for="example-input" class="text-sm font-incosolata"
+                >Select Payment method</label
+              >
+              <div class="relative">
+                <select
+                  formControlName="roomType"
+                  placeholder="Select a room type"
+                  class="appearance-none z-50 w-full text-sm font-incosolata border border-gray-300 bg-white px-4 py-2 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+                >
+                  <option
+                    class="text-sm font-incosolata"
+                    *ngFor="let method of paymentMethods"
+                    [value]="method"
+                  >
+                    {{ method }}
+                  </option>
+                </select>
+              </div>
+            </div>
+            <div class="w-full">
+              <label for="amount-input" class="text-sm font-incosolata"
+                >Enter Amount</label
+              >
+              <input
+                class="block w-full p-1.5 text-sm font-incosolata border border-neutral-400 rounded"
+                type="number"
+                id="amount-input"
+                placeholder="Enter Payment Amount"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!--Modal footer-->
+      <div
+        class="flex flex-shrink-0 flex-wrap items-center justify-end rounded-b-md border-t-2 border-neutral-100 border-opacity-100 p-4"
+      >
+        <button
+          type="button"
+          class="ml-1 inline-block rounded bg-primary px-6 pb-2 pt-2.5 text-xs font-medium uppercase leading-normal text-white shadow-[0_4px_9px_-4px_#3b71ca] transition duration-150 ease-in-out hover:bg-primary-600 hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:bg-primary-600 focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:outline-none focus:ring-0 active:bg-primary-700 active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] dark:shadow-[0_4px_9px_-4px_rgba(59,113,202,0.5)] dark:hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)] dark:focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)] dark:active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)]"
+          data-te-modal-dismiss
+          data-te-ripple-init
+          data-te-ripple-color="light"
+        >
+          Close
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

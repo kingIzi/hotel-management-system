@@ -2,13 +2,20 @@ import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { Resume } from 'src/app/helpers/resume';
 import { ChartType, GoogleChartsModule } from 'angular-google-charts';
+import { RouterModule } from '@angular/router';
+import { RouterNavsComponent } from 'src/app/components/utilities/router-navs/router-navs.component';
 
 @Component({
   selector: 'app-dashboard',
   templateUrl: './dashboard.component.html',
   styleUrls: ['./dashboard.component.scss'],
   standalone: true,
-  imports: [CommonModule, GoogleChartsModule],
+  imports: [
+    CommonModule,
+    GoogleChartsModule,
+    RouterModule,
+    RouterNavsComponent,
+  ],
 })
 export class DashboardComponent implements OnInit {
   constructor() {}
@@ -59,5 +66,14 @@ export class DashboardComponent implements OnInit {
     ['2015', 1250],
     ['2016', 1530],
   ];
+  public availableLinks = [
+    {
+      name: 'Dashboard',
+      link: '/main/dashboard',
+    },
+  ];
+  numbersSequence() {
+    return Array.from(Array(100), (_, index) => index + 1);
+  }
   ngOnInit(): void {}
 }

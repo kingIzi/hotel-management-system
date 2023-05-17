@@ -1,0 +1,76 @@
+<!-- <div class="text-end font-incosolata my-4">
+  <span class="mt-5">{{ page }}</span>
+  of
+  <span>{{ limit }}</span>
+  <i class="ms-3 bi bi-chevron-left cursor-pointer" (click)="prev()"></i>
+  <i class="ms-4 bi bi-chevron-right cursor-pointer" (click)="next()"></i>
+</div> -->
+
+<nav aria-label="Page navigation example">
+  <ul class="list-style-none flex">
+    <li>
+      <a
+        class="relative block rounded bg-transparent px-3 py-1.5 text-sm text-neutral-600 transition-all duration-300 hover:bg-neutral-100"
+        aria-label="Previous"
+        (click)="prev()"
+      >
+        <!-- <span aria-hidden="true">&laquo;</span> -->
+        <span>
+          <i class="bi bi-chevron-double-left cursor-pointer"></i>
+        </span>
+      </a>
+    </li>
+    <!-- <li>
+      <a
+        class="relative block rounded bg-transparent px-3 py-1.5 text-sm text-neutral-600 transition-all duration-300 hover:bg-neutral-100"
+        href="#"
+        >1</a
+      >
+    </li>
+    <li aria-current="page">
+      <a
+        class="relative block rounded bg-transparent px-3 py-1.5 text-sm text-neutral-600 transition-all duration-300 hover:bg-neutral-100"
+        href="#"
+        >2</a
+      >
+    </li>
+    <li>
+      <a
+        class="relative block rounded bg-transparent px-3 py-1.5 text-sm text-neutral-600 transition-all duration-300 hover:bg-neutral-100"
+        href="#"
+        >3</a
+      >
+    </li> -->
+    <li
+      *ngFor="let n of currentPagination().slice(-3)"
+      [attr.aria-current]="n === page ? 'page' : null"
+    >
+      <ng-template #trueBlock>
+        <a
+          class="relative block rounded bg-transparent px-3 py-1.5 text-sm text-neutral-600 transition-all duration-300 hover:bg-neutral-100"
+          >{{ n }}</a
+        >
+      </ng-template>
+      <ng-template #elseBlock>
+        <a
+          class="relative block rounded bg-transparent px-3 py-1.5 text-sm text-neutral-600 transition-all duration-300 hover:bg-neutral-100"
+          >{{ n }}</a
+        >
+      </ng-template>
+      <span *ngIf="n === page; then trueBlock; else elseBlock"> </span>
+    </li>
+
+    <li>
+      <a
+        class="relative block rounded bg-transparent px-3 py-1.5 text-sm text-neutral-600 transition-all duration-300 hover:bg-neutral-100"
+        aria-label="Next"
+        (click)="next()"
+      >
+        <!-- <span aria-hidden="true">&raquo;</span> -->
+        <span>
+          <i class="bi bi-chevron-double-right cursor-pointer"></i>
+        </span>
+      </a>
+    </li>
+  </ul>
+</nav>

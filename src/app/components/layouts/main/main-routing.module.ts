@@ -28,6 +28,20 @@ const routes: Routes = [
             (m) => m.ManageRoomsComponent
           ),
       },
+      {
+        path: 'staff',
+        loadChildren: () =>
+          import('../../../pages/staff-module/staff-module.module').then(
+            (m) => m.StaffModuleModule
+          ),
+      },
+      {
+        path: 'complaints',
+        loadComponent: () =>
+          import(
+            '../../../pages/complaint-management/complaint-management.component'
+          ).then((m) => m.ComplaintManagementComponent),
+      },
     ],
   },
 ];
