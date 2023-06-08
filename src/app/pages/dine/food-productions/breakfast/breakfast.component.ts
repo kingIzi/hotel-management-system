@@ -8,6 +8,7 @@ import {
   Validators,
 } from '@angular/forms';
 import { AddBreakfastCategoryComponent } from 'src/app/components/dialogs/add-breakfast-category/add-breakfast-category.component';
+import { AddBreakfastProductComponent } from 'src/app/components/dialogs/add-breakfast-product/add-breakfast-product.component';
 import { LoaderModalComponent } from 'src/app/components/dialogs/loader-modal/loader-modal.component';
 import { Modal, initTE } from 'tw-elements';
 
@@ -22,6 +23,7 @@ import { Modal, initTE } from 'tw-elements';
     ReactiveFormsModule,
     LoaderModalComponent,
     AddBreakfastCategoryComponent,
+    AddBreakfastProductComponent,
   ],
 })
 export class BreakfastComponent implements OnInit {
