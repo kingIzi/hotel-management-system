@@ -15,20 +15,6 @@ const routes: Routes = [
           ),
       },
       {
-        path: 'reservations',
-        loadComponent: () =>
-          import('../../../pages/reservations/reservations.component').then(
-            (m) => m.ReservationsComponent
-          ),
-      },
-      {
-        path: 'rooms',
-        loadComponent: () =>
-          import('../../../pages/manage-rooms/manage-rooms.component').then(
-            (m) => m.ManageRoomsComponent
-          ),
-      },
-      {
         path: 'staff',
         loadChildren: () =>
           import('../../../pages/staff-module/staff-module.module').then(
@@ -36,11 +22,16 @@ const routes: Routes = [
           ),
       },
       {
-        path: 'complaints',
-        loadComponent: () =>
-          import(
-            '../../../pages/complaint-management/complaint-management.component'
-          ).then((m) => m.ComplaintManagementComponent),
+        path: 'front',
+        loadChildren: () =>
+          import('../../../pages/frontal-office/frontal-office.module').then(
+            (m) => m.FrontalOfficeModule
+          ),
+      },
+      {
+        path: 'dine',
+        loadChildren: () =>
+          import('../../../pages/dine/dine.module').then((m) => m.DineModule),
       },
     ],
   },

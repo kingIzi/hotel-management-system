@@ -1,30 +1,45 @@
 <div class="space-y-4 h-full py-4 px-4">
-  <app-router-navs [navLinks]="availableLinks"></app-router-navs>
-  <div class="bg-white p-4 shadow flex flex-col space-y-4">
-    <h4
+  <div class="w-full">
+    <app-router-navs [navLinks]="availableLinks"></app-router-navs>
+  </div>
+  <div class="bg-white dark:bg-zinc-950 p-4 shadow flex flex-col space-y-4">
+    <!-- <h4
       class="text-xl lg:text-2xl font-incosolata col-span-full py-4 border-b border-mgrey"
     >
       Room(s) Management
+    </h4> -->
+    <h4
+      class="text-2xl col-span-full lg:text-4xl dark:text-blue-100 text-black font-inspiration py-3 border-b border-blue-50 border-opacity-20"
+    >
+      Room(s) Management
     </h4>
+
     <div class="flex flex-col w-full">
       <div class="grid grid-cols-2 lg:grid-cols-4 w-full gap-x-3">
-        <h4 class="text-md lg:text-2xl font-incosolata col-span-full py-2">
+        <h4
+          class="text-md text-black dark:text-zinc-100 lg:text-2xl font-incosolata col-span-full py-2"
+        >
           Filter
         </h4>
         <div class="mb-3">
-          <label for="room-no" class="capitalize block text-sm font-incosolata"
+          <label
+            for="room-no"
+            class="capitalize block text-sm font-incosolata text-black dark:text-zinc-100 mb-2"
             >Type<span class="text-sm text-red-600 font-incosolata"></span>
           </label>
           <select
             id="type"
             placeholder="Select a room type"
-            class="appearance-none w-full text-sm font-incosolata border border-gray-300 bg-white px-4 py-2 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+            class="appearance-none w-full text-black dark:text-zinc-100 text-sm font-incosolata border border-gray-300 bg-white dark:bg-zinc-800 px-4 py-2 pr-8 rounded leading-tight focus:outline-none focus:bg-white dark:focus:bg-transparent focus:border-gray-500"
           >
-            <option class="text-sm font-incosolata text-neutral-400" value="">
+            <option
+              class="hover:bg-zinc-800 text-neutral-600 dark:text-primary text-sm font-incosolata bg-white dark:bg-zinc-900"
+              value=""
+            >
               any
             </option>
             <option
-              class="text-sm font-incosolata"
+              class="hover:bg-zinc-800 text-black dark:text-blue-100 text-sm font-incosolata bg-white dark:bg-zinc-900"
               *ngFor="let type of roomTypes"
               [value]="type"
               [ngValue]="type"
@@ -34,43 +49,73 @@
           </select>
         </div>
         <div class="mb-3">
-          <label for="room-no" class="capitalize block text-sm font-incosolata"
-            >Availability<span
-              class="text-sm text-red-600 font-incosolata"
-            ></span>
+          <label
+            for="room-no"
+            class="capitalize block text-sm font-incosolata text-black dark:text-zinc-100 mb-2"
+            >Availability
           </label>
           <select
             id="type"
             placeholder="Select a room type"
-            class="appearance-none w-full text-sm font-incosolata border border-gray-300 bg-white px-4 py-2 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+            class="appearance-none w-full text-black dark:text-zinc-100 text-sm font-incosolata border border-gray-300 bg-white dark:bg-zinc-800 px-4 py-2 pr-8 rounded leading-tight focus:outline-none focus:bg-white dark:focus:bg-transparent focus:border-gray-500"
           >
-            <option class="text-sm font-incosolata text-neutral-400" value="">
+            <option
+              class="hover:bg-zinc-800 text-neutral-600 dark:text-primary text-sm font-incosolata bg-white dark:bg-zinc-900"
+              value=""
+            >
               any
             </option>
-            <option class="text-sm font-incosolata">Available</option>
-            <option class="text-sm font-incosolata">Booked</option>
+            <option
+              class="hover:bg-zinc-800 text-black dark:text-blue-100 text-sm font-incosolata bg-white dark:bg-zinc-900"
+            >
+              Available
+            </option>
+            <option
+              class="hover:bg-zinc-800 text-black dark:text-blue-100 text-sm font-incosolata bg-white dark:bg-zinc-900"
+            >
+              Booked
+            </option>
           </select>
         </div>
         <div class="mb-3">
-          <label for="room-no" class="capitalize block text-sm font-incosolata"
-            >Status<span class="text-sm text-red-600 font-incosolata"></span>
+          <label
+            for="room-no"
+            class="capitalize block text-sm font-incosolata text-black dark:text-zinc-100 mb-2"
+            >Status
           </label>
           <select
             id="type"
             placeholder="Select a room type"
-            class="appearance-none w-full text-sm font-incosolata border border-gray-300 bg-white px-4 py-2 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+            class="appearance-none w-full text-black dark:text-zinc-100 text-sm font-incosolata border border-gray-300 bg-white dark:bg-zinc-800 px-4 py-2 pr-8 rounded leading-tight focus:outline-none focus:bg-white dark:focus:bg-transparent focus:border-gray-500"
           >
-            <option class="text-sm font-incosolata text-neutral-400" value="">
+            <option
+              class="hover:bg-zinc-800 text-neutral-600 dark:text-primary text-sm font-incosolata bg-white dark:bg-zinc-900"
+              value=""
+            >
               any
             </option>
-            <option class="text-sm font-incosolata">Dirty</option>
-            <option class="text-sm font-incosolata">Touched</option>
-            <option class="text-sm font-incosolata">Clean</option>
+            <option
+              class="hover:bg-zinc-800 text-black dark:text-blue-100 text-sm font-incosolata bg-white dark:bg-zinc-900"
+            >
+              Dirty
+            </option>
+            <option
+              class="hover:bg-zinc-800 text-black dark:text-blue-100 text-sm font-incosolata bg-white dark:bg-zinc-900"
+            >
+              Touched
+            </option>
+            <option
+              class="hover:bg-zinc-800 text-black dark:text-blue-100 text-sm font-incosolata bg-white dark:bg-zinc-900"
+            >
+              Clean
+            </option>
           </select>
         </div>
         <div class="mb-3 flex flex-col">
-          <label for="checking" class="capitalize block text-sm font-incosolata"
-            >Checking<span class="text-sm text-red-600 font-incosolata"></span>
+          <label
+            for="checking"
+            class="capitalize block text-sm font-incosolata text-black dark:text-zinc-100 mb-2"
+            >Checking
           </label>
           <div id="checking" class="flex mt-1.5 flex-row flex-wrap">
             <div
@@ -85,7 +130,7 @@
                 checked
               />
               <label
-                class="mt-px inline-block pl-[0.15rem] hover:cursor-pointer text-sm font-incosolata"
+                class="mt-px inline-block dark:text-zinc-100 pl-[0.15rem] hover:cursor-pointer text-sm font-incosolata"
                 for="any"
                 >Any</label
               >
@@ -101,7 +146,7 @@
                 value="option1"
               />
               <label
-                class="mt-px inline-block pl-[0.15rem] hover:cursor-pointer text-sm font-incosolata"
+                class="mt-px inline-block dark:text-zinc-100 pl-[0.15rem] hover:cursor-pointer text-sm font-incosolata"
                 for="checked"
                 >Checked</label
               >
@@ -115,7 +160,7 @@
                 value="option2"
               />
               <label
-                class="mt-px inline-block pl-[0.15rem] hover:cursor-pointer text-sm font-incosolata"
+                class="mt-px inline-block dark:text-zinc-100 pl-[0.15rem] hover:cursor-pointer text-sm font-incosolata"
                 for="not-checked"
                 >Not Checked</label
               >
@@ -135,23 +180,37 @@
       >
         <div class="flex flex-row-items-center space-x-2">
           <div>
-            <p class="text-sm mt-2 font-incosolata text-black">Show(s):</p>
+            <p
+              class="text-sm mt-2 dark:text-zinc-100 font-incosolata text-black"
+            >
+              Show(s):
+            </p>
           </div>
           <div class="max-w-[5rem]">
             <select
               [ngModel]="showing"
               (ngModelChange)="valueChanged($event)"
-              class="appearance-none w-full border border-gray-300 bg-white px-4 py-2 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+              class="appearance-none w-full text-black dark:text-zinc-100 text-sm font-incosolata border border-gray-300 bg-white dark:bg-zinc-800 px-4 py-2 pr-8 rounded leading-tight focus:outline-none focus:bg-white dark:focus:bg-transparent focus:border-gray-500"
             >
-              <option *ngFor="let show of showings" [ngValue]="show">
+              <option
+                class="hover:bg-zinc-800 text-black dark:text-blue-100 text-sm font-incosolata bg-white dark:bg-zinc-900"
+                *ngFor="let show of showings"
+                [ngValue]="show"
+              >
                 {{ show }}
               </option>
             </select>
           </div>
           <div class="hidden lg:block">
-            <p class="text-sm mt-2 font-incosolata text-black">Entries</p>
+            <p
+              class="text-sm dark:text-zinc-100 mt-2 font-incosolata text-black"
+            >
+              Entries
+            </p>
           </div>
         </div>
+        <!-- class="relative text-sm font-incosolata m-0 block w-[1px] min-w-0 flex-auto rounded border border-solid border-neutral-300 bg-transparent bg-clip-padding px-3 py-[0.25rem] font-normal leading-[1.6] text-neutral-700 outline-none transition duration-200 ease-in-out focus:z-[3] focus:border-primary focus:text-neutral-700 focus:shadow-[inset_0_0_0_1px_rgb(59,113,202)] focus:outline-none dark:border-neutral-600 dark:text-zinc-100 dark:placeholder:text-neutral-400 dark:focus:border-primary" -->
+
         <!-- <div class="relative mt-0 w-auto lg:w-1/3" data-te-input-wrapper-init>
           <input
             type="search"
@@ -164,7 +223,7 @@
           <div class="relative flex w-full flex-wrap items-stretch">
             <input
               type="search"
-              class="relative text-sm font-incosolata m-0 block w-[1px] min-w-0 flex-auto rounded border border-solid border-neutral-300 bg-transparent bg-clip-padding px-3 py-[0.25rem] font-normal leading-[1.6] text-neutral-700 outline-none transition duration-200 ease-in-out focus:z-[3] focus:border-primary focus:text-neutral-700 focus:shadow-[inset_0_0_0_1px_rgb(59,113,202)] focus:outline-none dark:border-neutral-600 dark:text-neutral-200 dark:placeholder:text-neutral-200 dark:focus:border-primary"
+              class="dark:text-zinc-100 px-2 text-black relative text-sm font-incosolata m-0 block w-[1px] min-w-0 flex-auto rounded border border-solid border-neutral-300 dark:border-zinc-100 bg-transparent dark:bg-zinc-950 font-normal leading[1.6] outline-none transition duration-200 ease-in-out focus:z-[3] focus:border-primary focus:text-neutral-700 dark:focus:text-zinc-100 focus:shadow-[inset_0_0_0_1px_rgb(59,113,202)] focus:outline-none dark:placeholder:text-neutral-400"
               placeholder="Search"
               aria-label="Search"
               aria-describedby="button-addon2"
@@ -219,15 +278,24 @@
             </th>
           </tr>
         </thead>
-        <tbody class="bg-white">
-          <tr *ngFor="let room of rooms; index as ind">
-            <td class="p-3 text-center border font-incosolata border-grey2">
+        <tbody class="bg-white dark:bg-transparent">
+          <tr
+            *ngFor="let room of rooms; index as ind"
+            [class]="ind % 2 === 0 ? 'dark:bg-zinc-800' : 'dark:bg-zinc-900'"
+          >
+            <td
+              class="p-3 text-center text-black dark:text-zinc-100 border dark:border-none font-incosolata border-grey2"
+            >
               {{ room.roomNo }}
             </td>
-            <td class="p-3 text-center border font-incosolata border-grey2">
+            <td
+              class="p-3 text-center text-black dark:text-zinc-100 border dark:border-none font-incosolata border-grey2"
+            >
               {{ room.type }}
             </td>
-            <td class="p-3 text-center border font-incosolata border-grey2">
+            <td
+              class="p-3 text-center border dark:border-none font-incosolata border-grey2"
+            >
               <button
                 data-te-toggle="tooltip"
                 title="{{ room.status === 'Dirty' ? 'Dirty Room' : '' }} {{
@@ -242,7 +310,9 @@
                 {{ room.status }}
               </button>
             </td>
-            <td class="p-3 text-center border font-incosolata border-grey2">
+            <td
+              class="p-3 text-center border dark:border-none font-incosolata border-grey2"
+            >
               <app-booked-reservation
                 [reservation]="room"
                 [roomIndex]="ind"
@@ -259,7 +329,9 @@
                 }}"
                 [attr.data-te-ripple-color]="'light'"
                 [routerLink]="
-                  room.isAvailableRoom ? '/main/reservations' : null
+                  room.isAvailableRoom
+                    ? '/main/front/explore/reservations'
+                    : null
                 "
                 [class]="room.isAvailableRoom ? 'bg-green-600' : 'bg-red-600'"
                 class="text-sm text-lighter font-incosolata px-2 rounded-lg shadow"
@@ -267,7 +339,9 @@
                 {{ room.isAvailableRoom ? "Available" : "Booked" }}
               </button>
             </td>
-            <td class="p-3 text-center border font-incosolata border-grey2">
+            <td
+              class="p-3 text-center border dark:border-none font-incosolata border-grey2"
+            >
               <app-check-in-reservation
                 [reservation]="room"
                 [roomIndex]="ind"
@@ -311,7 +385,7 @@
                 {{ room.isCheckIn ? "Checked" : "Check In" }}
               </button>
             </td>
-            <td class="p-3 text-center border border-grey2">
+            <td class="p-3 text-center border dark:border-none border-grey2">
               <app-check-out-reservation
                 [reservation]="room"
                 [roomIndex]="ind"
@@ -338,7 +412,7 @@
                 Check out
               </button>
             </td>
-            <td class="p-3 text-center border border-grey2">
+            <td class="p-3 text-center border dark:border-none border-grey2">
               <button
                 data-te-dropdown-toggle-ref
                 aria-expanded="false"
@@ -351,35 +425,35 @@
               </button>
               <ul
                 *ngIf="!room.isAvailableRoom"
-                class="absolute z-[1000] float-left m-0 hidden min-w-max list-none overflow-hidden rounded-lg border-none bg-white bg-clip-padding text-left text-base shadow-lg [&[data-te-dropdown-show]]:block"
+                class="absolute z-[1000] float-left m-0 hidden min-w-max list-none overflow-hidden rounded-lg border-none bg-white dark:bg-zinc-900 bg-clip-padding text-left text-base shadow-lg [&[data-te-dropdown-show]]:block"
                 aria-labelledby="dropdownMenuButton1"
                 data-te-dropdown-menu-ref
               >
                 <li>
                   <a
-                    class="w-full cursor-pointer whitespace-nowrap bg-transparent px-4 py-2 hover:bg-neutral-100 active:text-neutral-800 active:no-underline disabled:pointer-events-none disabled:bg-transparent disabled:text-neutral-400 flex flex-row items-center"
+                    class="w-full hover:dark:bg-zinc-800 cursor-pointer whitespace-nowrap bg-transparent px-4 py-2 hover:bg-neutral-100 active:text-neutral-800 active:no-underline disabled:pointer-events-none disabled:bg-transparent disabled:text-neutral-400 flex flex-row items-center"
                     data-te-dropdown-item-ref
                   >
                     <span
-                      class="text-primary text-sm font-incosolata font-normal"
+                      class="text-primary text-sm font-incosolata font-normal dark:text-zinc-100"
                       ><i class="bi bi-eye"></i> view reservation
                     </span>
                   </a>
                 </li>
                 <li>
                   <a
-                    class="w-full cursor-pointer whitespace-nowrap bg-transparent px-4 py-2 hover:bg-neutral-100 active:text-neutral-800 active:no-underline disabled:pointer-events-none disabled:bg-transparent disabled:text-neutral-400 flex flex-row items-center"
+                    class="w-full hover:dark:bg-zinc-800 cursor-pointer whitespace-nowrap bg-transparent px-4 py-2 hover:bg-neutral-100 active:text-neutral-800 active:no-underline disabled:pointer-events-none disabled:bg-transparent disabled:text-neutral-400 flex flex-row items-center"
                     data-te-dropdown-item-ref
                   >
                     <span
-                      class="text-primary text-sm font-incosolata font-normal"
+                      class="text-primary text-sm font-incosolata dark:text-zinc-100 font-normal"
                       ><i class="bi bi-pen"></i> edit reservation
                     </span>
                   </a>
                 </li>
                 <li>
                   <a
-                    class="w-full cursor-pointer whitespace-nowrap bg-transparent px-4 py-2 hover:bg-neutral-100 active:text-neutral-800 active:no-underline disabled:pointer-events-none disabled:bg-transparent disabled:text-neutral-400 flex flex-row items-center"
+                    class="w-full cursor-pointer whitespace-nowrap dark:text-zinc-100 bg-transparent px-4 py-2 hover:bg-neutral-100 hover:dark:bg-zinc-800 active:text-neutral-800 active:no-underline disabled:pointer-events-none disabled:bg-transparent disabled:text-neutral-400 flex flex-row items-center"
                     data-te-dropdown-item-ref
                   >
                     <span
@@ -391,17 +465,17 @@
               </ul>
               <ul
                 *ngIf="room.isAvailableRoom"
-                class="absolute z-[1000] float-left m-0 hidden min-w-max list-none overflow-hidden rounded-lg border-none bg-white bg-clip-padding text-left text-base shadow-lg [&[data-te-dropdown-show]]:block"
+                class="absolute z-[1000] float-left m-0 hidden min-w-max list-none overflow-hidden rounded-lg border-none bg-white dark:bg-zinc-900 bg-clip-padding text-left text-base shadow-lg [&[data-te-dropdown-show]]:block"
                 aria-labelledby="dropdownMenuButton1"
                 data-te-dropdown-menu-ref
               >
                 <li>
                   <a
-                    class="w-full cursor-pointer whitespace-nowrap bg-transparent px-4 py-2 hover:bg-neutral-100 active:text-neutral-800 active:no-underline disabled:pointer-events-none disabled:bg-transparent disabled:text-neutral-400 flex flex-row items-center"
+                    class="w-full cursor-pointer hover:dark:bg-zinc-800 whitespace-nowrap bg-transparent px-4 py-2 hover:bg-neutral-100 active:text-neutral-800 active:no-underline disabled:pointer-events-none disabled:bg-transparent disabled:text-neutral-400 flex flex-row items-center"
                     data-te-dropdown-item-ref
                   >
                     <span
-                      class="text-primary text-sm font-incosolata font-normal"
+                      class="text-primary text-sm dark:text-zinc-100 font-incosolata font-normal"
                       ><i class="bi bi-person"></i> add reservation
                     </span>
                   </a>
@@ -419,7 +493,7 @@
         *ngFor="let room of rooms; let ind = index"
         [class]="
           ind % 2 === 0
-            ? 'bg-mgrey border-none'
+            ? 'bg-mgrey dark:bg-[#4F4557] border-none'
             : 'border border-mgrey bg-transparent'
         "
         class="w-full bg-mgrey flex flex-col px-4 rounded-lg shadow"
@@ -452,7 +526,9 @@
               room.isAvailableRoom ? 'Make reservation' : 'View reservation'
             }}"
             [attr.data-te-ripple-color]="'light'"
-            [routerLink]="room.isAvailableRoom ? '/main/reservations' : null"
+            [routerLink]="
+              room.isAvailableRoom ? '/main/front/explore/reservations' : null
+            "
             [class]="room.isAvailableRoom ? 'bg-green-600' : 'bg-red-600'"
             class="text-sm text-lighter font-incosolata px-2 rounded-lg shadow"
           >

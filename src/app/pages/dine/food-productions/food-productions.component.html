@@ -1,0 +1,33 @@
+<div class="space-y-4 h-full py-4 px-4 flex flex-col">
+  <app-router-navs [navLinks]="availableLinks"></app-router-navs>
+  <ul class="flex pb-2 list-none space-x-4 flex-row border-b-0 pl-0">
+    <li role="presentation">
+      <a
+        [routerLink]="'/main/dine/explore/production/breakfast'"
+        routerLinkActive="border-b dark:border-b-lighter dark:text-lighter dark:bg-primary"
+        class="flex flex-row items-center p-2 hover:opacity-80"
+      >
+        <img class="w-14" src="assets/img/icons8-breakfast-64.png" alt="" />
+        <p class="font-incosolata tracking-wide text-lg p-2 text-neutral-400">
+          Breakfast
+        </p>
+      </a>
+    </li>
+    <li role="presentation">
+      <a
+        [routerLink]="'/main/dine/explore/production/dinner'"
+        routerLinkActive="border-b dark:border-b-lighter dark:text-lighter dark:bg-primary"
+        class="flex flex-row items-center p-2 hover:opacity-80"
+      >
+        <img class="w-14" src="assets/img/icons8-dinner-64.png" alt="" />
+        <p class="font-incosolata tracking-wide text-lg p-2 text-neutral-400">
+          Banquet
+        </p>
+      </a>
+    </li>
+  </ul>
+  <!--Tabs content-->
+  <div class="my-6">
+    <router-outlet></router-outlet>
+  </div>
+</div>

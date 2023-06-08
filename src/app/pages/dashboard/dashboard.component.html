@@ -1,58 +1,70 @@
 <div class="space-y-4 h-full py-4 px-4 flex flex-col">
-  <app-router-navs [navLinks]="availableLinks"></app-router-navs>
-  <section class="grid grid-cols-2 md:grid-cols-4 w-full bg-white shadow-lg">
+  <app-router-navs></app-router-navs>
+  <section
+    class="grid grid-cols-2 md:grid-cols-4 w-full bg-white shadow-lg dark:bg-zinc-950 p-4 rounded"
+  >
+    <h4
+      class="text-2xl col-span-full lg:text-4xl dark:text-blue-100 text-black font-incosolata py-3 border-b border-blue-50 border-opacity-20"
+    >
+      Statistics
+    </h4>
     <div
-      class="w-full bg-white border py-4 md:py-8 border-mgrey flex flex-col space-y-1 items-center justify-center"
+      class="w-full border-none py-4 md:py-8 shadow flex flex-col space-y-1 items-center justify-center"
       *ngFor="let resume of resumes"
     >
       <span [style]="'color:' + resume.color">
         <i [ngClass]="resume.bootstrapIcon" class="text-2xl"></i>
       </span>
-      <p class="text-black font-incosolata text-2xl font-bold">
+      <p
+        class="text-black dark:text-blue-100 font-incosolata text-2xl font-bold"
+      >
         {{ resume.total }}
       </p>
-      <h3 class="text-xl font-incosolata tracking-wide">
+      <h3 class="text-xl dark:text-amber-50 font-incosolata tracking-wide">
         {{ resume.title }}
       </h3>
     </div>
   </section>
   <section
-    class="grid grid-cols-1 lg:grid-cols-2 gap-y-8 gap-x-2 w-full px-2 py-3 bg-white shadow-lg my-2"
+    class="grid grid-cols-1 rounded dark:bg-zinc-950 lg:grid-cols-2 gap-y-8 gap-x-2 w-full px-2 py-3 bg-white shadow-lg my-2"
   >
     <div class="space-y-4">
-      <h4 class="text-2xl text-black font-incosolata pt-3 pb-2">
-        Payments this Week
-      </h4>
-      <div
-        #chatHolder
-        class="w-full h-72 border border-mgrey grid place-items-center"
+      <h4
+        class="text-2xl lg:text-4xl text-center dark:text-blue-100 text-black font-incosolata pt-3 pb-2"
       >
-        <google-chart
-          [data]="data"
-          [title]="title"
-          [type]="type"
-          [width]="chatHolder.clientWidth"
-          [height]="chatHolder.clientHeight"
-        >
-        </google-chart>
+        Daily CheckIns
+      </h4>
+      <div #chatHolder class="w-full h-72 grid place-items-center p-4">
+        <div class="mx-auto w-full overflow-hidden">
+          <canvas
+            data-te-chart="line"
+            data-te-dataset-label="Person(s)"
+            data-te-labels="['Monday', 'Tuesday' , 'Wednesday' , 'Thursday' , 'Friday' , 'Saturday' , 'Sunday ']"
+            data-te-dataset-data="[8, 9, 7, 9, 8, 13, 8]"
+            data-te-dataset-background-color="['rgba(69, 186, 114, 1)']"
+          >
+            >
+          </canvas>
+        </div>
       </div>
     </div>
     <div class="space-y-4">
-      <h4 class="text-2xl text-black font-incosolata pt-3 pb-2">
-        Check In Monthly Rates
-      </h4>
-      <div
-        #chartHolder2
-        class="w-full h-72 border border-mgrey grid place-items-center"
+      <h4
+        class="text-2xl lg:text-4xl text-center dark:text-blue-100 text-black font-incosolata pt-3 pb-2"
       >
-        <google-chart
-          [data]="data"
-          [title]="title"
-          [type]="type"
-          [width]="chartHolder2.clientWidth"
-          [height]="chartHolder2.clientHeight"
-        >
-        </google-chart>
+        Check Outs M/Rates
+      </h4>
+      <div #chartHolder2 class="w-full h-72 px-4 grid place-items-center">
+        <div class="mx-auto w-full overflow-hidden">
+          <canvas
+            data-te-chart="bar"
+            data-te-dataset-label="Revenue"
+            data-te-labels="['Monday', 'Tuesday' , 'Wednesday' , 'Thursday' , 'Friday' , 'Saturday' , 'Sunday ']"
+            data-te-dataset-data="[2112, 2343, 2545, 3423, 2365, 1985, 987]"
+            data-te-dataset-background-color="['rgba(69, 186, 114, 1)']"
+          >
+          </canvas>
+        </div>
       </div>
     </div>
   </section>

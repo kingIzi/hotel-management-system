@@ -1,0 +1,56 @@
+<div class="space-y-4 h-full py-4 px-4 flex flex-col">
+  <app-router-navs [navLinks]="availableLinks"></app-router-navs>
+  <div
+    class="py-2 grid px-2 grid-cols-2 md:grid-cols-4 gap-x-4 gap-y-4 w-full bg-white shadow-lg dark:bg-zinc-950"
+  >
+    <h4
+      class="text-2xl col-span-full lg:text-4xl dark:text-blue-100 text-black font-inspiration py-3 border-b border-blue-50 border-opacity-20"
+    >
+      Service(s)
+    </h4>
+    <a
+      class="flex flex-col px-2 shadow hover:bg-[rgba(57,54,70,0.5)] bg-[rgba(57,54,70,1)] cursor-pointer bg-cover bg-center"
+      [routerLink]="'/main/front/explore/reservations'"
+    >
+      <img
+        src="assets/img/hotel.png"
+        class="w-12 h-full object-cover"
+        alt="reservations"
+      />
+      <h4
+        class="text-lg lg:text-2xl dark:text-blue-100 text-black font-incosolata pt-3 pb-2 col-span-full"
+      >
+        Make Reservation
+      </h4>
+    </a>
+    <a
+      [routerLink]="'/main/front/explore/rooms'"
+      class="flex flex-col px-2 shadow hover:bg-[rgba(57,54,70,0.5)] bg-[rgba(57,54,70,1)] cursor-pointer bg-cover bg-center"
+    >
+      <img
+        src="assets/img/bed.png"
+        class="w-12 h-full object-cover"
+        alt="reservations"
+      />
+      <h4
+        class="text-lg lg:text-2xl text-blac dark:text-blue-100 font-incosolata pt-3 pb-2 col-span-full"
+      >
+        View Rooms
+      </h4>
+    </a>
+    <a
+      class="flex flex-col px-2 shadow hover:bg-[rgba(57,54,70,0.5)] bg-[rgba(57,54,70,1)] cursor-pointer bg-cover bg-center"
+    >
+      <img
+        src="assets/img/room-service.png"
+        class="w-12 h-full object-cover"
+        alt="reservations"
+      />
+      <h4
+        class="text-lg lg:text-2xl text-black dark:text-blue-100 font-incosolata pt-3 pb-2 col-span-full"
+      >
+        House Keeping
+      </h4>
+    </a>
+  </div>
+</div>

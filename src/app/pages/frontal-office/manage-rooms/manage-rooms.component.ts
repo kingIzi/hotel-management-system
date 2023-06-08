@@ -43,7 +43,11 @@ export class ManageRoomsComponent implements OnInit, AfterViewInit {
   };
   public availableLinks = [
     {
-      name: 'Rooms',
+      name: 'Frontal office',
+      link: '/main/front/explore',
+    },
+    {
+      name: 'Manage Rooms',
       link: '/main/rooms',
     },
   ];

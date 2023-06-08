@@ -38,8 +38,12 @@ export class ReservationsComponent implements OnInit, AfterViewInit {
   @ViewChild('checkOutDate') checkOutDate!: ElementRef;
   public availableLinks = [
     {
-      name: 'Add Reservations',
-      link: '/main/reservations',
+      name: 'Frontal office',
+      link: '/main/front/explore',
+    },
+    {
+      name: 'Make Reservations',
+      link: '/main/front/reservations',
     },
   ];
   public roomTypes = [
@@ -59,8 +63,8 @@ export class ReservationsComponent implements OnInit, AfterViewInit {
   } = { roomType: '', roomNo: '', checkIn: '', checkOut: '' };
   public roomNos = ['A-56', 'G-89', 'B-44', 'O-69', 'B-77'];
   public reservationsFormGroup: FormGroup = new FormGroup({
-    roomType: new FormControl('', [Validators.required]),
-    roomNo: new FormControl('', [Validators.required]),
+    roomType: new FormControl('Select room type', [Validators.required]),
+    roomNo: new FormControl('Select room number', [Validators.required]),
     checkIn: new FormControl('', [Validators.required]),
     checkOut: new FormControl('', [Validators.required]),
     profile: new FormGroup({
@@ -68,7 +72,9 @@ export class ReservationsComponent implements OnInit, AfterViewInit {
       lastName: new FormControl('', [Validators.required]),
       contactNumber: new FormControl('', [this.contactNumberValidator()]),
       email: new FormControl('', [Validators.email]),
-      cardType: new FormControl('', [Validators.required]),
+      cardType: new FormControl('Select National ID Card type', [
+        Validators.required,
+      ]),
       cardNumber: new FormControl('', [Validators.required]),
       residentialAddress: new FormControl('', [Validators.required]),
     }),

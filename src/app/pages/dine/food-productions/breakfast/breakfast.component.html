@@ -1,0 +1,460 @@
+<div class="space-y-4">
+  <div
+    class="w-full h-full bg-white dark:bg-zinc-950 flex flex-col space-y-4 px-2 pt-2 pb-4"
+  >
+    <div
+      class="w-full border-b border-blue-50 flex flex-row justify-between items-center h-24"
+    >
+      <h4
+        class="text-2xl col-span-full lg:text-4xl dark:text-blue-100 text-black font-incosolata py-3 border-opacity-20"
+      >
+        Products(s)
+      </h4>
+      <button
+        data-te-toggle="modal"
+        data-te-toggle="modal"
+        data-te-target="#staticBackdrop"
+        data-te-ripple-init
+        data-te-ripple-color="light"
+        class="bg-primary relative w-1/6 m-2 h-14 px-4 py-2 flex flex-row items-center group duration-150"
+      >
+        <div
+          class="absolute group flex space-x-1 flex-row items-center top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"
+        >
+          <i class="text-lighter group-hover:text-white mt-1 bi bi-plus"></i>
+          <p class="font-incosolata text-lighter group-hover:text-white">Add</p>
+        </div>
+      </button>
+    </div>
+    <div
+      class="w-full grid gap-x-2 gap-y-4 sm:grid-cols-2 md:grid-cols-3 lg:hidden"
+    >
+      <div
+        *ngFor="let food of breakfastCategories; index as ind"
+        class="flex flex-col space-y-8 px-2 py-4 rounded shadow"
+        [class]="
+          ind % 2 === 0
+            ? 'bg-mgrey dark:bg-[#4F4557] border-none'
+            : 'border border-secondary bg-transparent'
+        "
+      >
+        <div class="flex flex-row items-center justify-between">
+          <img
+            [src]="food.icon"
+            class="w-14 h-14 rounded-full"
+            alt="breakfast-category-icon"
+          />
+          <p class="font-incosolata dark:text-lighter text-black">
+            {{ food.name }}
+          </p>
+        </div>
+        <div class="flex flex-row items-center justify-between">
+          <p
+            class="font-incosolata p-0.5 rounded-lg"
+            [class]="food.status ? 'bg-green-600' : 'bg-red-600'"
+          >
+            {{ food.status ? "Active" : "Disabled" }}
+          </p>
+          <div class="relative" data-te-dropdown-ref>
+            <button
+              type="button"
+              class="dark:text-lighter text-black"
+              id="dropdownMenuButton1"
+              data-te-dropdown-toggle-ref
+              aria-expanded="false"
+              data-te-ripple-init
+              data-te-ripple-color="light"
+            >
+              <i class="bi bi-three-dots-vertical"></i>
+            </button>
+            <ul
+              class="absolute z-[1000] float-left m-0 hidden min-w-max list-none overflow-hidden rounded-lg border-none bg-white bg-clip-padding text-left text-base shadow-lg dark:bg-neutral-700 [&[data-te-dropdown-show]]:block"
+              aria-labelledby="dropdownMenuButton1"
+              data-te-dropdown-menu-ref
+            >
+              <li>
+                <a
+                  class="w-full whitespace-nowrap bg-transparent px-4 py-2 hover:bg-neutral-500 active:text-neutral-800 active:no-underline disabled:pointer-events-none disabled:bg-transparent disabled:text-neutral-400 flex flex-row items-center"
+                  data-te-dropdown-item-ref
+                >
+                  <span
+                    class="dark:text-lighter text-black text-sm font-incosolata font-normal"
+                    >Edit <i class="bi bi-pen"></i>
+                  </span>
+                </a>
+              </li>
+              <li>
+                <a
+                  class="w-full whitespace-nowrap bg-transparent px-4 py-2 hover:bg-neutral-500 active:text-neutral-800 active:no-underline disabled:pointer-events-none disabled:bg-transparent disabled:text-neutral-400 flex flex-row items-center"
+                  data-te-dropdown-item-ref
+                >
+                  <span class="text-red-500 text-sm font-incosolata font-normal"
+                    >Remove
+                    <i class="bi bi-arrow-bar-right text-red-500"></i>
+                  </span>
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="relative shadow hidden max-h-96 lg:block overflow-auto">
+      <table #categoriesTable class="relative w-full">
+        <thead>
+          <tr class="shadow-2xl">
+            <th
+              class="sticky top-0 px-3 py-3 text-lighter bg-primary font-incosolata font-bold bg-grey2 rounded-tl-xl"
+            >
+              #
+            </th>
+            <th
+              #mealHeaderContainer
+              [attr.data-column]="i !== mealsHeaders.length - 1 ? header : ''"
+              [attr.data-order]="i !== mealsHeaders.length - 1 ? 'desc' : ''"
+              *ngFor="let header of mealsHeaders; index as i"
+              class="sticky text-left top-0 px-3 py-3 text-lighter bg-primary font-incosolata font-bold bg-grey2"
+            >
+              <p class="font-primary text-left text-lighter">
+                {{ header }}
+                <span
+                  *ngIf="
+                    mealHeaderContainer.dataset['order'] == 'desc' &&
+                    i !== mealsHeaders.length - 1
+                  "
+                  ><i class="bi bi-caret-up"></i>
+                </span>
+                <span
+                  *ngIf="
+                    mealHeaderContainer.dataset['order'] == 'asc' &&
+                    i !== mealsHeaders.length - 1
+                  "
+                  ><i class="bi bi-caret-down"></i>
+                </span>
+              </p>
+            </th>
+            <th
+              class="sticky text-lighter bg-primary rounded-tr-xl top-0 px-3 py-3 font-incosolata font-bold bg-grey2"
+            >
+              Action
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr
+            [class]="ind % 2 === 0 ? 'dark:bg-zinc-800' : 'dark:bg-zinc-900'"
+            class="divide-y"
+            *ngFor="let meal of meals; index as ind"
+          >
+            <td class="w-20 h-20 py-2 px-2">
+              <img
+                [src]="meal.icon"
+                class="h-full max-w-full rounded-full"
+                alt=""
+              />
+            </td>
+            <td
+              class="dark:text-lighter text-black py-2 px-2 font-incosolata text-lg"
+            >
+              {{ meal.name }}
+            </td>
+            <td
+              class="dark:text-lighter text-black py-2 px-2 font-incosolata text-lg"
+            >
+              {{ meal.category }}
+            </td>
+            <td
+              class="dark:text-lighter text-black py-2 px-2 font-incosolata text-lg"
+            >
+              {{ meal.ingredients }}
+            </td>
+            <td
+              class="dark:text-lighter text-black py-2 px-2 font-incosolata text-lg"
+            >
+              {{ meal.price }} / {{ meal.currency }}
+            </td>
+            <td class="text-center py-2 px-2">
+              <p
+                class="dark:text-lighter text-center ml-4 w-fit text-black font-incosolata text-lg rounded px-2"
+                [class]="
+                  meal.status
+                    ? 'bg-green-800 text-lighter'
+                    : 'bg-red-800 text-lighter'
+                "
+              >
+                {{ meal.status ? "Active" : "Disabled" }}
+              </p>
+            </td>
+            <td class="text-center py-2 px-2">
+              <button
+                type="button"
+                class="dark:text-lighter text-black"
+                id="dropdownMenuButton1"
+                data-te-dropdown-toggle-ref
+                aria-expanded="false"
+                data-te-ripple-init
+                data-te-ripple-color="light"
+              >
+                <i class="bi bi-three-dots-vertical"></i>
+              </button>
+              <ul
+                class="absolute z-[1000] float-left m-0 hidden min-w-max list-none overflow-hidden rounded-lg border-none bg-white bg-clip-padding text-left text-base shadow-lg dark:bg-neutral-700 [&[data-te-dropdown-show]]:block"
+                aria-labelledby="dropdownMenuButton1"
+                data-te-dropdown-menu-ref
+              >
+                <li>
+                  <a
+                    class="w-full whitespace-nowrap bg-transparent px-4 py-2 hover:bg-neutral-500 active:text-neutral-800 active:no-underline disabled:pointer-events-none disabled:bg-transparent disabled:text-neutral-400 flex flex-row items-center"
+                    data-te-dropdown-item-ref
+                  >
+                    <span
+                      class="dark:text-lighter text-black text-sm font-incosolata font-normal"
+                      >Edit <i class="bi bi-pen"></i>
+                    </span>
+                  </a>
+                </li>
+                <li>
+                  <a
+                    class="w-full whitespace-nowrap bg-transparent px-4 py-2 hover:bg-neutral-500 active:text-neutral-800 active:no-underline disabled:pointer-events-none disabled:bg-transparent disabled:text-neutral-400 flex flex-row items-center"
+                    data-te-dropdown-item-ref
+                  >
+                    <span
+                      class="text-red-500 text-sm font-incosolata font-normal"
+                      >Remove
+                      <i class="bi bi-arrow-bar-right text-red-500"></i>
+                    </span>
+                  </a>
+                </li>
+              </ul>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <div
+    class="w-full h-full bg-white dark:bg-zinc-950 flex flex-col space-y-4 px-2 pt-2 pb-4"
+  >
+    <div
+      class="w-full border-b border-blue-50 flex flex-row justify-between items-center h-24"
+    >
+      <h4
+        class="text-2xl col-span-full lg:text-4xl dark:text-blue-100 text-black font-incosolata py-3 border-opacity-20"
+      >
+        Breakfast food(s)
+      </h4>
+      <button
+        data-te-toggle="modal"
+        data-te-toggle="modal"
+        data-te-target="#staticBackdrop"
+        data-te-ripple-init
+        data-te-ripple-color="light"
+        class="bg-primary relative w-1/6 m-2 h-14 px-4 py-2 flex flex-row items-center group duration-150"
+      >
+        <div
+          class="absolute group flex space-x-1 flex-row items-center top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"
+        >
+          <i class="text-lighter group-hover:text-white mt-1 bi bi-plus"></i>
+          <p class="font-incosolata text-lighter group-hover:text-white">Add</p>
+        </div>
+      </button>
+    </div>
+    <div
+      class="w-full grid gap-x-2 gap-y-4 sm:grid-cols-2 md:grid-cols-3 lg:hidden"
+    >
+      <div
+        *ngFor="let food of breakfastCategories; index as ind"
+        class="flex flex-col space-y-8 px-2 py-4 rounded shadow"
+        [class]="
+          ind % 2 === 0
+            ? 'bg-mgrey dark:bg-[#4F4557] border-none'
+            : 'border border-secondary bg-transparent'
+        "
+      >
+        <div class="flex flex-row items-center justify-between">
+          <img
+            [src]="food.icon"
+            class="w-14 h-14 rounded-full"
+            alt="breakfast-category-icon"
+          />
+          <p class="font-incosolata dark:text-lighter text-black">
+            {{ food.name }}
+          </p>
+        </div>
+        <div class="flex flex-row items-center justify-between">
+          <p
+            class="font-incosolata p-0.5 rounded-lg"
+            [class]="food.status ? 'bg-green-600' : 'bg-red-600'"
+          >
+            {{ food.status ? "Active" : "Disabled" }}
+          </p>
+          <div class="relative" data-te-dropdown-ref>
+            <button
+              type="button"
+              class="dark:text-lighter text-black"
+              id="dropdownMenuButton1"
+              data-te-dropdown-toggle-ref
+              aria-expanded="false"
+              data-te-ripple-init
+              data-te-ripple-color="light"
+            >
+              <i class="bi bi-three-dots-vertical"></i>
+            </button>
+            <ul
+              class="absolute z-[1000] float-left m-0 hidden min-w-max list-none overflow-hidden rounded-lg border-none bg-white bg-clip-padding text-left text-base shadow-lg dark:bg-neutral-700 [&[data-te-dropdown-show]]:block"
+              aria-labelledby="dropdownMenuButton1"
+              data-te-dropdown-menu-ref
+            >
+              <li>
+                <a
+                  class="w-full whitespace-nowrap bg-transparent px-4 py-2 hover:bg-neutral-500 active:text-neutral-800 active:no-underline disabled:pointer-events-none disabled:bg-transparent disabled:text-neutral-400 flex flex-row items-center"
+                  data-te-dropdown-item-ref
+                >
+                  <span
+                    class="dark:text-lighter text-black text-sm font-incosolata font-normal"
+                    >Edit <i class="bi bi-pen"></i>
+                  </span>
+                </a>
+              </li>
+              <li>
+                <a
+                  class="w-full whitespace-nowrap bg-transparent px-4 py-2 hover:bg-neutral-500 active:text-neutral-800 active:no-underline disabled:pointer-events-none disabled:bg-transparent disabled:text-neutral-400 flex flex-row items-center"
+                  data-te-dropdown-item-ref
+                >
+                  <span class="text-red-500 text-sm font-incosolata font-normal"
+                    >Remove
+                    <i class="bi bi-arrow-bar-right text-red-500"></i>
+                  </span>
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="relative shadow hidden max-h-96 lg:block overflow-auto">
+      <table #categoriesTable class="relative w-full">
+        <thead>
+          <tr class="shadow-2xl">
+            <th
+              class="sticky top-0 px-3 py-3 text-lighter bg-primary font-incosolata font-bold bg-grey2 rounded-tl-xl"
+            >
+              #
+            </th>
+            <th
+              #categoryHeaderContainer
+              [attr.data-column]="
+                i !== categoriesHeaders.length - 1 ? header : ''
+              "
+              [attr.data-order]="
+                i !== categoriesHeaders.length - 1 ? 'desc' : ''
+              "
+              *ngFor="let header of categoriesHeaders; index as i"
+              class="sticky text-left top-0 px-3 py-3 text-lighter bg-primary font-incosolata font-bold bg-grey2"
+            >
+              <p class="font-primary text-left text-lighter">
+                {{ header }}
+                <span
+                  *ngIf="
+                    categoryHeaderContainer.dataset['order'] == 'desc' &&
+                    i !== categoriesHeaders.length - 1
+                  "
+                  ><i class="bi bi-caret-up"></i>
+                </span>
+                <span
+                  *ngIf="
+                    categoryHeaderContainer.dataset['order'] == 'asc' &&
+                    i !== categoriesHeaders.length - 1
+                  "
+                  ><i class="bi bi-caret-down"></i>
+                </span>
+              </p>
+            </th>
+            <th
+              class="sticky text-lighter bg-primary rounded-tr-xl top-0 px-3 py-3 font-incosolata font-bold bg-grey2"
+            >
+              Action
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr
+            class="divide-y"
+            *ngFor="let category of breakfastCategories; index as ind"
+          >
+            <td class="w-20 h-20 py-2 px-2">
+              <img
+                [src]="category.icon"
+                class="h-full max-w-full rounded-full"
+                alt=""
+              />
+            </td>
+            <td
+              class="dark:text-lighter text-black py-2 font-incosolata text-lg"
+            >
+              {{ category.name }}
+            </td>
+            <td class="text-center py-2">
+              <p
+                class="dark:text-lighter text-center ml-4 w-fit text-black font-incosolata text-lg rounded px-2"
+                [class]="
+                  category.status
+                    ? 'bg-green-800 text-lighter'
+                    : 'bg-red-800 text-lighter'
+                "
+              >
+                {{ category.status ? "Active" : "Disabled" }}
+              </p>
+            </td>
+            <td class="text-center py-2">
+              <button
+                type="button"
+                class="dark:text-lighter text-black"
+                id="dropdownMenuButton1"
+                data-te-dropdown-toggle-ref
+                aria-expanded="false"
+                data-te-ripple-init
+                data-te-ripple-color="light"
+              >
+                <i class="bi bi-three-dots-vertical"></i>
+              </button>
+              <ul
+                class="absolute z-[1000] float-left m-0 hidden min-w-max list-none overflow-hidden rounded-lg border-none bg-white bg-clip-padding text-left text-base shadow-lg dark:bg-neutral-700 [&[data-te-dropdown-show]]:block"
+                aria-labelledby="dropdownMenuButton1"
+                data-te-dropdown-menu-ref
+              >
+                <li>
+                  <a
+                    class="w-full whitespace-nowrap bg-transparent px-4 py-2 hover:bg-neutral-500 active:text-neutral-800 active:no-underline disabled:pointer-events-none disabled:bg-transparent disabled:text-neutral-400 flex flex-row items-center"
+                    data-te-dropdown-item-ref
+                  >
+                    <span
+                      class="dark:text-lighter text-black text-sm font-incosolata font-normal"
+                      >Edit <i class="bi bi-pen"></i>
+                    </span>
+                  </a>
+                </li>
+                <li>
+                  <a
+                    class="w-full whitespace-nowrap bg-transparent px-4 py-2 hover:bg-neutral-500 active:text-neutral-800 active:no-underline disabled:pointer-events-none disabled:bg-transparent disabled:text-neutral-400 flex flex-row items-center"
+                    data-te-dropdown-item-ref
+                  >
+                    <span
+                      class="text-red-500 text-sm font-incosolata font-normal"
+                      >Remove
+                      <i class="bi bi-arrow-bar-right text-red-500"></i>
+                    </span>
+                  </a>
+                </li>
+              </ul>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+<app-loader-modal></app-loader-modal>
+
+<app-add-breakfast-category></app-add-breakfast-category>

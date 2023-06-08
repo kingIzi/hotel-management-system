@@ -1,32 +1,50 @@
 <div class="space-y-4 h-full py-4 px-4 flex flex-col">
-  <app-router-navs [navLinks]="availableLinks"></app-router-navs>
-  <form [formGroup]="reservationsFormGroup" class="space-y-4 h-full py-4 px-4">
+  <div class="w-full">
+    <app-router-navs [navLinks]="availableLinks"></app-router-navs>
+  </div>
+  <form [formGroup]="reservationsFormGroup" class="space-y-4 h-full">
     <section
-      class="grid grid-cols-1 gap-y-4 gap-x-4 lg:grid-cols-2 w-full bg-white shadow-lg p-2"
+      class="grid grid-cols-1 rounded gap-y-4 gap-x-4 lg:grid-cols-2 w-full bg-white shadow-lg p-2 dark:bg-zinc-950"
     >
       <h4
-        class="text-xl lg:text-2xl font-incosolata col-span-full py-4 border-b border-mgrey mb-4"
+        class="text-2xl col-span-full lg:text-4xl dark:text-blue-100 text-black font-incosolata py-3 border-b border-blue-50 border-opacity-20"
       >
-        Room Information:
+        Room Information
       </h4>
       <div class="w-full mb-3 space-y-2">
-        <label for="room-no" class="capitalize block text-sm font-incosolata"
+        <label
+          for="room-no"
+          class="capitalize block text-sm font-incosolata text-black dark:text-zinc-100"
           >room type<span class="text-sm text-red-600 font-incosolata">*</span>
         </label>
-        <select
-          formControlName="roomType"
-          placeholder="Select a room type"
-          class="appearance-none w-full text-sm font-incosolata border border-gray-300 bg-white px-4 py-2 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
-        >
-          <option
-            class="text-sm font-incosolata"
-            *ngFor="let type of roomTypes"
-            [value]="type"
-            [ngValue]="type"
+        <div class="relative">
+          <select
+            formControlName="roomType"
+            class="appearance-none w-full text-black dark:text-zinc-100 text-sm font-incosolata border border-gray-300 bg-white dark:bg-zinc-800 px-4 py-2 pr-8 rounded leading-tight focus:outline-none focus:bg-white dark:focus:bg-transparent focus:border-gray-500"
           >
-            {{ type }}
-          </option>
-        </select>
+            <option
+              value="Select room type"
+              class="hover:bg-zinc-800 text-neutral-600 dark:text-primary text-sm font-incosolata bg-white dark:bg-zinc-900"
+              selected
+              disabled
+            >
+              Select room type
+            </option>
+            <option
+              class="hover:bg-zinc-800 text-black dark:text-blue-100 text-sm font-incosolata bg-white dark:bg-zinc-900"
+              *ngFor="let type of roomTypes"
+              [value]="type"
+              [ngValue]="type"
+            >
+              {{ type }}
+            </option>
+          </select>
+          <span
+            class="text-black dark:text-zinc-100 top-1/2 right-2 -translate-y-1/2 absolute"
+          >
+            <i class="bi bi-chevron-compact-down"></i>
+          </span>
+        </div>
         <span
           *ngIf="roomType && roomType.invalid && roomType.touched"
           class="text-sm text-red-600 font-incosolata"
@@ -35,25 +53,41 @@
         </span>
       </div>
       <div class="w-full mb-3 space-y-2">
-        <label for="room-no" class="capitalize block text-sm font-incosolata"
+        <label
+          for="room-no"
+          class="capitalize block text-sm font-incosolata text-black dark:text-zinc-100"
           >Room No.<span class="text-sm text-red-600 font-incosolata"
             >*</span
           ></label
         >
-        <select
-          formControlName="roomNo"
-          placeholder="Select a room number"
-          class="appearance-none w-full text-sm font-incosolata border border-gray-300 bg-white px-4 py-2 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
-        >
-          <option
-            class="text-sm font-incosolata"
-            *ngFor="let roomNo of roomNos"
-            [value]="roomNo"
-            [ngValue]="roomNo"
+        <div class="relative">
+          <select
+            formControlName="roomNo"
+            class="appearance-none w-full text-black dark:text-zinc-100 text-sm font-incosolata border border-gray-300 bg-white dark:bg-zinc-800 px-4 py-2 pr-8 rounded leading-tight focus:outline-none focus:bg-white dark:focus:bg-transparent focus:border-gray-500"
           >
-            {{ roomNo }}
-          </option>
-        </select>
+            <option
+              value="Select room type"
+              class="hover:bg-zinc-800 text-neutral-600 dark:text-primary text-sm font-incosolata bg-white dark:bg-zinc-900"
+              selected
+              disabled
+            >
+              Select room number
+            </option>
+            <option
+              class="hover:bg-zinc-800 text-black dark:text-blue-100 text-sm font-incosolata bg-white dark:bg-zinc-900"
+              *ngFor="let room of roomNos"
+              [value]="room"
+              [ngValue]="room"
+            >
+              {{ room }}
+            </option>
+          </select>
+          <span
+            class="text-black dark:text-zinc-100 top-1/2 right-2 -translate-y-1/2 absolute"
+          >
+            <i class="bi bi-chevron-compact-down"></i>
+          </span>
+        </div>
         <span
           *ngIf="roomNo && roomNo.invalid && roomNo.touched"
           class="text-sm text-red-600 font-incosolata"
@@ -62,7 +96,9 @@
         </span>
       </div>
       <div class="w-full mb-3 space-y-2">
-        <label for="" class="capitalize block text-sm font-incosolata"
+        <label
+          for=""
+          class="capitalize block text-sm font-incosolata text-black dark:text-zinc-100"
           >Check In<span class="text-sm text-red-600 font-incosolata"
             >*</span
           ></label
@@ -76,7 +112,7 @@
           <input
             type="text"
             formControlName="checkIn"
-            class="peer block min-h-[auto] w-full font-incosolata rounded border-0 bg-transparent px-3 py-[0.32rem] leading-[1.6] outline-none transition-all duration-200 ease-linear focus:placeholder:opacity-100 peer-focus:text-primary data-[te-input-state-active]:placeholder:opacity-100 motion-reduce:transition-none text-black [&:not([data-te-input-placeholder-active])]:placeholder:opacity-0 [&:not([data-te-input-placeholder-active])]:placeholder:font-incosolata"
+            class="peer block min-h-[auto] dark:bg-zinc-800 w-full font-incosolata rounded border-0 bg-transparent px-3 py-[0.32rem] leading-[1.6] outline-none transition-all duration-200 ease-linear focus:placeholder:opacity-100 peer-focus:text-primary data-[te-input-state-active]:placeholder:opacity-100 motion-reduce:transition-none text-black [&:not([data-te-input-placeholder-active])]:placeholder:opacity-0 [&:not([data-te-input-placeholder-active])]:placeholder:font-incosolata"
             placeholder="Select a date"
           />
           <label
@@ -93,7 +129,9 @@
         </span>
       </div>
       <div class="w-full mb-3 space-y-2">
-        <label for="" class="capitalize block text-sm font-incosolata"
+        <label
+          for=""
+          class="capitalize block text-sm font-incosolata text-black dark:text-zinc-100"
           >Check out<span class="text-sm text-red-600 font-incosolata"
             >*</span
           ></label
@@ -107,7 +145,7 @@
           <input
             type="text"
             formControlName="checkOut"
-            class="peer block min-h-[auto] w-full font-incosolata rounded border-0 bg-transparent px-3 py-[0.32rem] leading-[1.6] outline-none transition-all duration-200 ease-linear focus:placeholder:opacity-100 peer-focus:text-primary data-[te-input-state-active]:placeholder:opacity-100 motion-reduce:transition-none text-black [&:not([data-te-input-placeholder-active])]:placeholder:opacity-0 [&:not([data-te-input-placeholder-active])]:placeholder:font-incosolata"
+            class="peer block dark:bg-zinc-800 dark:text-zinc-100 min-h-[auto] w-full font-incosolata rounded border-0 bg-transparent px-3 py-[0.32rem] leading-[1.6] outline-none transition-all duration-200 ease-linear focus:placeholder:opacity-100 peer-focus:text-primary data-[te-input-state-active]:placeholder:opacity-100 motion-reduce:transition-none text-black [&:not([data-te-input-placeholder-active])]:placeholder:opacity-0 [&:not([data-te-input-placeholder-active])]:placeholder:font-incosolata"
             placeholder="Select a date"
           />
           <label
@@ -126,21 +164,26 @@
     </section>
     <section
       formGroupName="profile"
-      class="grid grid-cols-1 gap-y-4 gap-x-4 lg:grid-cols-2 w-full bg-white shadow-lg p-2"
+      class="grid grid-cols-1 gap-y-4 gap-x-4 lg:grid-cols-2 w-full bg-white dark:bg-zinc-950 shadow-lg p-2"
     >
       <h4
-        class="text-xl lg:text-2xl font-incosolata col-span-full py-4 border-b border-mgrey mb-4"
+        class="text-2xl col-span-full lg:text-4xl dark:text-blue-100 text-black font-incosolata py-3 border-b border-blue-50 border-opacity-20"
       >
-        Customer details:
+        Customer details
       </h4>
+
       <div class="w-full mb-3 space-y-2">
-        <label for="room-no" class="capitalize block text-sm font-incosolata"
-          >First name</label
+        <label
+          for="room-no"
+          class="capitalize block text-sm font-incosolata text-black dark:text-zinc-100"
+          >First name<span class="text-sm text-red-600 font-incosolata"
+            >*</span
+          ></label
         >
         <div class="relative mb-3" data-te-input-wrapper-init>
           <input
             type="text"
-            class="peer block min-h-[auto] text-black font-incosolata text-sm w-full rounded border-0 bg-transparent px-3 py-[0.32rem] leading-[1.6] outline-none transition-all duration-200 ease-linear focus:placeholder:opacity-100 peer-focus:text-primary data-[te-input-state-active]:placeholder:opacity-100 motion-reduce:transition-none placeholder:text-gray-300 [&:not([data-te-input-placeholder-active])]:placeholder:opacity-0"
+            class="peer block dark:bg-zinc-800 dark:text-zinc-100 min-h-[auto] w-full font-incosolata rounded border-0 bg-transparent px-3 py-[0.32rem] leading-[1.6] outline-none transition-all duration-200 ease-linear focus:placeholder:opacity-100 peer-focus:text-primary data-[te-input-state-active]:placeholder:opacity-100 motion-reduce:transition-none text-black [&:not([data-te-input-placeholder-active])]:placeholder:opacity-0 [&:not([data-te-input-placeholder-active])]:placeholder:font-incosolata"
             id="exampleFormControlInput1"
             placeholder="Enter first name"
             formControlName="firstName"
@@ -159,13 +202,17 @@
         </span>
       </div>
       <div class="w-full mb-3 space-y-2">
-        <label for="room-no" class="capitalize block text-sm font-incosolata"
-          >Last name</label
+        <label
+          for="room-no"
+          class="capitalize block text-sm font-incosolata text-black dark:text-zinc-100"
+          >Last name<span class="text-sm text-red-600 font-incosolata"
+            >*</span
+          ></label
         >
         <div class="relative mb-3" data-te-input-wrapper-init>
           <input
             type="text"
-            class="peer block min-h-[auto] text-black font-incosolata text-sm w-full rounded border-0 bg-transparent px-3 py-[0.32rem] leading-[1.6] outline-none transition-all duration-200 ease-linear focus:placeholder:opacity-100 peer-focus:text-primary data-[te-input-state-active]:placeholder:opacity-100 motion-reduce:transition-none placeholder:text-gray-300 [&:not([data-te-input-placeholder-active])]:placeholder:opacity-0"
+            class="peer block dark:bg-zinc-800 dark:text-zinc-100 min-h-[auto] w-full font-incosolata rounded border-0 bg-transparent px-3 py-[0.32rem] leading-[1.6] outline-none transition-all duration-200 ease-linear focus:placeholder:opacity-100 peer-focus:text-primary data-[te-input-state-active]:placeholder:opacity-100 motion-reduce:transition-none text-black [&:not([data-te-input-placeholder-active])]:placeholder:opacity-0 [&:not([data-te-input-placeholder-active])]:placeholder:font-incosolata"
             id="exampleFormControlInput1"
             placeholder="Enter last name"
             formControlName="lastName"
@@ -185,13 +232,15 @@
       </div>
       <div></div>
       <div class="w-full mb-3 space-y-2">
-        <label for="room-no" class="capitalize block text-sm font-incosolata"
+        <label
+          for="room-no"
+          class="capitalize block text-sm font-incosolata text-black dark:text-zinc-100"
           >Contact number</label
         >
         <div class="relative mb-3" data-te-input-wrapper-init>
           <input
             type="text"
-            class="peer block min-h-[auto] text-black font-incosolata text-sm w-full rounded border-0 bg-transparent px-3 py-[0.32rem] leading-[1.6] outline-none transition-all duration-200 ease-linear focus:placeholder:opacity-100 peer-focus:text-primary data-[te-input-state-active]:placeholder:opacity-100 motion-reduce:transition-none placeholder:text-gray-300 [&:not([data-te-input-placeholder-active])]:placeholder:opacity-0"
+            class="peer block dark:bg-zinc-800 dark:text-zinc-100 min-h-[auto] w-full font-incosolata rounded border-0 bg-transparent px-3 py-[0.32rem] leading-[1.6] outline-none transition-all duration-200 ease-linear focus:placeholder:opacity-100 peer-focus:text-primary data-[te-input-state-active]:placeholder:opacity-100 motion-reduce:transition-none text-black [&:not([data-te-input-placeholder-active])]:placeholder:opacity-0 [&:not([data-te-input-placeholder-active])]:placeholder:font-incosolata"
             id="exampleFormControlInput1"
             placeholder="(+255 00 000 000)"
             formControlName="contactNumber"
@@ -212,14 +261,16 @@
         </span>
       </div>
       <div class="w-full mb-3 space-y-2">
-        <label for="room-no" class="capitalize block text-sm font-incosolata"
+        <label
+          for="room-no"
+          class="capitalize block text-sm font-incosolata text-black dark:text-zinc-100"
           >Email address</label
         >
         <div class="relative mb-3" data-te-input-wrapper-init>
           <input
             formControlName="email"
             type="text"
-            class="peer block min-h-[auto] text-black font-incosolata text-sm w-full rounded border-0 bg-transparent px-3 py-[0.32rem] leading-[1.6] outline-none transition-all duration-200 ease-linear focus:placeholder:opacity-100 peer-focus:text-primary data-[te-input-state-active]:placeholder:opacity-100 motion-reduce:transition-none placeholder:text-gray-300 [&:not([data-te-input-placeholder-active])]:placeholder:opacity-0"
+            class="peer block dark:bg-zinc-800 dark:text-zinc-100 min-h-[auto] w-full font-incosolata rounded border-0 bg-transparent px-3 py-[0.32rem] leading-[1.6] outline-none transition-all duration-200 ease-linear focus:placeholder:opacity-100 peer-focus:text-primary data-[te-input-state-active]:placeholder:opacity-100 motion-reduce:transition-none text-black [&:not([data-te-input-placeholder-active])]:placeholder:opacity-0 [&:not([data-te-input-placeholder-active])]:placeholder:font-incosolata"
             id="exampleFormControlInput1"
             placeholder="Enter email address"
           />
@@ -237,16 +288,28 @@
         </span>
       </div>
       <div class="w-full mb-3 space-y-2">
-        <label for="room-no" class="capitalize block text-sm font-incosolata"
-          >ID Card type</label
+        <label
+          for="room-no"
+          class="capitalize block text-sm font-incosolata text-black dark:text-zinc-100"
+          >ID Card type<span class="text-sm text-red-600 font-incosolata"
+            >*</span
+          ></label
         >
         <select
           formControlName="cardType"
           placeholder="Select a room type"
-          class="appearance-none w-full text-sm font-incosolata border border-gray-300 bg-white px-4 py-2 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+          class="appearance-none w-full text-black dark:text-zinc-100 text-sm font-incosolata border border-gray-300 bg-white dark:bg-zinc-800 px-4 py-2 pr-8 rounded leading-tight focus:outline-none focus:bg-white dark:focus:bg-transparent focus:border-gray-500"
         >
           <option
-            class="text-sm font-incosolata"
+            value="Select room type"
+            class="hover:bg-zinc-800 text-neutral-600 dark:text-primary text-sm font-incosolata bg-white dark:bg-zinc-900"
+            selected
+            disabled
+          >
+            Select National ID Card type
+          </option>
+          <option
+            class="hover:bg-zinc-800 text-black dark:text-blue-100 text-sm font-incosolata bg-white dark:bg-zinc-900"
             *ngFor="let card of typeOfCards"
             [value]="card"
             [ngValue]="card"
@@ -262,13 +325,17 @@
         </span>
       </div>
       <div class="w-full mb-3 space-y-2">
-        <label for="room-no" class="capitalize block text-sm font-incosolata"
-          >ID Card Number</label
+        <label
+          for="room-no"
+          class="capitalize block text-sm font-incosolata text-black dark:text-zinc-100"
+          >ID Card Number<span class="text-sm text-red-600 font-incosolata"
+            >*</span
+          ></label
         >
         <div class="relative mb-3" data-te-input-wrapper-init>
           <input
             type="text"
-            class="peer block min-h-[auto] text-black font-incosolata text-sm w-full rounded border-0 bg-transparent px-3 py-[0.32rem] leading-[1.6] outline-none transition-all duration-200 ease-linear focus:placeholder:opacity-100 peer-focus:text-primary data-[te-input-state-active]:placeholder:opacity-100 motion-reduce:transition-none placeholder:text-gray-300 [&:not([data-te-input-placeholder-active])]:placeholder:opacity-0"
+            class="peer block dark:bg-zinc-800 dark:text-zinc-100 min-h-[auto] w-full font-incosolata rounded border-0 bg-transparent px-3 py-[0.32rem] leading-[1.6] outline-none transition-all duration-200 ease-linear focus:placeholder:opacity-100 peer-focus:text-primary data-[te-input-state-active]:placeholder:opacity-100 motion-reduce:transition-none text-black [&:not([data-te-input-placeholder-active])]:placeholder:opacity-0 [&:not([data-te-input-placeholder-active])]:placeholder:font-incosolata"
             id="exampleFormControlInput1"
             placeholder="RJS2 15665212215"
             formControlName="cardNumber"
@@ -288,13 +355,15 @@
       </div>
       <div></div>
       <div class="w-full mb-3 space-y-2 col-span-full">
-        <label for="room-no" class="capitalize block text-sm font-incosolata"
+        <label
+          for="room-no"
+          class="capitalize block text-sm font-incosolata text-black dark:text-zinc-100"
           >Residential Address</label
         >
         <div class="relative mb-3" data-te-input-wrapper-init>
           <input
             type="text"
-            class="peer block min-h-[auto] text-black font-incosolata text-sm w-full rounded border-0 bg-transparent px-3 py-[0.32rem] leading-[1.6] outline-none transition-all duration-200 ease-linear focus:placeholder:opacity-100 peer-focus:text-primary data-[te-input-state-active]:placeholder:opacity-100 motion-reduce:transition-none placeholder:text-gray-300 [&:not([data-te-input-placeholder-active])]:placeholder:opacity-0"
+            class="peer block dark:bg-zinc-800 dark:text-zinc-100 min-h-[auto] w-full font-incosolata rounded border-0 bg-transparent px-3 py-[0.32rem] leading-[1.6] outline-none transition-all duration-200 ease-linear focus:placeholder:opacity-100 peer-focus:text-primary data-[te-input-state-active]:placeholder:opacity-100 motion-reduce:transition-none text-black [&:not([data-te-input-placeholder-active])]:placeholder:opacity-0 [&:not([data-te-input-placeholder-active])]:placeholder:font-incosolata"
             id="exampleFormControlInput1"
             placeholder="Residential Address"
             formControlName="residentialAddress"

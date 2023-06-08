@@ -4,6 +4,7 @@ import { Resume } from 'src/app/helpers/resume';
 import { ChartType, GoogleChartsModule } from 'angular-google-charts';
 import { RouterModule } from '@angular/router';
 import { RouterNavsComponent } from 'src/app/components/utilities/router-navs/router-navs.component';
+import { Chart, initTE } from 'tw-elements';
 
 @Component({
   selector: 'app-dashboard',
@@ -75,5 +76,7 @@ export class DashboardComponent implements OnInit {
   numbersSequence() {
     return Array.from(Array(100), (_, index) => index + 1);
   }
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    initTE({ Chart });
+  }
 }
