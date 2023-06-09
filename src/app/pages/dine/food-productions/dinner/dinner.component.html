@@ -1,1 +1,571 @@
-<p>dinner works!</p>
+<div class="space-y-4">
+  <div
+    class="w-full h-full bg-white dark:bg-zinc-950 flex flex-col space-y-4 px-2 pt-2 pb-4"
+  >
+    <div
+      class="w-full border-b border-blue-50 flex flex-row justify-between items-center h-24"
+    >
+      <h4
+        class="text-2xl col-span-full lg:text-4xl dark:text-blue-100 text-black font-incosolata py-3 border-opacity-20"
+      >
+        Products(s)
+      </h4>
+      <button
+        data-te-toggle="modal"
+        data-te-toggle="modal"
+        data-te-target="#add-banquet-product-backdrop"
+        data-te-ripple-init
+        data-te-ripple-color="light"
+        class="bg-primary relative w-1/6 m-2 h-14 px-4 py-2 flex flex-row items-center group duration-150"
+      >
+        <div
+          class="absolute group flex space-x-1 flex-row items-center top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"
+        >
+          <i class="text-lighter group-hover:text-white mt-1 bi bi-plus"></i>
+          <p class="font-incosolata text-lighter group-hover:text-white">Add</p>
+        </div>
+      </button>
+    </div>
+    <div
+      class="w-full grid gap-x-2 gap-y-4 sm:grid-cols-2 md:grid-cols-3 lg:hidden"
+    >
+      <div
+        *ngFor="let food of meals; index as ind"
+        class="flex flex-col space-y-4 px-2 py-2 rounded shadow"
+        [class]="
+          ind % 2 === 0
+            ? 'bg-mgrey dark:bg-[#4F4557] border-none'
+            : 'border border-secondary bg-transparent'
+        "
+      >
+        <div class="flex flex-row items-center justify-between space-x-8">
+          <img
+            [src]="food.icon"
+            class="w-14 h-14 rounded-full"
+            alt="breakfast-category-icon"
+          />
+          <p class="font-incosolata dark:text-lighter text-black">
+            {{ food.name }}
+          </p>
+        </div>
+        <div class="flex flex-row items-center justify-between space-x-8">
+          <p class="font-incosolata dark:text-lighter text-black">
+            {{ food.category }}
+          </p>
+          <p class="font-incosolata dark:text-lighter text-black">
+            {{ food.ingredients }}
+          </p>
+        </div>
+        <div class="flex flex-row items-center justify-between space-x-8">
+          <p class="font-incosolata dark:text-lighter text-black">
+            {{ food.price }} / {{ food.currency }}
+          </p>
+          <p
+            class="font-incosolata p-0.5 rounded-lg"
+            [class]="food.status ? 'bg-green-600' : 'bg-red-600'"
+          >
+            {{ food.status ? "Active" : "Disabled" }}
+          </p>
+        </div>
+        <div class="flex flex-row items-center justify-between">
+          <div class="relative" data-te-dropdown-ref>
+            <button
+              type="button"
+              class="dark:text-lighter text-black"
+              id="dropdownMenuButton1"
+              data-te-dropdown-toggle-ref
+              aria-expanded="false"
+              data-te-ripple-init
+              data-te-ripple-color="light"
+            >
+              <i class="bi bi-three-dots-vertical"></i>
+            </button>
+            <ul
+              class="absolute z-[1000] float-left m-0 hidden min-w-max list-none overflow-hidden rounded-lg border-none bg-white bg-clip-padding text-left text-base shadow-lg dark:bg-neutral-700 [&[data-te-dropdown-show]]:block"
+              aria-labelledby="dropdownMenuButton1"
+              data-te-dropdown-menu-ref
+            >
+              <li>
+                <a
+                  class="w-full whitespace-nowrap bg-transparent px-4 py-2 hover:bg-neutral-500 active:text-neutral-800 active:no-underline disabled:pointer-events-none disabled:bg-transparent disabled:text-neutral-400 flex flex-row items-center"
+                  data-te-dropdown-item-ref
+                >
+                  <span
+                    class="dark:text-lighter text-black text-sm font-incosolata font-normal"
+                    >Edit <i class="bi bi-pen"></i>
+                  </span>
+                </a>
+              </li>
+              <li>
+                <a
+                  class="w-full whitespace-nowrap bg-transparent px-4 py-2 hover:bg-neutral-500 active:text-neutral-800 active:no-underline disabled:pointer-events-none disabled:bg-transparent disabled:text-neutral-400 flex flex-row items-center"
+                  data-te-dropdown-item-ref
+                >
+                  <span class="text-red-500 text-sm font-incosolata font-normal"
+                    >Remove
+                    <i class="bi bi-arrow-bar-right text-red-500"></i>
+                  </span>
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="w-full py-4 mt-8 flex flex-row items-center justify-between col-span-full"
+    >
+      <div class="flex flex-row-items-center space-x-2">
+        <div>
+          <p class="text-sm mt-2 dark:text-zinc-100 font-incosolata text-black">
+            Show(s):
+          </p>
+        </div>
+        <div class="max-w-[5rem]">
+          <select
+            [ngModel]="showing"
+            (ngModelChange)="valueChanged($event)"
+            class="appearance-none w-full text-black dark:text-zinc-100 text-sm font-incosolata border border-gray-300 bg-white dark:bg-zinc-800 px-4 py-2 pr-8 rounded leading-tight focus:outline-none focus:bg-white dark:focus:bg-transparent focus:border-gray-500"
+          >
+            <option
+              class="hover:bg-zinc-800 text-black dark:text-blue-100 text-sm font-incosolata bg-white dark:bg-zinc-900"
+              *ngFor="let show of showings"
+              [ngValue]="show"
+            >
+              {{ show }}
+            </option>
+          </select>
+        </div>
+        <div class="hidden lg:block">
+          <p class="text-sm dark:text-zinc-100 mt-2 font-incosolata text-black">
+            Entries
+          </p>
+        </div>
+      </div>
+      <div class="relative mt-0 w-1/2 lg:w-1/3">
+        <div class="relative flex w-full flex-wrap items-stretch">
+          <input
+            type="search"
+            class="dark:text-zinc-100 px-2 text-black relative text-sm font-incosolata m-0 block w-[1px] min-w-0 flex-auto rounded border border-solid border-neutral-300 dark:border-zinc-100 bg-transparent dark:bg-zinc-950 font-normal leading[1.6] outline-none transition duration-200 ease-in-out focus:z-[3] focus:border-primary focus:text-neutral-700 dark:focus:text-zinc-100 focus:shadow-[inset_0_0_0_1px_rgb(59,113,202)] focus:outline-none dark:placeholder:text-neutral-400"
+            placeholder="Search"
+            aria-label="Search"
+            aria-describedby="button-addon2"
+          />
+
+          <span
+            class="input-group-text cursor-pointer flex items-center whitespace-nowrap rounded px-3 py-1.5 text-center text-base font-normal text-neutral-700"
+            id="basic-addon2"
+          >
+            <i class="bi bi-search"></i>
+          </span>
+        </div>
+      </div>
+    </div>
+    <div class="relative shadow hidden max-h-96 lg:block overflow-auto">
+      <table #categoriesTable class="relative w-full">
+        <thead>
+          <tr class="shadow-2xl">
+            <th
+              class="sticky top-0 px-3 py-3 text-lighter bg-primary font-incosolata font-bold bg-grey2 rounded-tl-xl"
+            >
+              #
+            </th>
+            <th
+              #mealHeaderContainer
+              [attr.data-column]="i !== mealsHeaders.length - 1 ? header : ''"
+              [attr.data-order]="i !== mealsHeaders.length - 1 ? 'desc' : ''"
+              *ngFor="let header of mealsHeaders; index as i"
+              class="sticky text-left top-0 px-3 py-3 text-lighter bg-primary font-incosolata font-bold bg-grey2"
+            >
+              <p class="font-primary text-left text-lighter">
+                {{ header }}
+                <span
+                  *ngIf="
+                    mealHeaderContainer.dataset['order'] == 'desc' &&
+                    i !== mealsHeaders.length - 1
+                  "
+                  ><i class="bi bi-caret-up"></i>
+                </span>
+                <span
+                  *ngIf="
+                    mealHeaderContainer.dataset['order'] == 'asc' &&
+                    i !== mealsHeaders.length - 1
+                  "
+                  ><i class="bi bi-caret-down"></i>
+                </span>
+              </p>
+            </th>
+            <th
+              class="sticky text-lighter bg-primary rounded-tr-xl top-0 px-3 py-3 font-incosolata font-bold bg-grey2"
+            >
+              Action
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr
+            [class]="ind % 2 === 0 ? 'dark:bg-zinc-800' : 'dark:bg-zinc-900'"
+            class="divide-y"
+            *ngFor="let meal of meals; index as ind"
+          >
+            <td class="w-20 h-20 py-2 px-2">
+              <img
+                [src]="meal.icon"
+                class="h-full max-w-full rounded-full"
+                alt=""
+              />
+            </td>
+            <td
+              class="dark:text-lighter text-black py-2 px-2 font-incosolata text-lg"
+            >
+              {{ meal.name }}
+            </td>
+            <td
+              class="dark:text-lighter text-black py-2 px-2 font-incosolata text-lg"
+            >
+              {{ meal.category }}
+            </td>
+            <td
+              class="dark:text-lighter text-black py-2 px-2 font-incosolata text-lg"
+            >
+              {{ meal.ingredients }}
+            </td>
+            <td
+              class="dark:text-lighter text-black py-2 px-2 font-incosolata text-lg"
+            >
+              {{ meal.price }} / {{ meal.currency }}
+            </td>
+            <td class="text-center py-2 px-2">
+              <p
+                class="dark:text-lighter text-center ml-4 w-fit text-black font-incosolata text-lg rounded px-2"
+                [class]="
+                  meal.status
+                    ? 'bg-green-800 text-lighter'
+                    : 'bg-red-800 text-lighter'
+                "
+              >
+                {{ meal.status ? "Active" : "Disabled" }}
+              </p>
+            </td>
+            <td class="text-center py-2 px-2">
+              <button
+                type="button"
+                class="dark:text-lighter text-black"
+                id="dropdownMenuButton1"
+                data-te-dropdown-toggle-ref
+                aria-expanded="false"
+                data-te-ripple-init
+                data-te-ripple-color="light"
+              >
+                <i class="bi bi-three-dots-vertical"></i>
+              </button>
+              <ul
+                class="absolute z-[1000] float-left m-0 hidden min-w-max list-none overflow-hidden rounded-lg border-none bg-white bg-clip-padding text-left text-base shadow-lg dark:bg-neutral-700 [&[data-te-dropdown-show]]:block"
+                aria-labelledby="dropdownMenuButton1"
+                data-te-dropdown-menu-ref
+              >
+                <li>
+                  <a
+                    class="w-full whitespace-nowrap bg-transparent px-4 py-2 hover:bg-neutral-500 active:text-neutral-800 active:no-underline disabled:pointer-events-none disabled:bg-transparent disabled:text-neutral-400 flex flex-row items-center"
+                    data-te-dropdown-item-ref
+                  >
+                    <span
+                      class="dark:text-lighter text-black text-sm font-incosolata font-normal"
+                      >Edit <i class="bi bi-pen"></i>
+                    </span>
+                  </a>
+                </li>
+                <li>
+                  <a
+                    class="w-full whitespace-nowrap bg-transparent px-4 py-2 hover:bg-neutral-500 active:text-neutral-800 active:no-underline disabled:pointer-events-none disabled:bg-transparent disabled:text-neutral-400 flex flex-row items-center"
+                    data-te-dropdown-item-ref
+                  >
+                    <span
+                      class="text-red-500 text-sm font-incosolata font-normal"
+                      >Remove
+                      <i class="bi bi-arrow-bar-right text-red-500"></i>
+                    </span>
+                  </a>
+                </li>
+              </ul>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <div
+    class="w-full h-full bg-white dark:bg-zinc-950 flex flex-col space-y-4 px-2 pt-2 pb-4"
+  >
+    <div
+      class="w-full border-b border-blue-50 flex flex-row justify-between items-center h-24"
+    >
+      <h4
+        class="text-2xl col-span-full lg:text-4xl dark:text-blue-100 text-black font-incosolata py-3 border-opacity-20"
+      >
+        Lunch & Dinner Categories
+      </h4>
+      <button
+        data-te-toggle="modal"
+        data-te-toggle="modal"
+        data-te-target="#add-banquet-backdrop"
+        data-te-ripple-init
+        data-te-ripple-color="light"
+        class="bg-primary relative w-1/6 m-2 h-14 px-4 py-2 flex flex-row items-center group duration-150"
+      >
+        <div
+          class="absolute group flex space-x-1 flex-row items-center top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"
+        >
+          <i class="text-lighter group-hover:text-white mt-1 bi bi-plus"></i>
+          <p class="font-incosolata text-lighter group-hover:text-white">Add</p>
+        </div>
+      </button>
+    </div>
+    <div
+      class="w-full grid gap-x-2 gap-y-4 sm:grid-cols-2 md:grid-cols-3 lg:hidden"
+    >
+      <div
+        *ngFor="let food of banquetCategories; index as ind"
+        class="flex flex-col space-y-8 px-2 py-4 rounded shadow"
+        [class]="
+          ind % 2 === 0
+            ? 'bg-mgrey dark:bg-[#4F4557] border-none'
+            : 'border border-secondary bg-transparent'
+        "
+      >
+        <div class="flex flex-row items-center justify-between">
+          <img
+            [src]="food.icon"
+            class="w-14 h-14 rounded-full"
+            alt="breakfast-category-icon"
+          />
+          <p class="font-incosolata dark:text-lighter text-black">
+            {{ food.name }}
+          </p>
+        </div>
+        <div class="flex flex-row items-center justify-between">
+          <p
+            class="font-incosolata p-0.5 rounded-lg"
+            [class]="food.status ? 'bg-green-600' : 'bg-red-600'"
+          >
+            {{ food.status ? "Active" : "Disabled" }}
+          </p>
+          <div class="relative" data-te-dropdown-ref>
+            <button
+              type="button"
+              class="dark:text-lighter text-black"
+              id="dropdownMenuButton1"
+              data-te-dropdown-toggle-ref
+              aria-expanded="false"
+              data-te-ripple-init
+              data-te-ripple-color="light"
+            >
+              <i class="bi bi-three-dots-vertical"></i>
+            </button>
+            <ul
+              class="absolute z-[1000] float-left m-0 hidden min-w-max list-none overflow-hidden rounded-lg border-none bg-white bg-clip-padding text-left text-base shadow-lg dark:bg-neutral-700 [&[data-te-dropdown-show]]:block"
+              aria-labelledby="dropdownMenuButton1"
+              data-te-dropdown-menu-ref
+            >
+              <li>
+                <a
+                  class="w-full whitespace-nowrap bg-transparent px-4 py-2 hover:bg-neutral-500 active:text-neutral-800 active:no-underline disabled:pointer-events-none disabled:bg-transparent disabled:text-neutral-400 flex flex-row items-center"
+                  data-te-dropdown-item-ref
+                >
+                  <span
+                    class="dark:text-lighter text-black text-sm font-incosolata font-normal"
+                    >Edit <i class="bi bi-pen"></i>
+                  </span>
+                </a>
+              </li>
+              <li>
+                <a
+                  class="w-full whitespace-nowrap bg-transparent px-4 py-2 hover:bg-neutral-500 active:text-neutral-800 active:no-underline disabled:pointer-events-none disabled:bg-transparent disabled:text-neutral-400 flex flex-row items-center"
+                  data-te-dropdown-item-ref
+                >
+                  <span class="text-red-500 text-sm font-incosolata font-normal"
+                    >Remove
+                    <i class="bi bi-arrow-bar-right text-red-500"></i>
+                  </span>
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="w-full py-4 mt-8 flex flex-row items-center justify-between col-span-full"
+    >
+      <div class="flex flex-row-items-center space-x-2">
+        <div>
+          <p class="text-sm mt-2 dark:text-zinc-100 font-incosolata text-black">
+            Show(s):
+          </p>
+        </div>
+        <div class="max-w-[5rem]">
+          <select
+            [ngModel]="showing"
+            (ngModelChange)="valueChanged($event)"
+            class="appearance-none w-full text-black dark:text-zinc-100 text-sm font-incosolata border border-gray-300 bg-white dark:bg-zinc-800 px-4 py-2 pr-8 rounded leading-tight focus:outline-none focus:bg-white dark:focus:bg-transparent focus:border-gray-500"
+          >
+            <option
+              class="hover:bg-zinc-800 text-black dark:text-blue-100 text-sm font-incosolata bg-white dark:bg-zinc-900"
+              *ngFor="let show of showings"
+              [ngValue]="show"
+            >
+              {{ show }}
+            </option>
+          </select>
+        </div>
+        <div class="hidden lg:block">
+          <p class="text-sm dark:text-zinc-100 mt-2 font-incosolata text-black">
+            Entries
+          </p>
+        </div>
+      </div>
+      <div class="relative mt-0 w-1/2 lg:w-1/3">
+        <div class="relative flex w-full flex-wrap items-stretch">
+          <input
+            type="search"
+            class="dark:text-zinc-100 px-2 text-black relative text-sm font-incosolata m-0 block w-[1px] min-w-0 flex-auto rounded border border-solid border-neutral-300 dark:border-zinc-100 bg-transparent dark:bg-zinc-950 font-normal leading[1.6] outline-none transition duration-200 ease-in-out focus:z-[3] focus:border-primary focus:text-neutral-700 dark:focus:text-zinc-100 focus:shadow-[inset_0_0_0_1px_rgb(59,113,202)] focus:outline-none dark:placeholder:text-neutral-400"
+            placeholder="Search"
+            aria-label="Search"
+            aria-describedby="button-addon2"
+          />
+
+          <span
+            class="input-group-text cursor-pointer flex items-center whitespace-nowrap rounded px-3 py-1.5 text-center text-base font-normal text-neutral-700"
+            id="basic-addon2"
+          >
+            <i class="bi bi-search"></i>
+          </span>
+        </div>
+      </div>
+    </div>
+    <div class="relative shadow hidden max-h-96 lg:block overflow-auto">
+      <table #categoriesTable class="relative w-full">
+        <thead>
+          <tr class="shadow-2xl">
+            <th
+              class="sticky top-0 px-3 py-3 text-lighter bg-primary font-incosolata font-bold bg-grey2 rounded-tl-xl"
+            >
+              #
+            </th>
+            <th
+              #categoryHeaderContainer
+              [attr.data-column]="
+                i !== categoriesHeaders.length - 1 ? header : ''
+              "
+              [attr.data-order]="
+                i !== categoriesHeaders.length - 1 ? 'desc' : ''
+              "
+              *ngFor="let header of categoriesHeaders; index as i"
+              class="sticky text-left top-0 px-3 py-3 text-lighter bg-primary font-incosolata font-bold bg-grey2"
+            >
+              <p class="font-primary text-left text-lighter">
+                {{ header }}
+                <span
+                  *ngIf="
+                    categoryHeaderContainer.dataset['order'] == 'desc' &&
+                    i !== categoriesHeaders.length - 1
+                  "
+                  ><i class="bi bi-caret-up"></i>
+                </span>
+                <span
+                  *ngIf="
+                    categoryHeaderContainer.dataset['order'] == 'asc' &&
+                    i !== categoriesHeaders.length - 1
+                  "
+                  ><i class="bi bi-caret-down"></i>
+                </span>
+              </p>
+            </th>
+            <th
+              class="sticky text-lighter bg-primary rounded-tr-xl top-0 px-3 py-3 font-incosolata font-bold bg-grey2"
+            >
+              Action
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr
+            class="divide-y"
+            *ngFor="let category of banquetCategories; index as ind"
+          >
+            <td class="w-20 h-20 py-2 px-2">
+              <img
+                [src]="category.icon"
+                class="h-full max-w-full rounded-full"
+                alt=""
+              />
+            </td>
+            <td
+              class="dark:text-lighter text-black py-2 font-incosolata text-lg"
+            >
+              {{ category.name }}
+            </td>
+            <td class="text-center py-2">
+              <p
+                class="dark:text-lighter text-center ml-4 w-fit text-black font-incosolata text-lg rounded px-2"
+                [class]="
+                  category.status
+                    ? 'bg-green-800 text-lighter'
+                    : 'bg-red-800 text-lighter'
+                "
+              >
+                {{ category.status ? "Active" : "Disabled" }}
+              </p>
+            </td>
+            <td class="text-center py-2">
+              <button
+                type="button"
+                class="dark:text-lighter text-black"
+                id="dropdownMenuButton1"
+                data-te-dropdown-toggle-ref
+                aria-expanded="false"
+                data-te-ripple-init
+                data-te-ripple-color="light"
+              >
+                <i class="bi bi-three-dots-vertical"></i>
+              </button>
+              <ul
+                class="absolute z-[1000] float-left m-0 hidden min-w-max list-none overflow-hidden rounded-lg border-none bg-white bg-clip-padding text-left text-base shadow-lg dark:bg-neutral-700 [&[data-te-dropdown-show]]:block"
+                aria-labelledby="dropdownMenuButton1"
+                data-te-dropdown-menu-ref
+              >
+                <li>
+                  <a
+                    class="w-full whitespace-nowrap bg-transparent px-4 py-2 hover:bg-neutral-500 active:text-neutral-800 active:no-underline disabled:pointer-events-none disabled:bg-transparent disabled:text-neutral-400 flex flex-row items-center"
+                    data-te-dropdown-item-ref
+                  >
+                    <span
+                      class="dark:text-lighter text-black text-sm font-incosolata font-normal"
+                      >Edit <i class="bi bi-pen"></i>
+                    </span>
+                  </a>
+                </li>
+                <li>
+                  <a
+                    class="w-full whitespace-nowrap bg-transparent px-4 py-2 hover:bg-neutral-500 active:text-neutral-800 active:no-underline disabled:pointer-events-none disabled:bg-transparent disabled:text-neutral-400 flex flex-row items-center"
+                    data-te-dropdown-item-ref
+                  >
+                    <span
+                      class="text-red-500 text-sm font-incosolata font-normal"
+                      >Remove
+                      <i class="bi bi-arrow-bar-right text-red-500"></i>
+                    </span>
+                  </a>
+                </li>
+              </ul>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+<app-add-banquet-category></app-add-banquet-category>
+
+<app-add-banquet-product></app-add-banquet-product>

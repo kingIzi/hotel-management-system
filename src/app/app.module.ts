@@ -7,6 +7,8 @@ import { CheckOutReservationComponent } from './components/dialogs/check-out-res
 import { PaginationComponent } from './components/utilities/pagination/pagination.component';
 import { AddBreakfastCategoryComponent } from './components/dialogs/add-breakfast-category/add-breakfast-category.component';
 import { AddBreakfastProductComponent } from './components/dialogs/add-breakfast-product/add-breakfast-product.component';
+import { AddBanquetCategoryComponent } from './components/dialogs/add-banquet-category/add-banquet-category.component';
+import { AddBanquetProductComponent } from './components/dialogs/add-banquet-product/add-banquet-product.component';
 
 @NgModule({
   declarations: [],

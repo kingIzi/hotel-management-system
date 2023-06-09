@@ -37,6 +37,8 @@ export class BreakfastComponent implements OnInit {
       link: '/main/dine/explore/production',
     },
   ];
+  public showing: number = 5;
+  public showings: number[] = [5, 10, 20];
   public categoriesHeaders = ['Category Name', 'Status'];
   public breakfastCategories = [
     {
@@ -124,5 +126,8 @@ export class BreakfastComponent implements OnInit {
   constructor() {}
   ngOnInit(): void {
     initTE({ Modal });
+  }
+  public valueChanged(event: any) {
+    this.showing = event;
   }
 }

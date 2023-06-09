@@ -1,7 +1,7 @@
 <div
   data-te-modal-init
   class="fixed left-0 top-0 z-[1055] hidden h-full w-full overflow-y-auto overflow-x-hidden outline-none"
-  id="add-product-backdrop"
+  id="add-banquet-product-backdrop"
   data-te-backdrop="static"
   data-te-keyboard="false"
   tabindex="-1"
@@ -128,7 +128,7 @@
               <div class="w-full">
                 <select id="multiSelection" data-te-select-init multiple>
                   <option
-                    *ngFor="let category of categories; index as ind"
+                    *ngFor="let category of banquetCategories; index as ind"
                     [value]="category.name"
                     [ngValue]="category.name"
                     [attr.data-te-select-icon]="category.icon"
