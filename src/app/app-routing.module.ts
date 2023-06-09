@@ -20,6 +20,7 @@ const routes: Routes = [
   { path: 'pages/fontal-office', loadChildren: () => import('./pages/frontal-office/frontal-office.module').then(m => m.FrontalOfficeModule) },
   { path: 'pages/dine', loadChildren: () => import('./pages/dine/dine.module').then(m => m.DineModule) },
   { path: 'pages/dine/food-productions', loadChildren: () => import('./pages/dine/food-productions/food-productions.module').then(m => m.FoodProductionsModule) },
+  { path: 'pages/dine/food-beverages', loadChildren: () => import('./pages/dine/food-beverages/food-beverages.module').then(m => m.FoodBeveragesModule) },
 ];
 
 @NgModule({

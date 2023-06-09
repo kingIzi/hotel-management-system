@@ -1,0 +1,169 @@
+{
+  "users": [],
+  "food": {
+    "productions": {
+      "breakfast": {
+        "categories": [
+          {
+            "name": "Cereal and Grains",
+            "status": true,
+            "icon": "assets/img/cereals.jpg"
+          },
+          {
+            "name": "Eggs and Dairy",
+            "status": true,
+            "icon": "assets/img/eggs-diary.jpg"
+          },
+          {
+            "name": "Fruits and Berries",
+            "status": true,
+            "icon": "assets/img/fruits-salad.jpg"
+          },
+          {
+            "status": true,
+            "name": "Breads and Spreads",
+            "icon": "assets/img/breads-spreads.jpg"
+          },
+          {
+            "status": true,
+            "name": "Juices and Smoothies",
+            "icon": "assets/img/juices.jpg"
+          },
+          {
+            "status": true,
+            "name": "Breakfast Meats",
+            "icon": "assets/img/breakfast-meats.jpg"
+          },
+          {
+            "status": true,
+            "name": "Breakfast Sides",
+            "icon": "assets/img/breakfast-sides.jpg"
+          }
+        ],
+        "products": [
+          {
+            "status": true,
+            "name": "Scrambled eggs with toast",
+            "category": "Eggs and Dairy",
+            "ingredients": "Eggs, bread",
+            "price": 8000,
+            "currency": "TSH",
+            "icon": "assets/img/scrambled-eggs.jpg",
+            "mealNo": 8
+          },
+          {
+            "status": true,
+            "name": "Oatmeal with fresh fruits and nuts",
+            "category": "Fruits and Berries",
+            "ingredients": "Oats, fruits (e.g., berries, bananas), nuts (e.g., almonds, walnuts)",
+            "price": 8000,
+            "currency": "TSH",
+            "icon": "assets/img/oats-meal.JPG",
+            "mealNo": 9
+          },
+          {
+            "status": true,
+            "name": "Cereal with milk and sliced bananas",
+            "category": "Cereal and Grains",
+            "ingredients": "Cereal, milk, bananas",
+            "price": 2000,
+            "currency": "TSH",
+            "icon": "assets/img/cereals-banana.jpg",
+            "mealNo": 12
+          },
+          {
+            "status": true,
+            "name": "French toast with powdered sugar and berries",
+            "category": "Breads and Spreads",
+            "ingredients": "bread, eggs, powdered sugar, berries",
+            "price": 12000,
+            "currency": "TSH",
+            "icon": "assets/img/french-toast.jpg",
+            "mealNo": 16
+          }
+        ]
+      },
+      "banquet": {
+        "categories": [
+          {
+            "name": "Soups and Stews",
+            "status": true,
+            "icon": "assets/img/soup-stew.jpg"
+          },
+          {
+            "name": "Sandwiches and Wraps",
+            "status": true,
+            "icon": "assets/img/sandwiches-wraps.jpg"
+          },
+          {
+            "name": "Pasta and Noodles",
+            "status": true,
+            "icon": "assets/img/pasta.jpg"
+          },
+          {
+            "status": true,
+            "name": "Meat and Poultry",
+            "icon": "assets/img/meats.jpg"
+          },
+          {
+            "status": true,
+            "name": "Vegetarian and Vegan",
+            "icon": "assets/img/vegan.jpg"
+          },
+          {
+            "status": true,
+            "name": "BBQ and Grilled",
+            "icon": "assets/img/bbq.jpg"
+          },
+          {
+            "status": true,
+            "name": "Pizza",
+            "icon": "assets/img/pizza.jpg"
+          }
+        ],
+        "products": [
+          {
+            "status": true,
+            "name": "Grilled chicken with roasted vegetables",
+            "category": "BBQ and Grilled",
+            "ingredients": "Chicken breasts, Dried herbs (such as thyme, rosemary, or oregano),Bell peppers",
+            "price": 18000,
+            "currency": "TSH",
+            "icon": "assets/img/chicken-1.jpg",
+            "mealNo": 1
+          },
+          {
+            "status": true,
+            "name": "Spaghetti carbonara",
+            "category": "Pasta and Noodles",
+            "ingredients": "Spaghetti pasta, Pancetta or bacon, diced, Pancetta or bacon, diced, Eggs",
+            "price": 1400,
+            "currency": "TSH",
+            "icon": "assets/img/spaghetti.jpg",
+            "mealNo": 2
+          },
+          {
+            "status": true,
+            "name": "Vegetable stir-fry with tofu and noodles",
+            "category": "Vegetarian and Vegan",
+            "ingredients": "Firm tofu, cubed,Carrots, Bean sprouts, Garlic cloves, minced, Cabbage",
+            "price": 10000,
+            "currency": "TSH",
+            "icon": "assets/img/vegan-food.jpg",
+            "mealNo": 3
+          },
+          {
+            "status": true,
+            "name": "Chicken quesadillas with salsa and sour cream",
+            "category": "BBQ and Grilled",
+            "ingredients": "Boneless, skinless chicken breasts, cooked and shredded",
+            "price": 12000,
+            "currency": "TSH",
+            "icon": "assets/img/chicken-salsa.jpg",
+            "mealNo": 4
+          }
+        ]
+      }
+    }
+  }
+}

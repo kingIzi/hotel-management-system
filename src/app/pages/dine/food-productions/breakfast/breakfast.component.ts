@@ -10,7 +10,10 @@ import {
 import { AddBreakfastCategoryComponent } from 'src/app/components/dialogs/add-breakfast-category/add-breakfast-category.component';
 import { AddBreakfastProductComponent } from 'src/app/components/dialogs/add-breakfast-product/add-breakfast-product.component';
 import { LoaderModalComponent } from 'src/app/components/dialogs/loader-modal/loader-modal.component';
+import { BreakfastCategory } from 'src/app/entities/breakfast-category';
+import { BreakfastProduct } from 'src/app/entities/breakfast-product';
 import { Modal, initTE } from 'tw-elements';
+import * as data from 'src/assets/database.json';
 
 @Component({
   selector: 'app-breakfast',
@@ -40,92 +43,23 @@ export class BreakfastComponent implements OnInit {
   public showing: number = 5;
   public showings: number[] = [5, 10, 20];
   public categoriesHeaders = ['Category Name', 'Status'];
-  public breakfastCategories = [
-    {
-      name: 'Cereal and Grains',
-      status: true,
-      icon: 'assets/img/cereals.jpg',
-    },
-    {
-      name: 'Eggs and Dairy',
-      status: true,
-      icon: 'assets/img/eggs-diary.jpg',
-    },
-    {
-      name: 'Fruits and Berries',
-      status: true,
-      icon: 'assets/img/fruits-salad.jpg',
-    },
-    {
-      status: true,
-      name: 'Breads and Spreads',
-      icon: 'assets/img/breads-spreads.jpg',
-    },
-    {
-      status: true,
-      name: 'Juices and Smoothies',
-      icon: 'assets/img/juices.jpg',
-    },
-    {
-      status: true,
-      name: 'Breakfast Meats',
-      icon: 'assets/img/breakfast-meats.jpg',
-    },
-    {
-      status: true,
-      name: 'Breakfast Sides',
-      icon: 'assets/img/breakfast-sides.jpg',
-    },
-  ];
   public mealsHeaders = [
+    'Meal',
     'Product name',
     'Category',
     'Ingredients',
     'price',
     'status',
   ];
-  public meals = [
-    {
-      status: true,
-      name: 'Scrambled eggs with toast',
-      category: this.breakfastCategories[1].name,
-      ingredients: 'eggs, bread',
-      price: 8000,
-      currency: 'TSH',
-      icon: 'assets/img/scrambled-eggs.jpg',
-    },
-    {
-      status: true,
-      name: 'Oatmeal with fresh fruits and nuts',
-      category: this.breakfastCategories[2].name,
-      ingredients:
-        'Oats, fruits (e.g., berries, bananas), nuts (e.g., almonds, walnuts)',
-      price: 8000,
-      currency: 'TSH',
-      icon: 'assets/img/oats-meal.JPG',
-    },
-    {
-      status: true,
-      name: 'Cereal with milk and sliced bananas',
-      category: this.breakfastCategories[0].name,
-      ingredients: 'cereal, milk, bananas',
-      price: 2000,
-      currency: 'TSH',
-      icon: 'assets/img/cereals-banana.jpg',
-    },
-    {
-      status: true,
-      name: 'French toast with powdered sugar and berries',
-      category: this.breakfastCategories[3].name,
-      ingredients: 'bread, eggs, powdered sugar, berries',
-      price: 12000,
-      currency: 'TSH',
-      icon: 'assets/img/french-toast.jpg',
-    },
-  ];
+  public breakfastCategories: BreakfastCategory[] | undefined;
+  public products: BreakfastProduct[] | undefined;
   constructor() {}
   ngOnInit(): void {
     initTE({ Modal });
+    let breakfastData = JSON.parse(JSON.stringify(data));
+    this.breakfastCategories =
+      breakfastData.food.productions.breakfast.categories;
+    this.products = breakfastData.food.productions.breakfast.products;
   }
   public valueChanged(event: any) {
     this.showing = event;

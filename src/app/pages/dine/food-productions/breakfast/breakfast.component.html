@@ -8,7 +8,7 @@
       <h4
         class="text-2xl col-span-full lg:text-4xl dark:text-blue-100 text-black font-incosolata py-3 border-opacity-20"
       >
-        Products(s)
+        Breakfast Products(s)
       </h4>
       <button
         data-te-toggle="modal"
@@ -22,7 +22,11 @@
           class="absolute group flex space-x-1 flex-row items-center top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"
         >
           <i class="text-lighter group-hover:text-white mt-1 bi bi-plus"></i>
-          <p class="font-incosolata text-lighter group-hover:text-white">Add</p>
+          <p
+            class="font-incosolata text-sm text-lighter group-hover:text-white"
+          >
+            Add
+          </p>
         </div>
       </button>
     </div>
@@ -30,7 +34,7 @@
       class="w-full grid gap-x-2 gap-y-4 sm:grid-cols-2 md:grid-cols-3 lg:hidden"
     >
       <div
-        *ngFor="let food of meals; index as ind"
+        *ngFor="let product of products; index as ind"
         class="flex flex-col space-y-4 px-2 py-2 rounded shadow"
         [class]="
           ind % 2 === 0
@@ -40,31 +44,31 @@
       >
         <div class="flex flex-row items-center justify-between space-x-8">
           <img
-            [src]="food.icon"
+            [src]="product.icon"
             class="w-14 h-14 rounded-full"
             alt="breakfast-category-icon"
           />
           <p class="font-incosolata dark:text-lighter text-black">
-            {{ food.name }}
+            {{ product.name }}
           </p>
         </div>
         <div class="flex flex-row items-center justify-between space-x-8">
           <p class="font-incosolata dark:text-lighter text-black">
-            {{ food.category }}
+            {{ product.category }}
           </p>
           <p class="font-incosolata dark:text-lighter text-black">
-            {{ food.ingredients }}
+            {{ product.ingredients }}
           </p>
         </div>
         <div class="flex flex-row items-center justify-between space-x-8">
           <p class="font-incosolata dark:text-lighter text-black">
-            {{ food.price }} / {{ food.currency }}
+            {{ product.price }} / {{ product.currency }}
           </p>
           <p
             class="font-incosolata p-0.5 rounded-lg"
-            [class]="food.status ? 'bg-green-600' : 'bg-red-600'"
+            [class]="product.status ? 'bg-green-600' : 'bg-red-600'"
           >
-            {{ food.status ? "Active" : "Disabled" }}
+            {{ product.status ? "Active" : "Disabled" }}
           </p>
         </div>
         <div class="flex flex-row items-center justify-between">
@@ -206,11 +210,11 @@
           <tr
             [class]="ind % 2 === 0 ? 'dark:bg-zinc-800' : 'dark:bg-zinc-900'"
             class="divide-y"
-            *ngFor="let meal of meals; index as ind"
+            *ngFor="let product of products; index as ind"
           >
             <td class="w-20 h-20 py-2 px-2">
               <img
-                [src]="meal.icon"
+                [src]="product.icon"
                 class="h-full max-w-full rounded-full"
                 alt=""
               />
@@ -218,33 +222,38 @@
             <td
               class="dark:text-lighter text-black py-2 px-2 font-incosolata text-lg"
             >
-              {{ meal.name }}
+              {{ product.mealNo }}
             </td>
             <td
               class="dark:text-lighter text-black py-2 px-2 font-incosolata text-lg"
             >
-              {{ meal.category }}
+              {{ product.name }}
             </td>
             <td
               class="dark:text-lighter text-black py-2 px-2 font-incosolata text-lg"
             >
-              {{ meal.ingredients }}
+              {{ product.category }}
             </td>
             <td
               class="dark:text-lighter text-black py-2 px-2 font-incosolata text-lg"
             >
-              {{ meal.price }} / {{ meal.currency }}
+              {{ product.ingredients }}
+            </td>
+            <td
+              class="dark:text-lighter text-black py-2 px-2 font-incosolata text-lg"
+            >
+              {{ product.price }} / {{ product.currency }}
             </td>
             <td class="text-center py-2 px-2">
               <p
                 class="dark:text-lighter text-center ml-4 w-fit text-black font-incosolata text-lg rounded px-2"
                 [class]="
-                  meal.status
+                  product.status
                     ? 'bg-green-800 text-lighter'
                     : 'bg-red-800 text-lighter'
                 "
               >
-                {{ meal.status ? "Active" : "Disabled" }}
+                {{ product.status ? "Active" : "Disabled" }}
               </p>
             </td>
             <td class="text-center py-2 px-2">

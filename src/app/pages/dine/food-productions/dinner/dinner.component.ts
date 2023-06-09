@@ -6,6 +6,9 @@ import { AddBanquetProductComponent } from 'src/app/components/dialogs/add-banqu
 import { AddBreakfastCategoryComponent } from 'src/app/components/dialogs/add-breakfast-category/add-breakfast-category.component';
 import { AddBreakfastProductComponent } from 'src/app/components/dialogs/add-breakfast-product/add-breakfast-product.component';
 import { Modal, initTE } from 'tw-elements';
+import * as data from 'src/assets/database.json';
+import { BanquetCategory } from 'src/app/entities/banquet-category';
+import { BanquetProduct } from 'src/app/entities/banquet-product';
 
 @Component({
   selector: 'app-dinner',
@@ -24,93 +27,22 @@ export class DinnerComponent implements OnInit {
   public showings: number[] = [5, 10, 20];
   public categoriesHeaders = ['Category Name', 'Status'];
   public mealsHeaders = [
+    'Meal',
     'Product name',
     'Category',
     'Ingredients',
     'price',
     'status',
   ];
-  public banquetCategories = [
-    {
-      name: 'Soups and Stews',
-      status: true,
-      icon: 'assets/img/soup-stew.jpg',
-    },
-    {
-      name: 'Sandwiches and Wraps',
-      status: true,
-      icon: 'assets/img/sandwiches-wraps.jpg',
-    },
-    {
-      name: 'Pasta and Noodles',
-      status: true,
-      icon: 'assets/img/pasta.jpg',
-    },
-    {
-      status: true,
-      name: 'Meat and Poultry',
-      icon: 'assets/img/meats.jpg',
-    },
-    {
-      status: true,
-      name: 'Vegetarian and Vegan',
-      icon: 'assets/img/vegan.jpg',
-    },
-    {
-      status: true,
-      name: 'BBQ and Grilled',
-      icon: 'assets/img/bbq.jpg',
-    },
-    {
-      status: true,
-      name: 'Pizza',
-      icon: 'assets/img/pizza.jpg',
-    },
-  ];
-  public meals = [
-    {
-      status: true,
-      name: 'Grilled chicken with roasted vegetables',
-      category: this.banquetCategories[5].name,
-      ingredients:
-        'Chicken breasts, Dried herbs (such as thyme, rosemary, or oregano),Bell peppers',
-      price: 18000,
-      currency: 'TSH',
-      icon: 'assets/img/chicken-1.jpg',
-    },
-    {
-      status: true,
-      name: 'Spaghetti carbonara',
-      category: this.banquetCategories[2].name,
-      ingredients:
-        'Spaghetti pasta, Pancetta or bacon, diced, Pancetta or bacon, diced, Eggs',
-      price: 1400,
-      currency: 'TSH',
-      icon: 'assets/img/spaghetti.jpg',
-    },
-    {
-      status: true,
-      name: 'Vegetable stir-fry with tofu and noodles',
-      category: this.banquetCategories[4].name,
-      ingredients:
-        'Firm tofu, cubed,Carrots, Bean sprouts, Garlic cloves, minced, Cabbage',
-      price: 10000,
-      currency: 'TSH',
-      icon: 'assets/img/vegan-food.jpg',
-    },
-    {
-      status: true,
-      name: 'Chicken quesadillas with salsa and sour cream',
-      category: this.banquetCategories[5].name,
-      ingredients: 'Boneless, skinless chicken breasts, cooked and shredded',
-      price: 12000,
-      currency: 'TSH',
-      icon: 'assets/img/chicken-salsa.jpg',
-    },
-  ];
+  public banquetCategories: BanquetCategory[] | undefined;
+  public products: BanquetProduct[] | undefined;
   constructor() {}
   ngOnInit(): void {
     initTE({ Modal });
+    let banquetData = JSON.parse(JSON.stringify(data));
+    this.banquetCategories = banquetData.food.productions.banquet.categories;
+    this.products = banquetData.food.productions.banquet.products;
+    console.log(this.products);
   }
   public valueChanged(event: any) {
     this.showing = event;
