@@ -24,6 +24,18 @@ const routes: Routes = [
         loadComponent: () =>
           import('./dinner/dinner.component').then((m) => m.DinnerComponent),
       },
+      {
+        path: 'drinks',
+        loadComponent: () =>
+          import('./drinks/drinks.component').then((m) => m.DrinksComponent),
+      },
+      {
+        path: 'desserts',
+        loadComponent: () =>
+          import('./desserts/desserts.component').then(
+            (m) => m.DessertsComponent
+          ),
+      },
     ],
   },
 ];

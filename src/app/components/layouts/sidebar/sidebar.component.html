@@ -80,14 +80,19 @@
   <ul class="relative mt-10 list-none" data-te-sidenav-menu-ref>
     <li class="relative" *ngFor="let navbarItem of navbarItems">
       <a
-        class="flex flex-row items-center space-x-3 px-2 py-4 hover:text-primary"
+        class="flex flex-row items-center space-x-3 px-2 py-4 hover:text-primary dark:hover:text-lighter"
         [routerLink]="navbarItem.routerLink"
-        [routerLinkActive]="['bg-primary', 'text-lighter']"
+        [routerLinkActive]="[
+          'bg-primary',
+          'text-lighter',
+          'hover:text-white',
+          'dark:hover:text-white'
+        ]"
       >
         <span class="dark:text-mgrey text-black">
           <i [ngClass]="navbarItem.bootstrapIcon"></i>
         </span>
-        <p class="font-incosolata text-lg dark:text-mgrey text-black">
+        <p class="font-incosolata text-lg dark:text-mgrey">
           {{ navbarItem.title }}
         </p>
       </a>

@@ -2,6 +2,204 @@
   "users": [],
   "food": {
     "productions": {
+      "desserts": [
+        {
+          "status": true,
+          "category": "Cakes",
+          "icon": "assets/img/icons8-cake-96.png",
+          "products": [
+            {
+              "name": "Vanilla Sponge Cake",
+              "icon": "assets/img/vanilla-sponge-cake.jpg",
+              "quantity": "8"
+            },
+            {
+              "name": "Chocolate Cake",
+              "icon": "assets/img/chocolate-cake.jpg",
+              "quantity": "8"
+            }
+          ]
+        },
+        {
+          "status": true,
+          "category": "Ice Cream",
+          "icon": "assets/img/icons8-ice-cream-96.png",
+          "products": [
+            {
+              "name": "Vanilla Ice Cream",
+              "icon": "assets/img/vanilla-ice-cream.jpg",
+              "quantity": "8"
+            },
+            {
+              "name": "Strawberry Ice Cream",
+              "icon": "assets/img/strawberry-ice-cream.jpg",
+              "quantity": "10"
+            },
+            {
+              "name": "Chocolate Chip Ice Cream",
+              "icon": "assets/img/chocolate-chip-ice-cream.jpg",
+              "quantity": "10"
+            }
+          ]
+        },
+        {
+          "status": true,
+          "category": "Pies",
+          "icon": "assets/img/icons8-pie-96.png",
+          "products": [
+            {
+              "name": "Apple Pie",
+              "icon": "assets/img/apple-pie.jpg",
+              "quantity": "8"
+            },
+            {
+              "name": "Pecan Pie",
+              "icon": "assets/img/pecan-pie.jpg",
+              "quantity": "10"
+            }
+          ]
+        }
+      ],
+      "drinks": [
+        {
+          "status": true,
+          "category": "Non-Alcoholic Beverages",
+          "icon": "assets/img/icons8-no-alcohol-100.png",
+          "products": [
+            {
+              "name": "Water",
+              "icon": "assets/img/evian-natural-mineral-water-500-ml.jpg",
+              "quantity": "500"
+            },
+            {
+              "name": "Sprite",
+              "icon": "assets/img/sprite.jpg",
+              "quantity": "200"
+            },
+            {
+              "name": "Coke",
+              "icon": "assets/img/coke-can-2.jpg",
+              "quantity": "213"
+            },
+            {
+              "name": "Fanta Orange",
+              "icon": "assets/img/fanta-orange.jpg",
+              "quantity": "121"
+            },
+            {
+              "name": "Apple Juice",
+              "icon": "assets/img/apple-juice.jpg",
+              "quantity": "50"
+            },
+            {
+              "name": "Orange Juice",
+              "icon": "assets/img/orange-juice.jpg",
+              "quantity": "231"
+            },
+            {
+              "name": "Mango Juice",
+              "icon": "assets/img/mango-juice.jpg",
+              "quantity": "44"
+            }
+          ]
+        },
+        {
+          "status": true,
+          "category": "Alcoholic Beverages & Beers",
+          "icon": "assets/img/icons8-champagne-bottle-100.png",
+          "products": [
+            {
+              "name": "Heineken",
+              "icon": "assets/img/heineken.jpg",
+              "quantity": "44"
+            },
+            {
+              "name": "Guinness Beer",
+              "icon": "assets/img/guinness_foreign_extra_stout_beer_330ml_36151_T1.jpg",
+              "quantity": "44"
+            },
+            {
+              "name": "Castle-larger",
+              "icon": "assets/img/castle-larger.jpg",
+              "quantity": "44"
+            },
+            {
+              "name": "Red wine",
+              "icon": "assets/img/red-wine-2.jpg",
+              "quantity": "30"
+            },
+            {
+              "name": "White wine",
+              "icon": "assets/img/white-wine.jpg",
+              "quantity": "30"
+            },
+            {
+              "name": "Rosé",
+              "icon": "assets/img/71pNJZv9HhL._SX569_.jpg",
+              "quantity": "30"
+            }
+          ]
+        },
+        {
+          "status": true,
+          "category": "Hot Beverages",
+          "icon": "assets/img/icons8-coffee-cup-100.png",
+          "products": [
+            {
+              "name": "Espresso",
+              "icon": "assets/img/espresso.jpg",
+              "quantity": "30"
+            },
+            {
+              "name": "Cappuccino",
+              "icon": "assets/img/cappuccino.jpg",
+              "quantity": "30"
+            },
+            {
+              "name": "Latte",
+              "icon": "assets/img/latte.jpg",
+              "quantity": "30"
+            },
+            {
+              "name": "Black Tea",
+              "icon": "assets/img/black-tea.jpg",
+              "quantity": "30"
+            },
+            {
+              "name": "Green Tea",
+              "icon": "assets/img/tea_cup_and_saucer_tx.jpg",
+              "quantity": "30"
+            },
+            {
+              "name": "Hot Chocolate",
+              "icon": "assets/img/hot-chocolate.jpg",
+              "quantity": "30"
+            }
+          ]
+        },
+        {
+          "status": true,
+          "category": "Cold Beverages",
+          "icon": "assets/img/icons8-cup-with-straw-100.png",
+          "products": [
+            {
+              "name": "Cold brew coffee",
+              "icon": "assets/img/Cold-brew-coffee.jpg",
+              "quantity": "32"
+            },
+            {
+              "name": "Lemonade",
+              "icon": "assets/img/lemonade.jpg",
+              "quantity": "32"
+            },
+            {
+              "name": "Chocolate Milkshake",
+              "icon": "assets/img/saltedcaramelstarbucks.png",
+              "quantity": "32"
+            }
+          ]
+        }
+      ],
       "breakfast": {
         "categories": [
           {

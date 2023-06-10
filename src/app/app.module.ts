@@ -9,6 +9,8 @@ import { AddBreakfastCategoryComponent } from './components/dialogs/add-breakfas
 import { AddBreakfastProductComponent } from './components/dialogs/add-breakfast-product/add-breakfast-product.component';
 import { AddBanquetCategoryComponent } from './components/dialogs/add-banquet-category/add-banquet-category.component';
 import { AddBanquetProductComponent } from './components/dialogs/add-banquet-product/add-banquet-product.component';
+import { AddDrinksFormComponent } from './components/dialogs/add-drinks-form/add-drinks-form.component';
+import { AddDessertsFormComponent } from './components/dialogs/add-desserts-form/add-desserts-form.component';
 
 @NgModule({
   declarations: [],

@@ -1,0 +1,72 @@
+<div
+  class="w-full h-full bg-transparent flex flex-col space-y-4 px-2 pt-2 pb-4"
+>
+  <ul class="flex flex-col w-full space-y-10">
+    <li
+      *ngFor="let menu of drinksMenu; index as ind"
+      class="flex flex-col divide-y dark:bg-zinc-950 bg-white pl-2 pr-3 py-2"
+    >
+      <div class="flex flex-row items-center justify-between space-x-2">
+        <div class="flex flex-row items-center">
+          <img [src]="menu.icon" alt="" />
+          <h4
+            class="text-xl col-span-full lg:text-2xl dark:text-blue-100 text-black font-incosolata py-3 border-opacity-20"
+          >
+            {{ menu.category }}
+          </h4>
+        </div>
+        <button
+          data-te-toggle="modal"
+          data-te-target="#add-drinks-form"
+          data-te-ripple-init
+          data-te-ripple-color="light"
+          class="bg-primary relative w-1/6 m-2 h-14 px-4 py-2 flex flex-row items-center group duration-150"
+        >
+          <div
+            class="absolute group flex space-x-1 flex-row items-center top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"
+          >
+            <i class="text-lighter group-hover:text-white mt-1 bi bi-plus"></i>
+            <p class="font-incosolata text-lighter group-hover:text-white">
+              Add
+            </p>
+          </div>
+        </button>
+      </div>
+      <div class="flex overflow-x-auto">
+        <!-- Repeat the following div for each movie -->
+        <div
+          *ngFor="let drink of menu.products; index as ind"
+          class="flex-none w-64 p-4"
+        >
+          <!-- <div class="">
+            <img
+              src="https://th.bing.com/th/id/OIP.FooAMaUUDkt3u9UqngGGMQHaHa?pid=ImgDet&rs=1"
+              alt="Movie Poster"
+              class="w-full h-auto rounded-lg"
+            />
+          </div> -->
+          <div class="h-44">
+            <img
+              [src]="drink.icon"
+              alt="Movie Poster"
+              class="aspect-w-16 aspect-h-9 w-full h-full rounded-lg"
+            />
+          </div>
+          <div class="mt-2 text-center">
+            <h3
+              class="text-lg font-semibold font-incosolata dark:text-lighter truncate"
+            >
+              {{ drink.name }}
+            </h3>
+            <p class="text-sm text-gray-500 font-incosolata dark:text-blue-200">
+              {{ drink.quantity }}
+            </p>
+          </div>
+        </div>
+        <!-- End of repeated divs -->
+      </div>
+    </li>
+  </ul>
+</div>
+
+<app-add-drinks-form title="Add New Beverage"></app-add-drinks-form>

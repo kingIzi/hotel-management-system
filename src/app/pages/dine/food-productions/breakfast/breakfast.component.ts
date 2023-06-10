@@ -55,7 +55,7 @@ export class BreakfastComponent implements OnInit {
   public products: BreakfastProduct[] | undefined;
   constructor() {}
   ngOnInit(): void {
-    initTE({ Modal });
+    //initTE({ Modal });
     let breakfastData = JSON.parse(JSON.stringify(data));
     this.breakfastCategories =
       breakfastData.food.productions.breakfast.categories;

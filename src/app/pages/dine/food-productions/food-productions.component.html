@@ -1,32 +1,55 @@
 <div class="space-y-4 h-full py-4 px-4 flex flex-col">
   <app-router-navs [navLinks]="availableLinks"></app-router-navs>
-  <ul class="flex pb-2 list-none space-x-4 flex-row border-b-0 pl-0">
+  <ul
+    class="flex pb-2 list-none space-x-0 lg:space-x-4 flex-row flex-wrap border-b-0 pl-0"
+  >
     <li role="presentation">
       <a
         [routerLink]="'/main/dine/explore/production/breakfast'"
-        routerLinkActive="border-b dark:border-b-lighter dark:text-lighter dark:bg-primary"
-        class="flex flex-row items-center p-2 hover:opacity-80"
+        routerLinkActive="border-b-2 border-b-blue-200 shadow bg-primary text-lighter dark:border-b-2 ark:border-b-lighter dark:text-lighter dark:bg-primary"
+        class="flex flex-row items-center p-2 hover:opacity-80 dark:text-neutral-200"
       >
         <img class="w-14" src="assets/img/icons8-breakfast-64.png" alt="" />
-        <p class="font-incosolata tracking-wide text-lg p-2 text-neutral-400">
-          Breakfast
-        </p>
+        <p class="font-incosolata tracking-widest text-lg p-2">Breakfast</p>
       </a>
     </li>
     <li role="presentation">
       <a
         [routerLink]="'/main/dine/explore/production/dinner'"
-        routerLinkActive="border-b dark:border-b-lighter dark:text-lighter dark:bg-primary"
-        class="flex flex-row items-center p-2 hover:opacity-80"
+        routerLinkActive="border-b-2 border-b-blue-200 shadow bg-primary text-lighter dark:border-b-2 ark:border-b-lighter dark:text-lighter dark:bg-primary"
+        class="flex flex-row items-center p-2 hover:opacity-80 dark:text-neutral-200"
       >
         <img class="w-14" src="assets/img/icons8-dinner-64.png" alt="" />
-        <p class="font-incosolata tracking-wide text-lg p-2 text-neutral-400">
-          Banquet
-        </p>
+        <p class="font-incosolata tracking-widest text-lg p-2">Banquet</p>
       </a>
     </li>
     <li role="presentation">
       <a
+        [routerLink]="'/main/dine/explore/production/drinks'"
+        routerLinkActive="border-b-2 border-b-blue-200 shadow bg-primary text-lighter dark:border-b-2 ark:border-b-lighter dark:text-lighter dark:bg-primary"
+        class="flex flex-row items-center p-2 hover:opacity-80 dark:text-neutral-200"
+      >
+        <img
+          class="w-14"
+          src="assets/img/icons8-coconut-cocktail-100.png"
+          alt=""
+        />
+        <p class="font-incosolata tracking-widest text-lg p-2">Drinks</p>
+      </a>
+    </li>
+    <li class="pl-8 lg:pl-0" role="presentation">
+      <a
+        [routerLink]="'/main/dine/explore/production/desserts'"
+        routerLinkActive="border-b-2 border-b-blue-200 shadow bg-primary text-lighter dark:border-b-2 ark:border-b-lighter dark:text-lighter dark:bg-primary"
+        class="flex flex-row items-center p-2 hover:opacity-80 dark:text-neutral-200"
+      >
+        <img class="w-14" src="assets/img/icons8-cupcake-100.png" alt="" />
+        <p class="font-incosolata tracking-widest text-lg p-2">Desserts</p>
+      </a>
+    </li>
+    <!-- <li role="presentation">
+      <a
+        [routerLink]="'/main/dine/explore/production/drinks'"
         routerLinkActive="border-b dark:border-b-lighter dark:text-lighter dark:bg-primary"
         class="flex flex-row items-center p-2 hover:opacity-80"
       >
@@ -42,6 +65,7 @@
     </li>
     <li role="presentation">
       <a
+        [routerLink]="'/main/dine/explore/production/desserts'"
         routerLinkActive="border-b dark:border-b-lighter dark:text-lighter dark:bg-primary"
         class="flex flex-row items-center p-2 hover:opacity-80"
       >
@@ -50,7 +74,7 @@
           Desserts
         </p>
       </a>
-    </li>
+    </li> -->
   </ul>
   <!--Tabs content-->
   <div class="my-6">

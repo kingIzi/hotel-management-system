@@ -1,11 +1,11 @@
 <div
   data-te-modal-init
   class="fixed left-0 top-0 z-[1055] hidden h-full w-full overflow-y-auto overflow-x-hidden outline-none"
-  id="add-product-backdrop"
   data-te-backdrop="static"
+  id="add-dessert-form"
   data-te-keyboard="false"
   tabindex="-1"
-  aria-labelledby="staticBackdropLabel"
+  aria-labelledby="add-dessert-form-label"
   aria-hidden="true"
 >
   <div
@@ -40,7 +40,7 @@
 
       <!--Modal body-->
       <div data-te-modal-body-ref class="relative p-4">
-        <form [formGroup]="addProductFormGroup" class="flex flex-col">
+        <form [formGroup]="formGroup" class="flex flex-col">
           <div class="mb-3 flex flex-col w-1/2 lg:w-1/4">
             <div class="h-32 w-full border relative grid place-items-center">
               <ng-template #productDefaultImage>
@@ -97,70 +97,34 @@
                   >Enter product name
                 </label>
               </div>
-              <span
+              <!-- <span
                 *ngIf="
                   productName && productName.invalid && productName.touched
                 "
                 class="text-sm text-red-600 font-incosolata"
               >
                 Field cannot be empty
-              </span>
+              </span> -->
             </div>
             <div class="w-full mb-3 space-y-2">
               <label
                 for="room-no"
                 class="capitalize block text-sm font-incosolata text-black dark:text-zinc-100"
-                >Category<span class="text-sm text-red-600 font-incosolata"
+                >Beverage<span class="text-sm text-red-600 font-incosolata"
                   >*</span
                 ></label
               >
               <div class="w-full">
-                <select id="multiSelection" data-te-select-init multiple>
+                <select id="multiSelection" data-te-select-init>
                   <option
-                    *ngFor="let category of categories; index as ind"
-                    [value]="category.name"
-                    [ngValue]="category.name"
-                    [attr.data-te-select-icon]="category.icon"
+                    class="font-incosolata truncate"
+                    *ngFor="let dessert of dessertsMenu; index as ind"
+                    [value]="dessert.category"
+                    [ngValue]="dessert.category"
+                    [attr.data-te-select-icon]="dessert.icon"
                   >
-                    {{ category.name }}
+                    {{ dessert.category }}
                   </option>
-                </select>
-              </div>
-            </div>
-            <div class="w-full mb-3 space-y-2">
-              <label
-                for="room-no"
-                class="capitalize block text-sm font-incosolata text-black dark:text-zinc-100"
-                >Ingredients<span class="text-sm text-red-600 font-incosolata"
-                  >*</span
-                ></label
-              >
-              <div class="w-full relative flex-auto" data-te-modal-body-ref>
-                <select
-                  data-te-select-init
-                  data-te-container="#exampleModal"
-                  data-te-select-filter="true"
-                  multiple
-                >
-                  <optgroup label="Vegetables">
-                    <option value="Carrots">Carrots</option>
-                    <option value="Broccoli">Broccoli</option>
-                    <option value="Spinach">Spinach</option>
-                  </optgroup>
-                  <optgroup label="Proteins">
-                    <option value="Chicken">Chicken</option>
-                    <option value="Beef">Beef</option>
-                    <option value="Fish (Salmon, Tuna, Cod, etc.)">
-                      Fish (Salmon, Tuna, Cod, etc.)
-                    </option>
-                  </optgroup>
-                  <optgroup label="Grains and Starches">
-                    <option value="Rice">Chicken</option>
-                    <option value="Pasta">Beef</option>
-                    <option value="Potatoes (Salmon, Tuna, Cod, etc.)">
-                      Fish (Salmon, Tuna, Cod, etc.)
-                    </option>
-                  </optgroup>
                 </select>
               </div>
             </div>
@@ -186,12 +150,12 @@
                   >Enter product price
                 </label>
               </div>
-              <span
+              <!-- <span
                 *ngIf="price && price.invalid && price.touched"
                 class="text-sm text-red-600 font-incosolata"
               >
                 Field cannot be empty
-              </span>
+              </span> -->
             </div>
             <div class="w-full mb-3 space-y-2">
               <label
@@ -229,21 +193,6 @@
                   class="inline-block pl-[0.15rem] hover:cursor-pointer font-incosolata dark:text-lighter"
                   for="flexSwitchChecked"
                   >Enable</label
-                >
-              </div>
-            </div>
-            <div class="mb-3 col-span-full">
-              <div class="relative mb-3" data-te-input-wrapper-init>
-                <textarea
-                  class="font-incosolata peer block min-h-[auto] w-full rounded border bg-transparent px-3 py-[0.32rem] leading-[1.6] outline-none transition-all duration-200 ease-linear focus:placeholder:opacity-100 data-[te-input-state-active]:placeholder:opacity-100 motion-reduce:transition-none dark:text-neutral-200 dark:placeholder:text-neutral-200 [&:not([data-te-input-placeholder-active])]:placeholder:opacity-0"
-                  id="exampleFormControlTextarea1"
-                  rows="3"
-                  placeholder="Your message"
-                ></textarea>
-                <label
-                  for="exampleFormControlTextarea1"
-                  class="pointer-events-none font-incosolata absolute left-3 top-0 mb-0 max-w-[90%] origin-[0_0] truncate pt-[0.37rem] leading-[1.6] text-neutral-500 transition-all duration-200 ease-out peer-focus:-translate-y-[0.9rem] peer-focus:scale-[0.8] peer-focus:text-primary peer-data-[te-input-state-active]:-translate-y-[0.9rem] peer-data-[te-input-state-active]:scale-[0.8] motion-reduce:transition-none dark:text-neutral-200 dark:peer-focus:text-primary"
-                  >Description</label
                 >
               </div>
             </div>

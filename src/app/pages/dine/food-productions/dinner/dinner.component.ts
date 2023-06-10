@@ -38,7 +38,7 @@ export class DinnerComponent implements OnInit {
   public products: BanquetProduct[] | undefined;
   constructor() {}
   ngOnInit(): void {
-    initTE({ Modal });
+    //initTE({ Modal });
     let banquetData = JSON.parse(JSON.stringify(data));
     this.banquetCategories = banquetData.food.productions.banquet.categories;
     this.products = banquetData.food.productions.banquet.products;

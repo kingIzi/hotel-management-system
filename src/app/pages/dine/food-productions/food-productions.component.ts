@@ -2,7 +2,7 @@ import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { RouterNavsComponent } from 'src/app/components/utilities/router-navs/router-navs.component';
-import { Tab, initTE } from 'tw-elements';
+import { Tab, Modal, initTE } from 'tw-elements';
 
 @Component({
   selector: 'app-food-productions',
@@ -24,6 +24,6 @@ export class FoodProductionsComponent implements OnInit {
   ];
   constructor() {}
   ngOnInit(): void {
-    initTE({ Tab });
+    initTE({ Tab, Modal });
   }
 }
