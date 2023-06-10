@@ -11,6 +11,7 @@ import { AddBanquetCategoryComponent } from './components/dialogs/add-banquet-ca
 import { AddBanquetProductComponent } from './components/dialogs/add-banquet-product/add-banquet-product.component';
 import { AddDrinksFormComponent } from './components/dialogs/add-drinks-form/add-drinks-form.component';
 import { AddDessertsFormComponent } from './components/dialogs/add-desserts-form/add-desserts-form.component';
+import { AddItemCartComponent } from './components/dialogs/add-item-cart/add-item-cart.component';
 
 @NgModule({
   declarations: [],

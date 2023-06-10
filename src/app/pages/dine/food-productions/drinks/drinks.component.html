@@ -33,18 +33,10 @@
         </button>
       </div>
       <div class="flex overflow-x-auto">
-        <!-- Repeat the following div for each movie -->
         <div
           *ngFor="let drink of menu.products; index as ind"
           class="flex-none w-64 p-4"
         >
-          <!-- <div class="">
-            <img
-              src="https://th.bing.com/th/id/OIP.FooAMaUUDkt3u9UqngGGMQHaHa?pid=ImgDet&rs=1"
-              alt="Movie Poster"
-              class="w-full h-auto rounded-lg"
-            />
-          </div> -->
           <div class="h-44">
             <img
               [src]="drink.icon"
@@ -63,7 +55,6 @@
             </p>
           </div>
         </div>
-        <!-- End of repeated divs -->
       </div>
     </li>
   </ul>

@@ -3,4 +3,5 @@ export class DrinksMenu {
   category: string | undefined;
   icon: boolean | undefined;
   products: Array<any> | undefined;
+  name: string | undefined;
 }
