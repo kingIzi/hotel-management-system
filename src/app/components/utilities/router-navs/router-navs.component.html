@@ -1,13 +1,15 @@
 <div class="">
   <div class="flex flex-row items-center space-x-0">
-    <span (click)="('/main/dashboard')" class="text-lighter">
+    <span (click)="('/main/dashboard')" class="text-primary dark:text-lighter">
       <i class="bi bi-house-fill"></i>
     </span>
     /
-    <ul class="flex flex-row items-center divide-x">
+    <ul
+      class="flex flex-row items-center divide-x divide-primary dark:divide-mgrey"
+    >
       <a
         *ngFor="let navLink of navLinks; index as ind"
-        class="font text-black dark:text-lighter font-incosolata text-sm hover:underline cursor-pointer p-2"
+        class="font text-primary dark:text-lighter font-incosolata text-sm hover:underline cursor-pointer p-2"
         [routerLink]="navLink.link"
         >{{ navLink.name }}</a
       >

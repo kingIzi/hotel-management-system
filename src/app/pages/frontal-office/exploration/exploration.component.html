@@ -1,4 +1,4 @@
-<div class="space-y-4 h-full py-4 px-4 flex flex-col">
+<!-- <div class="space-y-4 h-full py-4 px-4 flex flex-col">
   <app-router-navs [navLinks]="availableLinks"></app-router-navs>
   <div
     class="py-2 grid px-2 grid-cols-2 md:grid-cols-4 gap-x-4 gap-y-4 w-full bg-white shadow-lg dark:bg-zinc-950"
@@ -48,6 +48,103 @@
       />
       <h4
         class="text-lg lg:text-2xl text-black dark:text-blue-100 font-incosolata pt-3 pb-2 col-span-full"
+      >
+        House Keeping
+      </h4>
+    </a>
+  </div>
+</div> -->
+
+<!-- <div class="dark:bg-zinc-900 bg-white relative p-2 shadow">
+  <ul
+    class="flex list-none space-x-0 lg:space-x-4 flex-row flex-wrap border-b-0 pl-0"
+  >
+    <li role="presentation">
+      <a
+        [routerLink]="'/main/front/explore/reservations'"
+        routerLinkActive="border-b-2 border-b-blue-200 shadow bg-primary text-lighter dark:border-b-2 ark:border-b-lighter dark:text-lighter dark:bg-primary"
+        class="flex flex-row items-center p-2 hover:opacity-80 dark:text-neutral-200"
+      >
+        <img class="w-14" src="assets/img/hotel.png" alt="" />
+        <p class="font-incosolata tracking-widest text-lg p-2">
+          Make Reservation
+        </p>
+      </a>
+    </li>
+    <li role="presentation">
+      <a
+        [routerLink]="'/main/front/explore/rooms'"
+        routerLinkActive="border-b-2 border-b-blue-200 shadow bg-primary text-lighter dark:border-b-2 ark:border-b-lighter dark:text-lighter dark:bg-primary"
+        class="flex flex-row items-center p-2 hover:opacity-80 dark:text-neutral-200"
+      >
+        <img class="w-14" src="assets/img/bed.png" alt="" />
+        <p class="font-incosolata tracking-widest text-lg p-2">Hotel Rooms</p>
+      </a>
+    </li>
+    <li role="presentation">
+      <a
+        routerLinkActive="border-b-2 border-b-blue-200 shadow bg-primary text-lighter dark:border-b-2 ark:border-b-lighter dark:text-lighter dark:bg-primary"
+        class="flex flex-row items-center p-2 hover:opacity-80 dark:text-neutral-200"
+      >
+        <img class="w-14" src="assets/img/room-service.png" alt="" />
+        <p class="font-incosolata tracking-widest text-lg p-2">
+          House Keeping
+        </p>
+      </a>
+    </li>
+  </ul>
+</div> -->
+
+<div class="space-y-4 h-full py-4 px-4 flex flex-col">
+  <app-router-navs [navLinks]="availableLinks"></app-router-navs>
+  <div
+    class="py-2 grid px-2 grid-cols-2 md:grid-cols-4 gap-x-4 gap-y-4 w-full bg-white shadow-lg dark:bg-zinc-950"
+  >
+    <h4
+      class="text-2xl col-span-full lg:text-4xl dark:text-blue-100 text-black font-inspiration py-3 border-b border-blue-50 border-opacity-20"
+    >
+      Service(s)
+    </h4>
+    <a
+      [routerLink]="'/main/front/explore/reservations'"
+      class="flex flex-col px-2 shadow-lg hover:bg-[rgba(57,54,70,0.5)] dark:bg-[rgba(57,54,70,1)] group cursor-pointer bg-cover bg-center"
+    >
+      <img
+        src="assets/img/hotel.png"
+        class="w-12 h-full object-cover"
+        alt="cutlery"
+      />
+      <h4
+        class="text-lg group-hover:text-primary dark:group-hover:text-lighter lg:text-2xl dark:text-blue-100 text-black font-incosolata pt-3 pb-2 col-span-full"
+      >
+        Make Reservation
+      </h4>
+    </a>
+    <a
+      [routerLink]="'/main/front/explore/rooms'"
+      class="flex flex-col px-2 shadow-lg hover:bg-[rgba(57,54,70,0.5)] dark:bg-[rgba(57,54,70,1)] group cursor-pointer bg-cover bg-center"
+    >
+      <img
+        src="assets/img/bed.png"
+        class="w-12 h-full object-cover"
+        alt="conveyor"
+      />
+      <h4
+        class="text-lg group-hover:text-primary dark:group-hover:text-lighter lg:text-2xl text-blac dark:text-blue-100 font-incosolata pt-3 pb-2 col-span-full"
+      >
+        Hotel Rooms
+      </h4>
+    </a>
+    <a
+      class="flex flex-col px-2 shadow-lg hover:bg-[rgba(57,54,70,0.5)] dark:bg-[rgba(57,54,70,1)] group cursor-pointer bg-cover bg-center"
+    >
+      <img
+        src="assets/img/room-service.png"
+        class="w-12 h-full object-cover"
+        alt="conveyor"
+      />
+      <h4
+        class="text-lg group-hover:text-primary dark:group-hover:text-lighter lg:text-2xl text-blac dark:text-blue-100 font-incosolata pt-3 pb-2 col-span-full"
       >
         House Keeping
       </h4>
