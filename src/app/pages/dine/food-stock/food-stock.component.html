@@ -1,0 +1,375 @@
+<div class="space-y-4 h-full py-4 px-4 flex flex-col">
+  <app-router-navs [navLinks]="availableLinks"></app-router-navs>
+  <div class="bg-white dark:bg-zinc-950 p-4 shadow flex flex-col space-y-4">
+    <h4
+      class="text-2xl col-span-full lg:text-4xl dark:text-blue-100 text-black font-inspiration py-3 border-b dark:border-blue-50 border-neutral-300"
+    >
+      In Stock
+    </h4>
+
+    <div class="flex flex-col w-full">
+      <div class="grid grid-cols-2 lg:grid-cols-4 w-full gap-x-3">
+        <h4
+          class="text-md text-black dark:text-zinc-100 lg:text-2xl font-incosolata col-span-full py-2"
+        >
+          Filter
+        </h4>
+        <div class="mb-3">
+          <label
+            for="room-no"
+            class="capitalize block text-sm font-incosolata text-black dark:text-zinc-100 mb-2"
+            >Type<span class="text-sm text-red-600 font-incosolata"></span>
+          </label>
+          <select
+            id="type"
+            placeholder="Select a room type"
+            class="appearance-none w-full text-black dark:text-zinc-100 text-sm font-incosolata border border-gray-300 bg-white dark:bg-zinc-800 px-4 py-2 pr-8 rounded leading-tight focus:outline-none focus:bg-white dark:focus:bg-transparent focus:border-gray-500"
+          >
+            <option
+              class="hover:bg-zinc-800 text-neutral-600 dark:text-primary text-sm font-incosolata bg-white dark:bg-zinc-900"
+              value=""
+            >
+              any
+            </option>
+          </select>
+        </div>
+        <div class="mb-3">
+          <label
+            for="room-no"
+            class="capitalize block text-sm font-incosolata text-black dark:text-zinc-100 mb-2"
+            >Availability
+          </label>
+          <select
+            id="type"
+            placeholder="Select a room type"
+            class="appearance-none w-full text-black dark:text-zinc-100 text-sm font-incosolata border border-gray-300 bg-white dark:bg-zinc-800 px-4 py-2 pr-8 rounded leading-tight focus:outline-none focus:bg-white dark:focus:bg-transparent focus:border-gray-500"
+          >
+            <option
+              class="hover:bg-zinc-800 text-neutral-600 dark:text-primary text-sm font-incosolata bg-white dark:bg-zinc-900"
+              value=""
+            >
+              any
+            </option>
+            <option
+              class="hover:bg-zinc-800 text-black dark:text-blue-100 text-sm font-incosolata bg-white dark:bg-zinc-900"
+            >
+              Available
+            </option>
+            <option
+              class="hover:bg-zinc-800 text-black dark:text-blue-100 text-sm font-incosolata bg-white dark:bg-zinc-900"
+            >
+              Booked
+            </option>
+          </select>
+        </div>
+        <div class="mb-3">
+          <label
+            for="room-no"
+            class="capitalize block text-sm font-incosolata text-black dark:text-zinc-100 mb-2"
+            >Status
+          </label>
+          <select
+            id="type"
+            placeholder="Select a room type"
+            class="appearance-none w-full text-black dark:text-zinc-100 text-sm font-incosolata border border-gray-300 bg-white dark:bg-zinc-800 px-4 py-2 pr-8 rounded leading-tight focus:outline-none focus:bg-white dark:focus:bg-transparent focus:border-gray-500"
+          >
+            <option
+              class="hover:bg-zinc-800 text-neutral-600 dark:text-primary text-sm font-incosolata bg-white dark:bg-zinc-900"
+              value=""
+            >
+              any
+            </option>
+            <option
+              class="hover:bg-zinc-800 text-black dark:text-blue-100 text-sm font-incosolata bg-white dark:bg-zinc-900"
+            >
+              Dirty
+            </option>
+            <option
+              class="hover:bg-zinc-800 text-black dark:text-blue-100 text-sm font-incosolata bg-white dark:bg-zinc-900"
+            >
+              Touched
+            </option>
+            <option
+              class="hover:bg-zinc-800 text-black dark:text-blue-100 text-sm font-incosolata bg-white dark:bg-zinc-900"
+            >
+              Clean
+            </option>
+          </select>
+        </div>
+        <div class="mb-3 flex flex-col">
+          <label
+            for="checking"
+            class="capitalize block text-sm font-incosolata text-black dark:text-zinc-100 mb-2"
+            >Checking
+          </label>
+          <div id="checking" class="flex mt-1.5 flex-row flex-wrap">
+            <div
+              class="mb-[0.125rem] mr-2 inline-block min-h-[1.5rem] pl-[1.5rem]"
+            >
+              <input
+                class="relative float-left -ml-[1.5rem] mr-1 mt-0.5 h-5 w-5 appearance-none rounded-full border-2 border-solid border-neutral-300 before:pointer-events-none before:absolute before:h-4 before:w-4 before:scale-0 before:rounded-full before:bg-transparent before:opacity-0 before:shadow-[0px_0px_0px_13px_transparent] before:content-[''] after:absolute after:z-[1] after:block after:h-4 after:w-4 after:rounded-full after:content-[''] checked:border-primary checked:before:opacity-[0.16] checked:after:absolute checked:after:left-1/2 checked:after:top-1/2 checked:after:h-[0.625rem] checked:after:w-[0.625rem] checked:after:rounded-full checked:after:border-primary checked:after:bg-primary checked:after:content-[''] checked:after:[transform:translate(-50%,-50%)] hover:cursor-pointer hover:before:opacity-[0.04] hover:before:shadow-[0px_0px_0px_13px_rgba(0,0,0,0.6)] focus:shadow-none focus:outline-none focus:ring-0 focus:before:scale-100 focus:before:opacity-[0.12] focus:before:shadow-[0px_0px_0px_13px_rgba(0,0,0,0.6)] focus:before:transition-[box-shadow_0.2s,transform_0.2s] checked:focus:border-primary checked:focus:before:scale-100 checked:focus:before:shadow-[0px_0px_0px_13px_#3b71ca] checked:focus:before:transition-[box-shadow_0.2s,transform_0.2s] dark:border-neutral-600 dark:checked:border-primary dark:checked:after:border-primary dark:checked:after:bg-primary dark:focus:before:shadow-[0px_0px_0px_13px_rgba(255,255,255,0.4)] dark:checked:focus:border-primary dark:checked:focus:before:shadow-[0px_0px_0px_13px_#3b71ca]"
+                type="radio"
+                name="inlineRadioOptions"
+                id="any"
+                value="option1"
+                checked
+              />
+              <label
+                class="mt-px inline-block dark:text-zinc-100 pl-[0.15rem] hover:cursor-pointer text-sm font-incosolata"
+                for="any"
+                >Any</label
+              >
+            </div>
+            <div
+              class="mb-[0.125rem] mr-2 inline-block min-h-[1.5rem] pl-[1.5rem]"
+            >
+              <input
+                class="relative float-left -ml-[1.5rem] mr-1 mt-0.5 h-5 w-5 appearance-none rounded-full border-2 border-solid border-neutral-300 before:pointer-events-none before:absolute before:h-4 before:w-4 before:scale-0 before:rounded-full before:bg-transparent before:opacity-0 before:shadow-[0px_0px_0px_13px_transparent] before:content-[''] after:absolute after:z-[1] after:block after:h-4 after:w-4 after:rounded-full after:content-[''] checked:border-primary checked:before:opacity-[0.16] checked:after:absolute checked:after:left-1/2 checked:after:top-1/2 checked:after:h-[0.625rem] checked:after:w-[0.625rem] checked:after:rounded-full checked:after:border-primary checked:after:bg-primary checked:after:content-[''] checked:after:[transform:translate(-50%,-50%)] hover:cursor-pointer hover:before:opacity-[0.04] hover:before:shadow-[0px_0px_0px_13px_rgba(0,0,0,0.6)] focus:shadow-none focus:outline-none focus:ring-0 focus:before:scale-100 focus:before:opacity-[0.12] focus:before:shadow-[0px_0px_0px_13px_rgba(0,0,0,0.6)] focus:before:transition-[box-shadow_0.2s,transform_0.2s] checked:focus:border-primary checked:focus:before:scale-100 checked:focus:before:shadow-[0px_0px_0px_13px_#3b71ca] checked:focus:before:transition-[box-shadow_0.2s,transform_0.2s] dark:border-neutral-600 dark:checked:border-primary dark:checked:after:border-primary dark:checked:after:bg-primary dark:focus:before:shadow-[0px_0px_0px_13px_rgba(255,255,255,0.4)] dark:checked:focus:border-primary dark:checked:focus:before:shadow-[0px_0px_0px_13px_#3b71ca]"
+                type="radio"
+                name="inlineRadioOptions"
+                id="checked"
+                value="option1"
+              />
+              <label
+                class="mt-px inline-block dark:text-zinc-100 pl-[0.15rem] hover:cursor-pointer text-sm font-incosolata"
+                for="checked"
+                >Checked</label
+              >
+            </div>
+            <div class="mb-[0.125rem] inline-block min-h-[1.5rem] pl-[1.5rem]">
+              <input
+                class="relative float-left -ml-[1.5rem] mr-1 mt-0.5 h-5 w-5 appearance-none rounded-full border-2 border-solid border-neutral-300 before:pointer-events-none before:absolute before:h-4 before:w-4 before:scale-0 before:rounded-full before:bg-transparent before:opacity-0 before:shadow-[0px_0px_0px_13px_transparent] before:content-[''] after:absolute after:z-[1] after:block after:h-4 after:w-4 after:rounded-full after:content-[''] checked:border-primary checked:before:opacity-[0.16] checked:after:absolute checked:after:left-1/2 checked:after:top-1/2 checked:after:h-[0.625rem] checked:after:w-[0.625rem] checked:after:rounded-full checked:after:border-primary checked:after:bg-primary checked:after:content-[''] checked:after:[transform:translate(-50%,-50%)] hover:cursor-pointer hover:before:opacity-[0.04] hover:before:shadow-[0px_0px_0px_13px_rgba(0,0,0,0.6)] focus:shadow-none focus:outline-none focus:ring-0 focus:before:scale-100 focus:before:opacity-[0.12] focus:before:shadow-[0px_0px_0px_13px_rgba(0,0,0,0.6)] focus:before:transition-[box-shadow_0.2s,transform_0.2s] checked:focus:border-primary checked:focus:before:scale-100 checked:focus:before:shadow-[0px_0px_0px_13px_#3b71ca] checked:focus:before:transition-[box-shadow_0.2s,transform_0.2s] dark:border-neutral-600 dark:checked:border-primary dark:checked:after:border-primary dark:checked:after:bg-primary dark:focus:before:shadow-[0px_0px_0px_13px_rgba(255,255,255,0.4)] dark:checked:focus:border-primary dark:checked:focus:before:shadow-[0px_0px_0px_13px_#3b71ca]"
+                type="radio"
+                name="inlineRadioOptions"
+                id="not-checked"
+                value="option2"
+              />
+              <label
+                class="mt-px inline-block dark:text-zinc-100 pl-[0.15rem] hover:cursor-pointer text-sm font-incosolata"
+                for="not-checked"
+                >Not Checked</label
+              >
+            </div>
+          </div>
+        </div>
+        <div class="flex flex-row justify-start items-center">
+          <button class="bg-primary inset-0 h-fit font-incosolata p-2">
+            <span class="text-lighter text-sm font-incosolata font-normal"
+              ><i class="bi bi-funnel"></i> Filter
+            </span>
+          </button>
+        </div>
+      </div>
+      <div
+        class="w-full py-4 mt-8 flex flex-row items-center justify-between col-span-full"
+      >
+        <div class="flex flex-row-items-center space-x-2">
+          <div>
+            <p
+              class="text-sm mt-2 dark:text-zinc-100 font-incosolata text-black"
+            >
+              Show(s):
+            </p>
+          </div>
+          <div class="max-w-[5rem]">
+            <select
+              [ngModel]="showing"
+              (ngModelChange)="valueChanged($event)"
+              class="appearance-none w-full text-black dark:text-zinc-100 text-sm font-incosolata border border-gray-300 bg-white dark:bg-zinc-800 px-4 py-2 pr-8 rounded leading-tight focus:outline-none focus:bg-white dark:focus:bg-transparent focus:border-gray-500"
+            >
+              <option
+                class="hover:bg-zinc-800 text-black dark:text-blue-100 text-sm font-incosolata bg-white dark:bg-zinc-900"
+                *ngFor="let show of showings"
+                [ngValue]="show"
+              >
+                {{ show }}
+              </option>
+            </select>
+          </div>
+          <div class="hidden lg:block">
+            <p
+              class="text-sm dark:text-zinc-100 mt-2 font-incosolata text-black"
+            >
+              Entries
+            </p>
+          </div>
+        </div>
+        <div class="relative mt-0 w-1/2 lg:w-1/3">
+          <div class="relative flex w-full flex-wrap items-stretch">
+            <input
+              type="search"
+              class="dark:text-zinc-100 px-2 text-black relative text-sm font-incosolata m-0 block w-[1px] min-w-0 flex-auto rounded border border-solid border-neutral-300 dark:border-zinc-100 bg-transparent dark:bg-zinc-950 font-normal leading[1.6] outline-none transition duration-200 ease-in-out focus:z-[3] focus:border-primary focus:text-neutral-700 dark:focus:text-zinc-100 focus:shadow-[inset_0_0_0_1px_rgb(59,113,202)] focus:outline-none dark:placeholder:text-neutral-400"
+              placeholder="Search"
+              aria-label="Search"
+              aria-describedby="button-addon2"
+            />
+
+            <span
+              class="input-group-text cursor-pointer flex items-center whitespace-nowrap rounded px-3 py-1.5 text-center text-base font-normal text-neutral-700"
+              id="basic-addon2"
+            >
+              <i class="bi bi-search"></i>
+            </span>
+          </div>
+        </div>
+      </div>
+      <div
+        class="w-full py-4 mt-8 flex flex-row items-center justify-between col-span-full"
+      >
+        <div class="max-h-[35rem] w-2/3 h-[35rem] flex flex-col space-y-4">
+          <div class="flex flex-row items-center space-x-4">
+            <div class="flex flex-col">
+              <p class="font-incosolata text-neutral-400">Inventory:</p>
+              <p class="font-incosolata text-blue-200">923 Items</p>
+            </div>
+            <div class="flex flex-col">
+              <p class="font-incosolata text-neutral-400">On shelf:</p>
+              <p class="text-white flex font-incosolata">
+                01
+                <span class="text-neutral-400 font-incosolata">/23</span>
+              </p>
+            </div>
+          </div>
+          <div
+            class="flex flex-row items-center space-x-0 md:space-x-4 flex-wrap w-full"
+          >
+            <div class="flex flex-row items-center space-x-2">
+              <div class="bg-green-600 w-1 h-1 rounded-full"></div>
+              <p class="font-incosolata dark:text-lighter text-black font-bold">
+                900
+              </p>
+              <p class="font-incosolata text-neutral-400">Good</p>
+            </div>
+            <span class="flex flex-row items-center space-x-2">
+              <div class="bg-orange-600 w-1 h-1 rounded-full"></div>
+              <p class="font-incosolata dark:text-lighter text-black font-bold">
+                56
+              </p>
+              <p class="font-incosolata text-neutral-400">About to expire</p>
+            </span>
+            <div class="flex flex-row items-center space-x-2">
+              <div class="bg-red-600 w-1 h-1 rounded-full"></div>
+              <p class="font-incosolata dark:text-lighter text-black font-bold">
+                4
+              </p>
+              <p class="font-incosolata text-neutral-400">Crushed</p>
+            </div>
+          </div>
+          <div class="grid place-items-center">
+            <img class="w-32" [src]="viewFood.food.image" alt="" srcset="" />
+          </div>
+          <div class="mx-auto w-[80%] overflow-hidden">
+            <canvas
+              data-te-chart="bar"
+              data-te-dataset-label="Grams"
+              data-te-labels="['ENERC_KCAL','PROCNT','FAT','CHOCDF','FIBTG']"
+              data-te-dataset-data="[717.0, 12.5, 4.5, 43.4, 0.0]"
+            >
+            </canvas>
+          </div>
+        </div>
+        <div
+          class="relative max-h-[35rem] h-[35rem] overflow-y-auto mt-0 w-1/2 lg:w-1/3 dark:bg-zinc-900"
+        >
+          <table class="w-full">
+            <thead>
+              <tr>
+                <th
+                  class="sticky text-mblack bg-white dark:bg-zinc-900 dark:text-lighter top-0 px-3 font-incosolata font-bold bg-grey2"
+                >
+                  #
+                </th>
+                <th
+                  class="sticky text-mblack bg-white dark:bg-zinc-900 dark:text-lighter top-0 px-3 font-incosolata font-bold bg-grey2"
+                >
+                  Product name
+                </th>
+                <th
+                  class="sticky text-mblack bg-white dark:bg-zinc-900 dark:text-lighter top-0 px-3 font-incosolata font-bold bg-grey2"
+                >
+                  In stock
+                </th>
+                <th
+                  class="sticky text-mblack bg-white dark:bg-zinc-900 dark:text-lighter top-0 px-3 font-incosolata font-bold bg-grey2"
+                >
+                  Price
+                </th>
+              </tr>
+            </thead>
+            <tbody class="divide-y">
+              <tr
+                *ngFor="let food of foods; index as ind"
+                [class]="
+                  ind % 2 === 0
+                    ? ' '
+                    : 'bg-zinc-800 ' + food !== viewFood
+                    ? 'opacity-80'
+                    : ''
+                "
+                class="cursor-pointer hover:opacity-80"
+                (click)="viewingFood(food)"
+              >
+                <td
+                  class="px-3 py-6 text-center text-black dark:text-zinc-100 border dark:border-none font-incosolata border-grey2"
+                >
+                  <img
+                    class="w-16 h-16 rounded-full"
+                    [src]="food.food.image"
+                    alt=""
+                    srcset=""
+                  />
+                </td>
+                <td
+                  class="px-3 py-6 text-center text-black dark:text-zinc-100 border dark:border-none font-incosolata border-grey2"
+                >
+                  {{ food.food.label }}
+                </td>
+                <td
+                  class="px-3 py-6 text-center text-black dark:text-zinc-100 border dark:border-none font-incosolata border-grey2"
+                >
+                  <p class="text-white flex font-incosolata">
+                    {{ ind + 1 }}
+                    <span class="text-neutral-400 font-incosolata">/23</span>
+                  </p>
+                  <div class="h-1 w-full bg-neutral-200 dark:bg-neutral-600">
+                    <div
+                      class="h-1 bg-primary"
+                      [style]="'width:' + ((ind / 23) * 100).toString() + '%'"
+                    ></div>
+                  </div>
+                </td>
+                <td
+                  class="px-3 py-6 text-center font-bold text-black dark:text-zinc-100 border dark:border-none font-incosolata border-grey2"
+                >
+                  23,000 / TSH
+                </td>
+              </tr>
+            </tbody>
+            <!-- <tbody>
+              <tr>
+                <td>
+                  <div class="bg-red-600"></div>
+                </td>
+                <td class="flex flex-col">
+                  <p class="font-bold">Onions</p>
+                  <p class="font-normal text-neutral-400">Out of stock</p>
+                </td>
+                <td class="flex flex-col">
+                  <p class="text-black">
+                    01 <span class="text-neutral-400">/23</span>
+                  </p>
+                  <div class="h-1 w-full bg-neutral-200 dark:bg-neutral-600">
+                    <div class="h-1 bg-primary" style="width: 45%"></div>
+                  </div>
+                </td>
+                <td>
+                  <p class="font-bold text-black">23,000 / TSH</p>
+                </td>
+              </tr>
+            </tbody> -->
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

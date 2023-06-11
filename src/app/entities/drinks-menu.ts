@@ -4,4 +4,5 @@ export class DrinksMenu {
   icon: boolean | undefined;
   products: Array<any> | undefined;
   name: string | undefined;
+  price: number | undefined;
 }

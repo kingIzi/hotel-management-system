@@ -12,10 +12,11 @@ import { AddBanquetProductComponent } from './components/dialogs/add-banquet-pro
 import { AddDrinksFormComponent } from './components/dialogs/add-drinks-form/add-drinks-form.component';
 import { AddDessertsFormComponent } from './components/dialogs/add-desserts-form/add-desserts-form.component';
 import { AddItemCartComponent } from './components/dialogs/add-item-cart/add-item-cart.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [],
-  imports: [BrowserModule, AppRoutingModule],
+  imports: [BrowserModule, BrowserAnimationsModule, AppRoutingModule],
   providers: [],
   bootstrap: [AppComponent],
 })

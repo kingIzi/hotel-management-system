@@ -26,6 +26,13 @@ const routes: Routes = [
             (m) => m.RestaurantModule
           ),
       },
+      {
+        path: 'stock',
+        loadComponent: () =>
+          import('./food-stock/food-stock.component').then(
+            (m) => m.FoodStockComponent
+          ),
+      },
     ],
   },
 ];

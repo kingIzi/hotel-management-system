@@ -1,154 +1,171 @@
 <div class="space-y-4 h-full py-4 px-4 flex flex-col">
   <app-router-navs [navLinks]="availableLinks"></app-router-navs>
-  <ul
-    class="mb-5 flex list-none flex-row flex-wrap border-b-0 pl-1 dark:bg-zinc-900 bg-white relative p-2 shadow"
-    role="tablist"
-    data-te-nav-ref
-  >
-    <li role="presentation">
-      <a
-        href="#tabs-all-categories"
-        class="my-2 block border-x-0 border-b-2 border-t-0 border-transparent px-7 pb-3.5 pt-4 text-xs font-medium uppercase leading-tight text-neutral-500 hover:isolate hover:border-transparent hover:bg-neutral-100 focus:isolate focus:border-transparent data-[te-nav-active]:border-blue-200 data-[te-nav-active]:bg-primary dark:data-[te-nav-active]:border-blue-50 dark:data-[te-nav-active]:bg-primary dark:data-[te-nav-active]:text-lighter data-[te-nav-active]:text-lighter dark:text-neutral-400 dark:hover:bg-transparent dark:data-[te-nav-active]:border-primary-400 dark:data-[te-nav-active]:text-primary-400"
-        data-te-toggle="pill"
-        data-te-target="#tabs-all-categories"
-        data-te-nav-active
-        role="tab"
-        aria-controls="tabs-all-categories"
-        aria-selected="true"
-        >All Categories</a
-      >
-    </li>
-    <li role="presentation">
-      <a
-        href="#tabs-home"
-        class="my-2 block border-x-0 border-b-2 border-t-0 border-transparent px-7 pb-3.5 pt-4 text-xs font-medium uppercase leading-tight text-neutral-500 hover:isolate hover:border-transparent hover:bg-neutral-100 focus:isolate focus:border-transparent data-[te-nav-active]:border-blue-200 data-[te-nav-active]:bg-primary dark:data-[te-nav-active]:border-blue-50 dark:data-[te-nav-active]:bg-primary dark:data-[te-nav-active]:text-lighter data-[te-nav-active]:text-lighter dark:text-neutral-400 dark:hover:bg-transparent dark:data-[te-nav-active]:border-primary-400 dark:data-[te-nav-active]:text-primary-400"
-        data-te-toggle="pill"
-        data-te-target="#tabs-home"
-        role="tab"
-        aria-controls="tabs-home"
-        aria-selected="true"
-        >Breakfast</a
-      >
-    </li>
-    <li role="presentation">
-      <a
-        href="#tabs-profile"
-        class="my-2 block border-x-0 border-b-2 border-t-0 border-transparent px-7 pb-3.5 pt-4 text-xs font-medium uppercase leading-tight text-neutral-500 hover:isolate hover:border-transparent hover:bg-neutral-100 focus:isolate focus:border-transparent data-[te-nav-active]:border-blue-200 data-[te-nav-active]:bg-primary dark:data-[te-nav-active]:border-blue-50 dark:data-[te-nav-active]:bg-primary dark:data-[te-nav-active]:text-lighter data-[te-nav-active]:text-lighter dark:text-neutral-400 dark:hover:bg-transparent dark:data-[te-nav-active]:border-primary-400 dark:data-[te-nav-active]:text-primary-400"
-        data-te-toggle="pill"
-        data-te-target="#tabs-profile"
-        role="tab"
-        aria-controls="tabs-profile"
-        aria-selected="false"
-        >Banquet</a
-      >
-    </li>
-    <li role="presentation">
-      <a
-        href="#tabs-messages"
-        class="my-2 block border-x-0 border-b-2 border-t-0 border-transparent px-7 pb-3.5 pt-4 text-xs font-medium uppercase leading-tight text-neutral-500 hover:isolate hover:border-transparent hover:bg-neutral-100 focus:isolate focus:border-transparent data-[te-nav-active]:border-blue-200 data-[te-nav-active]:bg-primary dark:data-[te-nav-active]:border-blue-50 dark:data-[te-nav-active]:bg-primary dark:data-[te-nav-active]:text-lighter data-[te-nav-active]:text-lighter dark:text-neutral-400 dark:hover:bg-transparent dark:data-[te-nav-active]:border-primary-400 dark:data-[te-nav-active]:text-primary-400"
-        data-te-toggle="pill"
-        data-te-target="#tabs-messages"
-        role="tab"
-        aria-controls="tabs-messages"
-        aria-selected="false"
-        >Drinks</a
-      >
-    </li>
-    <li role="presentation">
-      <a
-        href="#tabs-desserts"
-        class="my-2 block border-x-0 border-b-2 border-t-0 border-transparent px-7 pb-3.5 pt-4 text-xs font-medium uppercase leading-tight text-neutral-500 hover:isolate hover:border-transparent hover:bg-neutral-100 focus:isolate focus:border-transparent data-[te-nav-active]:border-blue-200 data-[te-nav-active]:bg-primary dark:data-[te-nav-active]:border-blue-50 dark:data-[te-nav-active]:bg-primary dark:data-[te-nav-active]:text-lighter data-[te-nav-active]:text-lighter dark:text-neutral-400 dark:hover:bg-transparent dark:data-[te-nav-active]:border-primary-400 dark:data-[te-nav-active]:text-primary-400"
-        data-te-toggle="pill"
-        data-te-target="#tabs-desserts"
-        role="tab"
-        aria-controls="tabs-desserts"
-        aria-selected="false"
-        >Desserts</a
-      >
-    </li>
-    <li class="absolute right-16 top-1/2 -translate-y-1/2">
-      <div class="relative z-50" data-te-dropdown-position="dropstart">
-        <button
-          id="dropdownMenuButton1s"
-          data-te-dropdown-toggle-ref
-          aria-expanded="false"
-          data-te-ripple-init
-          data-te-ripple-color="light"
-          class="relative inline-flex w-fit"
+  <div class="mb-5 dark:bg-zinc-900 bg-white relative pl-1 p-2 shadow">
+    <ul
+      class="flex list-none flex-row flex-wrap"
+      role="tablist"
+      data-te-nav-ref
+    >
+      <li role="presentation">
+        <a
+          href="#tabs-all-categories"
+          class="my-2 block border-x-0 border-b-2 border-t-0 border-transparent px-7 pb-3.5 pt-4 text-xs font-medium uppercase leading-tight text-neutral-500 hover:isolate hover:border-transparent hover:bg-neutral-100 focus:isolate focus:border-transparent data-[te-nav-active]:border-blue-200 data-[te-nav-active]:bg-primary dark:data-[te-nav-active]:border-blue-50 dark:data-[te-nav-active]:bg-primary dark:data-[te-nav-active]:text-lighter data-[te-nav-active]:text-lighter dark:text-neutral-400 dark:hover:bg-transparent dark:data-[te-nav-active]:border-primary-400 dark:data-[te-nav-active]:text-primary-400"
+          data-te-toggle="pill"
+          data-te-target="#tabs-all-categories"
+          data-te-nav-active
+          role="tab"
+          aria-controls="tabs-all-categories"
+          aria-selected="true"
+          >All Categories</a
         >
-          <div
-            class="absolute font-incosolata bottom-auto left-auto right-0 top-0 z-10 inline-block -translate-y-1/2 translate-x-2/4 rotate-0 skew-x-0 skew-y-0 scale-x-100 scale-y-100 whitespace-nowrap rounded-full bg-indigo-700 px-2.5 py-1 text-center align-baseline text-xs font-bold leading-none text-white"
-          >
-            {{ inCart ? inCart.length : 0 }}
-          </div>
-          <div
-            type="button"
-            class="flex flex-row items-center space-x-2 font-incosolata text-xs rounded bg-primary px-7 pb-2.5 pt-3 font-medium uppercase leading-normal text-white shadow-[0_4px_9px_-4px_#3b71ca] transition duration-150 ease-in-out hover:bg-primary-600 hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:bg-primary-600 focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:outline-none focus:ring-0 active:bg-primary-700 active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] dark:shadow-[0_4px_9px_-4px_rgba(59,113,202,0.5)] dark:hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)] dark:focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)] dark:active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)]"
-            data-te-ripple-init
-            data-te-ripple-color="light"
-          >
-            <span class="text-2xl">
-              <i class="bi bi-cart"></i>
-            </span>
-          </div>
-        </button>
-        <ul
-          class="absolute z-[1000] float-left m-0 hidden w-96 list-none overflow-hidden rounded-lg border-none bg-white bg-clip-padding text-left text-base shadow-lg dark:bg-neutral-700 [&[data-te-dropdown-show]]:block"
-          aria-labelledby="dropdownMenuButton1s"
-          data-te-dropdown-menu-ref
+      </li>
+      <li role="presentation">
+        <a
+          href="#tabs-home"
+          class="my-2 block border-x-0 border-b-2 border-t-0 border-transparent px-7 pb-3.5 pt-4 text-xs font-medium uppercase leading-tight text-neutral-500 hover:isolate hover:border-transparent hover:bg-neutral-100 focus:isolate focus:border-transparent data-[te-nav-active]:border-blue-200 data-[te-nav-active]:bg-primary dark:data-[te-nav-active]:border-blue-50 dark:data-[te-nav-active]:bg-primary dark:data-[te-nav-active]:text-lighter data-[te-nav-active]:text-lighter dark:text-neutral-400 dark:hover:bg-transparent dark:data-[te-nav-active]:border-primary-400 dark:data-[te-nav-active]:text-primary-400"
+          data-te-toggle="pill"
+          data-te-target="#tabs-home"
+          role="tab"
+          aria-controls="tabs-home"
+          aria-selected="true"
+          >Breakfast</a
         >
-          <li>
-            <a
-              class="block w-full whitespace-nowrap bg-transparent px-4 py-2 text-sm font-normal text-neutral-700 hover:bg-neutral-100 active:text-neutral-800 active:no-underline disabled:pointer-events-none disabled:bg-transparent disabled:text-neutral-400 dark:text-neutral-200 dark:hover:bg-neutral-600"
-              href="#"
-              data-te-dropdown-item-ref
-              >Action</a
+      </li>
+      <li role="presentation">
+        <a
+          href="#tabs-profile"
+          class="my-2 block border-x-0 border-b-2 border-t-0 border-transparent px-7 pb-3.5 pt-4 text-xs font-medium uppercase leading-tight text-neutral-500 hover:isolate hover:border-transparent hover:bg-neutral-100 focus:isolate focus:border-transparent data-[te-nav-active]:border-blue-200 data-[te-nav-active]:bg-primary dark:data-[te-nav-active]:border-blue-50 dark:data-[te-nav-active]:bg-primary dark:data-[te-nav-active]:text-lighter data-[te-nav-active]:text-lighter dark:text-neutral-400 dark:hover:bg-transparent dark:data-[te-nav-active]:border-primary-400 dark:data-[te-nav-active]:text-primary-400"
+          data-te-toggle="pill"
+          data-te-target="#tabs-profile"
+          role="tab"
+          aria-controls="tabs-profile"
+          aria-selected="false"
+          >Banquet</a
+        >
+      </li>
+      <li role="presentation">
+        <a
+          href="#tabs-messages"
+          class="my-2 block border-x-0 border-b-2 border-t-0 border-transparent px-7 pb-3.5 pt-4 text-xs font-medium uppercase leading-tight text-neutral-500 hover:isolate hover:border-transparent hover:bg-neutral-100 focus:isolate focus:border-transparent data-[te-nav-active]:border-blue-200 data-[te-nav-active]:bg-primary dark:data-[te-nav-active]:border-blue-50 dark:data-[te-nav-active]:bg-primary dark:data-[te-nav-active]:text-lighter data-[te-nav-active]:text-lighter dark:text-neutral-400 dark:hover:bg-transparent dark:data-[te-nav-active]:border-primary-400 dark:data-[te-nav-active]:text-primary-400"
+          data-te-toggle="pill"
+          data-te-target="#tabs-messages"
+          role="tab"
+          aria-controls="tabs-messages"
+          aria-selected="false"
+          >Drinks</a
+        >
+      </li>
+      <li role="presentation">
+        <a
+          href="#tabs-desserts"
+          class="my-2 block border-x-0 border-b-2 border-t-0 border-transparent px-7 pb-3.5 pt-4 text-xs font-medium uppercase leading-tight text-neutral-500 hover:isolate hover:border-transparent hover:bg-neutral-100 focus:isolate focus:border-transparent data-[te-nav-active]:border-blue-200 data-[te-nav-active]:bg-primary dark:data-[te-nav-active]:border-blue-50 dark:data-[te-nav-active]:bg-primary dark:data-[te-nav-active]:text-lighter data-[te-nav-active]:text-lighter dark:text-neutral-400 dark:hover:bg-transparent dark:data-[te-nav-active]:border-primary-400 dark:data-[te-nav-active]:text-primary-400"
+          data-te-toggle="pill"
+          data-te-target="#tabs-desserts"
+          role="tab"
+          aria-controls="tabs-desserts"
+          aria-selected="false"
+          >Desserts</a
+        >
+      </li>
+    </ul>
+    <div class="absolute z-[1000] right-16 top-1/2 -translate-y-1/2">
+      <details class="dropdown dropdown-end relative">
+        <summary class="m-1 btn bg-primary">
+          <span class="text-2xl"> <i class="bi bi-cart"></i> </span>
+        </summary>
+        <div class="p-2 shadow menu dropdown-content bg-base-100 rounded-box">
+          <h6
+            class="block w-full font-incosolata text-center text-2xl whitespace-nowrap bg-transparent px-4 py-2 font-semibold text-neutral-500 dark:text-neutral-200"
+          >
+            Order(s) #
+          </h6>
+          <table>
+            <thead>
+              <tr class="">
+                <th
+                  *ngFor="let header of menuTableHeaders; index as ind"
+                  class="sticky text-lighter bg-primary top-0 px-3 md:px-6 py-2 font-incosolata font-bold bg-grey2"
+                >
+                  {{ header }}
+                </th>
+                <th
+                  class="sticky text-lighter bg-primary top-0 px-3 md:px-6 py-2 font-incosolata font-bold bg-grey2"
+                >
+                  -
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr
+                [formGroup]="groupData"
+                *ngFor="let groupData of formGroupArray; index as ind"
+              >
+                <td
+                  class="p-3 text-center text-black dark:text-zinc-100 border dark:border-none font-incosolata border-grey2"
+                >
+                  {{ groupData.get("product")?.value }}
+                </td>
+                <td
+                  class="p-3 text-center text-black dark:text-zinc-100 border dark:border-none font-incosolata border-grey2"
+                >
+                  <div
+                    class="flex flex-row h-10 w-14 md:w-full rounded-lg relative bg-transparent mt-1"
+                  >
+                    <button
+                      (click)="decrementCartItemQuantity(ind)"
+                      class="bg-gray-300 text-gray-600 hover:text-gray-700 hover:bg-gray-400 h-full w-20 rounded-l cursor-pointer outline-none"
+                    >
+                      <span class="m-auto text-2xl font-thin">−</span>
+                    </button>
+                    <input
+                      (change)="cartItemChanged($event, ind)"
+                      type="number"
+                      min="1"
+                      max="10"
+                      class="focus:outline-none text-center w-full bg-gray-300 font-semibold text-md hover:text-black focus:text-black md:text-basecursor-default flex items-center text-gray-700 outline-none"
+                      name="custom-input-number"
+                      [value]="groupData.get('quantity')?.value"
+                    />
+                    <button
+                      (click)="increamentCartItemQuantity(ind)"
+                      class="bg-gray-300 text-gray-600 hover:text-gray-700 hover:bg-gray-400 h-full w-20 rounded-r cursor-pointer"
+                    >
+                      <span class="m-auto text-2xl font-thin">+</span>
+                    </button>
+                  </div>
+                </td>
+                <td
+                  class="p-3 text-center text-black dark:text-zinc-100 border dark:border-none font-incosolata border-grey2"
+                >
+                  {{
+                    groupData.get("price")?.value *
+                      groupData.get("quantity")?.value
+                  }}
+                </td>
+                <td
+                  class="p-3 text-red-600 text-center border dark:border-none font-incosolata border-grey2"
+                >
+                  <button (click)="removeCartFormItem(groupData)">
+                    <i class="bi bi-trash"></i>
+                  </button>
+                </td>
+              </tr>
+            </tbody>
+            <br />
+          </table>
+          <div class="w-full flex flex-row items-center justify-between">
+            <button></button>
+            <button
+              onclick="my_modal_1.showModal()"
+              class="font-incosolata btn"
             >
-          </li>
-          <li>
-            <a
-              class="block w-full whitespace-nowrap bg-transparent px-4 py-2 text-sm font-normal text-neutral-700 hover:bg-neutral-100 active:text-neutral-800 active:no-underline disabled:pointer-events-none disabled:bg-transparent disabled:text-neutral-400 dark:text-neutral-200 dark:hover:bg-neutral-600"
-              href="#"
-              data-te-dropdown-item-ref
-              >Another action</a
-            >
-          </li>
-          <li>
-            <a
-              class="block w-full whitespace-nowrap bg-transparent px-4 py-2 text-sm font-normal text-neutral-700 hover:bg-neutral-100 active:text-neutral-800 active:no-underline disabled:pointer-events-none disabled:bg-transparent disabled:text-neutral-400 dark:text-neutral-200 dark:hover:bg-neutral-600"
-              href="#"
-              data-te-dropdown-item-ref
-              >Something else here</a
-            >
-          </li>
-          <li>
-            <a
-              class="block w-full whitespace-nowrap bg-transparent px-4 py-2 text-sm font-normal text-neutral-700 hover:bg-neutral-100 active:text-neutral-800 active:no-underline disabled:pointer-events-none disabled:bg-transparent disabled:text-neutral-400 dark:text-neutral-200 dark:hover:bg-neutral-600"
-              href="#"
-              data-te-dropdown-item-ref
-              >Something else here</a
-            >
-          </li>
-          <li>
-            <a
-              class="block w-full whitespace-nowrap bg-transparent px-4 py-2 text-sm font-normal text-neutral-700 hover:bg-neutral-100 active:text-neutral-800 active:no-underline disabled:pointer-events-none disabled:bg-transparent disabled:text-neutral-400 dark:text-neutral-200 dark:hover:bg-neutral-600"
-              href="#"
-              data-te-dropdown-item-ref
-              >Something else here</a
-            >
-          </li>
-          <li>
-            <a
-              class="block w-full whitespace-nowrap bg-transparent px-4 py-2 text-sm font-normal text-neutral-700 hover:bg-neutral-100 active:text-neutral-800 active:no-underline disabled:pointer-events-none disabled:bg-transparent disabled:text-neutral-400 dark:text-neutral-200 dark:hover:bg-neutral-600"
-              href="#"
-              data-te-dropdown-item-ref
-              >Something else here</a
-            >
-          </li>
-        </ul>
-      </div>
-    </li>
-  </ul>
+              Dine In
+            </button>
+          </div>
+        </div>
+      </details>
+    </div>
+  </div>
   <div class="mb-6">
     <div
       class="hidden opacity-100 transition-opacity duration-150 ease-linear data-[te-tab-active]:block"
@@ -187,6 +204,13 @@
                 class="absolute cursor-pointer bottom-0 left-0 right-0 top-0 h-full w-full overflow-hidden bg-[hsla(0,0%,98%,0.15)] bg-fixed opacity-0 transition duration-300 ease-in-out hover:opacity-100"
               ></div>
             </a>
+            <span
+              [@fadeInOut]
+              *ngIf="isAddedToCartItem(menu)"
+              class="text-green-600 text-7xl absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"
+            >
+              <i class="bi bi-check-circle"></i>
+            </span>
           </button>
           <div class="p-6 grid place-items-center">
             <h5
@@ -238,6 +262,13 @@
                 class="absolute cursor-pointer bottom-0 left-0 right-0 top-0 h-full w-full overflow-hidden bg-[hsla(0,0%,98%,0.15)] bg-fixed opacity-0 transition duration-300 ease-in-out hover:opacity-100"
               ></div>
             </a>
+            <span
+              [@fadeInOut]
+              *ngIf="isAddedToCartItem(menu)"
+              class="text-green-600 text-7xl absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"
+            >
+              <i class="bi bi-check-circle"></i>
+            </span>
           </button>
           <div class="p-6 grid place-items-center">
             <h5
@@ -290,6 +321,13 @@
                 class="absolute cursor-pointer bottom-0 left-0 right-0 top-0 h-full w-full overflow-hidden bg-[hsla(0,0%,98%,0.15)] bg-fixed opacity-0 transition duration-300 ease-in-out hover:opacity-100"
               ></div>
             </a>
+            <span
+              [@fadeInOut]
+              *ngIf="isAddedToCartItem(menu)"
+              class="text-green-600 text-7xl absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"
+            >
+              <i class="bi bi-check-circle"></i>
+            </span>
           </button>
           <div class="p-6 grid place-items-center">
             <h5
@@ -342,6 +380,13 @@
                 class="absolute cursor-pointer bottom-0 left-0 right-0 top-0 h-full w-full overflow-hidden bg-[hsla(0,0%,98%,0.15)] bg-fixed opacity-0 transition duration-300 ease-in-out hover:opacity-100"
               ></div>
             </a>
+            <span
+              [@fadeInOut]
+              *ngIf="isAddedToCartItem(menu)"
+              class="text-green-600 text-7xl absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"
+            >
+              <i class="bi bi-check-circle"></i>
+            </span>
           </button>
           <div class="p-6 grid place-items-center">
             <h5
@@ -394,6 +439,13 @@
                 class="absolute cursor-pointer bottom-0 left-0 right-0 top-0 h-full w-full overflow-hidden bg-[hsla(0,0%,98%,0.15)] bg-fixed opacity-0 transition duration-300 ease-in-out hover:opacity-100"
               ></div>
             </a>
+            <span
+              [@fadeInOut]
+              *ngIf="isAddedToCartItem(menu)"
+              class="text-green-600 text-7xl absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"
+            >
+              <i class="bi bi-check-circle"></i>
+            </span>
           </button>
           <div class="p-6 grid place-items-center">
             <h5
@@ -412,3 +464,26 @@
     </div>
   </div>
 </div>
+
+<dialog id="my_modal_1" class="modal">
+  <form method="dialog" class="modal-box bg-zinc-900 flex flex-col space-y-4">
+    <h3 class="font-bold text-lg font-incosolata">Select Table</h3>
+    <div class="grid grid-cols-3 lg:grid-cols-6 w-full gap-3">
+      <div
+        class="bg-red-600 p-2 shadow rounded hover:opacity-80 cursor-pointer font-incosolata tracking-wide"
+      >
+        T 1
+      </div>
+      <div
+        class="bg-primary p-2 shadow rounded hover:opacity-80 cursor-pointer font-incosolata tracking-wide"
+        *ngFor="let i of array100numbers(); index as ind"
+      >
+        T {{ i }}
+      </div>
+    </div>
+    <div class="modal-action">
+      <!-- if there is a button in form, it will close the modal -->
+      <button class="btn">Close</button>
+    </div>
+  </form>
+</dialog>
