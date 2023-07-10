@@ -33,6 +33,13 @@ const routes: Routes = [
         loadChildren: () =>
           import('../../../pages/dine/dine.module').then((m) => m.DineModule),
       },
+      {
+        path: 'back',
+        loadChildren: () =>
+          import('../../../pages/back-office/back-office.module').then(
+            (m) => m.BackOfficeModule
+          ),
+      },
     ],
   },
 ];

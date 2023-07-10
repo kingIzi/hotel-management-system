@@ -20,8 +20,13 @@ export class SidebarComponent implements OnInit {
     } as NavbarItem,
     {
       routerLink: '/main/front/explore',
-      title: 'Frontal office',
+      title: 'Front Office',
       bootstrapIcon: 'bi bi-building',
+    } as NavbarItem,
+    {
+      routerLink: '/main/back/explore',
+      title: 'Back Office',
+      bootstrapIcon: 'bi bi-folder',
     } as NavbarItem,
     {
       routerLink: '/main/dine/explore',
