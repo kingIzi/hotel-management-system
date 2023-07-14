@@ -1,0 +1,123 @@
+<div class="space-y-4 h-full py-4 px-4">
+  <app-router-navs [navLinks]="availableLinks"></app-router-navs>
+  <section class="flex flex-col w-full bg-white dark:bg-zinc-950 shadow-lg p-2">
+    <h4
+      class="text-2xl col-span-full lg:text-4xl dark:text-blue-100 text-black font-inspiration py-3 border-b dark:border-blue-50 border-neutral-300 mb-3"
+    >
+      House Keeping
+    </h4>
+    <div
+      class="w-full py-4 mt-8 flex flex-row items-center justify-between col-span-full"
+    >
+      <div class="flex flex-row items-center justify-between w-full">
+        <div class="flex flex-row-items-center space-x-2">
+          <div>
+            <p
+              class="text-sm mt-2 dark:text-zinc-100 font-incosolata text-black"
+            >
+              Display:
+            </p>
+          </div>
+          <div class="">
+            <select
+              [ngModel]="dateRange"
+              (ngModelChange)="valueChanged($event)"
+              class="appearance-none w-full text-black dark:text-zinc-100 text-sm font-incosolata border border-gray-300 bg-white dark:bg-zinc-800 px-4 py-2 pr-8 rounded leading-tight focus:outline-none focus:bg-white dark:focus:bg-transparent focus:border-gray-500"
+            >
+              <option
+                class="hover:bg-zinc-800 text-black dark:text-blue-100 text-sm font-incosolata bg-white dark:bg-zinc-900"
+                *ngFor="let range of dateRanges"
+                [ngValue]="range"
+              >
+                {{ range }}
+              </option>
+            </select>
+          </div>
+        </div>
+        <button class="btn">Assign Duties</button>
+      </div>
+    </div>
+    <div class="relative overflow-x-auto">
+      <table class="w-full">
+        <thead>
+          <tr class="shadow-2xl bg-primary">
+            <th class="w-44 text-black dark:text-white">#</th>
+            <th
+              *ngFor="let date of dates; index as columnIndex"
+              [ngClass]="{
+                'bg-blue-500':
+                  isSelectedCell(0, columnIndex) || isSelectedDate(date)
+              }"
+              (click)="onCellClick(0, columnIndex)"
+              class=""
+            >
+              <div class="grid place-items-center border py-3 px-3">
+                <p class="font-incosolata text-white dark:text-white">
+                  {{ date.getDate() }}
+                </p>
+                <div class="w-4 h-0.5 bg-neutral-500"></div>
+                <p class="font-incosolata text-white dark:text-white">
+                  {{
+                    date
+                      .toLocaleString("en-US", { weekday: "long" })
+                      .substr(0, 2)
+                  }}
+                </p>
+              </div>
+            </th>
+          </tr>
+        </thead>
+        <tbody class="relative w-full">
+          <ng-container *ngFor="let room of rooms; index as roomTypeIndex">
+            <tr class="bg-neutral-300 dark:bg-zinc-800 w-full">
+              <th
+                class="px-3 py-3 text-left text-black dark:text-white border dark:border-none font-incosolata border-grey2"
+              >
+                {{ room.roomType }}
+              </th>
+              <th [attr.colspan]="dates.length"></th>
+            </tr>
+            <tr *ngFor="let number of room.rooms; index as roomIndex">
+              <td
+                class="text-left py-6 px-3 flex flex-row items-center space-x-2 tracking-widest bg-neutral-100 dark:bg-neutral-900"
+              >
+                <input
+                  type="checkbox"
+                  [checked]="
+                    roomHasSelectedCleaningDates(roomTypeIndex, roomIndex)
+                  "
+                  class="checkbox"
+                />
+                <p class="text-black dark:text-white">
+                  {{ number.roomNumber }}
+                </p>
+              </td>
+              <td
+                *ngFor="let date of dates"
+                [attr.colspan]=""
+                class="border"
+                (click)="selectCleaningDate(roomTypeIndex, roomIndex, date)"
+                [ngClass]="{
+                  'bg-blue-500': isSelectedCleaningTime(
+                    roomTypeIndex,
+                    roomIndex,
+                    date
+                  )
+                }"
+              >
+                <div *ngIf="false" class="avatar grid place-items-center">
+                  <div
+                    [class]="dateRange === 'Weekly' ? 'w-12' : 'w-8'"
+                    class="rounded-full"
+                  >
+                    <img src="https://randomuser.me/api/portraits/men/59.jpg" />
+                  </div>
+                </div>
+              </td>
+            </tr>
+          </ng-container>
+        </tbody>
+      </table>
+    </div>
+  </section>
+</div>

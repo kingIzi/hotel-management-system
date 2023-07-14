@@ -1,0 +1,695 @@
+<div class="space-y-4 h-full py-4 px-4">
+  <app-router-navs [navLinks]="availableLinks"></app-router-navs>
+  <section
+    class="grid grid-cols-1 gap-y-4 gap-x-4 lg:grid-cols-2 w-full bg-white dark:bg-zinc-950 shadow-lg p-2"
+  >
+    <h4
+      class="text-2xl col-span-full lg:text-4xl dark:text-blue-100 text-black font-inspiration py-3 border-b dark:border-blue-50 border-neutral-300"
+    >
+      Issue Complaint
+    </h4>
+    <div class="w-full mb-3 space-y-2">
+      <label
+        for="comlaint"
+        class="capitalize block text-sm font-incosolata text-black dark:text-zinc-100"
+        >Complaint<span class="text-sm text-red-600 font-incosolata"
+          >*</span
+        ></label
+      >
+      <div class="relative mb-3" data-te-input-wrapper-init>
+        <input
+          type="text"
+          class="peer block dark:bg-zinc-800 dark:text-zinc-100 min-h-[auto] w-full font-incosolata rounded border-0 bg-transparent px-3 py-[0.32rem] leading-[1.6] outline-none transition-all duration-200 ease-linear focus:placeholder:opacity-100 peer-focus:text-primary data-[te-input-state-active]:placeholder:opacity-100 motion-reduce:transition-none text-black [&:not([data-te-input-placeholder-active])]:placeholder:opacity-0 [&:not([data-te-input-placeholder-active])]:placeholder:font-incosolata"
+          id="exampleFormControlInput1"
+          placeholder="Add New Complaint"
+        />
+        <label
+          for="exampleFormControlInput1"
+          class="pointer-events-none absolute font-incosolata text-sm left-3 top-0 mb-0 max-w-[90%] origin-[0_0] truncate pt-[0.37rem] leading-[1.6] dark:text-neutral-200 text-neutral-500 transition-all duration-200 ease-out peer-focus:-translate-y-[0.9rem] peer-focus:dark:text-neutral-200 peer-focus:scale-[0.8] peer-focus:text-primary peer-data-[te-input-state-active]:-translate-y-[0.9rem] peer-data-[te-input-state-active]:scale-[0.8] motion-reduce:transition-none peer-data-[te-input-state-active]:dark:text-neutral-200"
+          >Complaint
+        </label>
+      </div>
+    </div>
+    <div class="w-full mb-3 space-y-2">
+      <label
+        class="capitalize block text-sm font-incosolata text-black dark:text-zinc-100"
+        >Select Place<span class="text-sm text-red-600 font-incosolata">*</span>
+      </label>
+      <div class="relative">
+        <select
+          (change)="onIssuePlaceChanged($event)"
+          class="appearance-none w-full text-black dark:text-zinc-100 text-sm font-incosolata border border-gray-300 bg-white dark:bg-zinc-800 px-4 py-2 pr-8 rounded leading-tight focus:outline-none focus:bg-white dark:focus:bg-transparent focus:border-gray-500"
+        >
+          <option
+            value="Select room type"
+            class="hover:bg-zinc-800 text-neutral-600 dark:text-primary text-sm font-incosolata bg-white dark:bg-zinc-900"
+            selected
+            disabled
+          >
+            Select Place
+          </option>
+          <option
+            value="Terrace"
+            class="hover:bg-zinc-800 text-neutral-600 dark:text-neutral-400 text-sm font-incosolata bg-white dark:bg-zinc-900"
+          >
+            Terrace
+          </option>
+          <option
+            value="Pool"
+            class="hover:bg-zinc-800 text-neutral-600 dark:text-neutral-400 text-sm font-incosolata bg-white dark:bg-zinc-900"
+          >
+            Pool
+          </option>
+          <option
+            value="Rooms"
+            class="hover:bg-zinc-800 text-neutral-600 dark:text-neutral-400 text-sm font-incosolata bg-white dark:bg-zinc-900"
+          >
+            Rooms
+          </option>
+        </select>
+        <span
+          class="text-black dark:text-zinc-100 top-1/2 right-2 -translate-y-1/2 absolute"
+        >
+          <i class="bi bi-chevron-compact-down"></i>
+        </span>
+      </div>
+    </div>
+    <ng-template [ngIf]="!issuePlace">
+      <div
+        class="grid place-items-center col-span-full py-8 bg-transparent dark:bg-transparent shadow-lg p-2"
+      >
+        <p class="text-lighter group-hover:text-white font-incosolata text-lg">
+          Please select the complaint place
+        </p>
+      </div>
+    </ng-template>
+    <ng-template [ngIf]="issuePlace === 'Pool'">
+      <div
+        class="grid grid-cols-1 gap-y-4 gap-x-4 lg:grid-cols-3 col-span-full bg-white dark:bg-zinc-950 shadow-lg p-2"
+      >
+        <div class="w-full mb-3 space-y-2">
+          <label
+            for="room-no"
+            class="capitalize block text-sm font-incosolata text-black dark:text-zinc-100"
+            >Issue<span class="text-sm text-red-600 font-incosolata">*</span>
+          </label>
+          <div class="relative">
+            <select
+              [(ngModel)]="roomIssue"
+              class="appearance-none w-full text-black dark:text-zinc-100 text-sm font-incosolata border border-gray-300 bg-white dark:bg-zinc-800 px-4 py-2 pr-8 rounded leading-tight focus:outline-none focus:bg-white dark:focus:bg-transparent focus:border-gray-500"
+            >
+              <option
+                value="Select general issue"
+                class="hover:bg-zinc-800 py-1 text-neutral-600 dark:text-primary text-sm font-incosolata bg-white dark:bg-zinc-900"
+                selected
+                disabled
+              >
+                Select general issue
+              </option>
+              <option
+                class="hover:bg-zinc-800 text-black dark:text-neutral-400 text-sm font-incosolata bg-white dark:bg-zinc-900"
+                *ngFor="let roomIssue of roomIssueTypes"
+                [value]="roomIssue.issue"
+              >
+                {{ roomIssue.issue }}
+              </option>
+            </select>
+            <span
+              class="text-black dark:text-zinc-100 top-1/2 right-2 -translate-y-1/2 absolute"
+            >
+              <i class="bi bi-chevron-compact-down"></i>
+            </span>
+          </div>
+        </div>
+        <div></div>
+        <div></div>
+        <div class="w-full col-span-full mb-3 space-y-2">
+          <label
+            for="room-no"
+            class="capitalize block text-sm font-incosolata text-black dark:text-zinc-100"
+            >Complaint description<span
+              class="text-sm text-red-600 font-incosolata"
+              >*</span
+            >
+          </label>
+          <textarea
+            class="textarea textarea-bordered resize peer block min-h-[auto] w-full rounded border placeholder:text-neutral-500 bg-transparent px-3 py-[0.32rem] leading-[1.6] outline-none transition-all duration-200 ease-linear focus:placeholder:opacity-100 data-[te-input-state-active]:placeholder:opacity-100 motion-reduce:transition-none dark:text-neutral-200 dark:placeholder:text-neutral-100 font-incosolata [&:not([data-te-input-placeholder-active])]:placeholder:opacity-0"
+            placeholder="Enter Description"
+          ></textarea>
+        </div>
+        <div class="w-full col-span-full flex justify-end">
+          <Button
+            data-te-toggle="modal"
+            data-te-target="#loaderModal"
+            data-te-ripple-init
+            data-te-ripple-color="light"
+            class="bg-primary px-4 py-2 shadow rounded flex flex-row items-center group hover:bg-secondary duration-150"
+          >
+            <p
+              class="text-lighter group-hover:text-white font-incosolata text-sm"
+            >
+              Submit
+            </p>
+            <span class="text-lighter group-hover:text-white">
+              <i class="bi bi-arrow-right text-sm"></i>
+            </span>
+          </Button>
+        </div>
+      </div>
+    </ng-template>
+    <ng-template [ngIf]="issuePlace === 'Terrace'">
+      <div
+        class="grid grid-cols-1 gap-y-4 gap-x-4 lg:grid-cols-3 col-span-full bg-white dark:bg-zinc-950 shadow-lg p-2"
+      >
+        <div class="w-full mb-3 space-y-2">
+          <label
+            for="room-no"
+            class="capitalize block text-sm font-incosolata text-black dark:text-zinc-100"
+            >Issue<span class="text-sm text-red-600 font-incosolata">*</span>
+          </label>
+          <div class="relative">
+            <select
+              [(ngModel)]="roomIssue"
+              class="appearance-none w-full text-black dark:text-zinc-100 text-sm font-incosolata border border-gray-300 bg-white dark:bg-zinc-800 px-4 py-2 pr-8 rounded leading-tight focus:outline-none focus:bg-white dark:focus:bg-transparent focus:border-gray-500"
+            >
+              <option
+                value="Select general issue"
+                class="hover:bg-zinc-800 py-1 text-neutral-600 dark:text-primary text-sm font-incosolata bg-white dark:bg-zinc-900"
+                selected
+                disabled
+              >
+                Select general issue
+              </option>
+              <option
+                class="hover:bg-zinc-800 text-black dark:text-neutral-400 text-sm font-incosolata bg-white dark:bg-zinc-900"
+                *ngFor="let roomIssue of roomIssueTypes"
+                [value]="roomIssue.issue"
+              >
+                {{ roomIssue.issue }}
+              </option>
+            </select>
+            <span
+              class="text-black dark:text-zinc-100 top-1/2 right-2 -translate-y-1/2 absolute"
+            >
+              <i class="bi bi-chevron-compact-down"></i>
+            </span>
+          </div>
+        </div>
+        <div class="w-full mb-3 space-y-2">
+          <label
+            class="capitalize block text-sm font-incosolata text-black dark:text-zinc-100"
+            >Location<span class="text-sm text-red-600 font-incosolata">*</span>
+          </label>
+          <div class="relative">
+            <select
+              class="appearance-none w-full text-black dark:text-zinc-100 text-sm font-incosolata border border-gray-300 bg-white dark:bg-zinc-800 px-4 py-2 pr-8 rounded leading-tight focus:outline-none focus:bg-white dark:focus:bg-transparent focus:border-gray-500"
+            >
+              <option
+                value="Select room type"
+                class="hover:bg-zinc-800 text-neutral-600 dark:text-primary text-sm font-incosolata bg-white dark:bg-zinc-900"
+                selected
+                disabled
+              >
+                Select terrace location
+              </option>
+              <option
+                class="hover:bg-zinc-800 text-neutral-600 dark:text-neutral-400 text-sm font-incosolata bg-white dark:bg-zinc-900"
+                [value]="location"
+                *ngFor="let location of issueLocations; index as ind"
+              >
+                {{ location }}
+              </option>
+            </select>
+            <span
+              class="text-black dark:text-zinc-100 top-1/2 right-2 -translate-y-1/2 absolute"
+            >
+              <i class="bi bi-chevron-compact-down"></i>
+            </span>
+          </div>
+        </div>
+        <div></div>
+        <div class="w-full col-span-full mb-3 space-y-2">
+          <label
+            for="room-no"
+            class="capitalize block text-sm font-incosolata text-black dark:text-zinc-100"
+            >Complaint description<span
+              class="text-sm text-red-600 font-incosolata"
+              >*</span
+            >
+          </label>
+          <textarea
+            class="textarea textarea-bordered resize peer block min-h-[auto] w-full rounded border placeholder:text-neutral-500 bg-transparent px-3 py-[0.32rem] leading-[1.6] outline-none transition-all duration-200 ease-linear focus:placeholder:opacity-100 data-[te-input-state-active]:placeholder:opacity-100 motion-reduce:transition-none dark:text-neutral-200 dark:placeholder:text-neutral-100 font-incosolata [&:not([data-te-input-placeholder-active])]:placeholder:opacity-0"
+            placeholder="Enter Description"
+          ></textarea>
+        </div>
+        <div class="w-full col-span-full flex justify-end">
+          <Button
+            data-te-toggle="modal"
+            data-te-target="#loaderModal"
+            data-te-ripple-init
+            data-te-ripple-color="light"
+            class="bg-primary px-4 py-2 shadow rounded flex flex-row items-center group hover:bg-secondary duration-150"
+          >
+            <p
+              class="text-lighter group-hover:text-white font-incosolata text-sm"
+            >
+              Submit
+            </p>
+            <span class="text-lighter group-hover:text-white">
+              <i class="bi bi-arrow-right text-sm"></i>
+            </span>
+          </Button>
+        </div>
+      </div>
+    </ng-template>
+    <ng-template [ngIf]="issuePlace === 'Rooms'">
+      <div
+        class="grid grid-cols-1 gap-y-4 gap-x-4 lg:grid-cols-3 col-span-full bg-white dark:bg-zinc-950 shadow-lg p-2"
+      >
+        <div class="w-full mb-3 space-y-2">
+          <label
+            for="room-no"
+            class="capitalize block text-sm font-incosolata text-black dark:text-zinc-100"
+            >Issue<span class="text-sm text-red-600 font-incosolata">*</span>
+          </label>
+          <div class="relative">
+            <select
+              [(ngModel)]="roomIssue"
+              class="appearance-none w-full text-black dark:text-zinc-100 text-sm font-incosolata border border-gray-300 bg-white dark:bg-zinc-800 px-4 py-2 pr-8 rounded leading-tight focus:outline-none focus:bg-white dark:focus:bg-transparent focus:border-gray-500"
+            >
+              <option
+                value="Select general issue"
+                class="hover:bg-zinc-800 py-1 text-neutral-600 dark:text-primary text-sm font-incosolata bg-white dark:bg-zinc-900"
+                selected
+                disabled
+              >
+                Select general issue
+              </option>
+              <option
+                class="hover:bg-zinc-800 text-black dark:text-blue-100 text-sm font-incosolata bg-white dark:bg-zinc-900"
+                *ngFor="let roomIssue of roomIssueTypes"
+                [value]="roomIssue.issue"
+              >
+                {{ roomIssue.issue }}
+              </option>
+            </select>
+            <span
+              class="text-black dark:text-zinc-100 top-1/2 right-2 -translate-y-1/2 absolute"
+            >
+              <i class="bi bi-chevron-compact-down"></i>
+            </span>
+          </div>
+        </div>
+        <div class="w-full mb-3 space-y-2">
+          <label
+            class="capitalize block text-sm font-incosolata text-black dark:text-zinc-100"
+            >Select room type<span class="text-sm text-red-600 font-incosolata"
+              >*</span
+            >
+          </label>
+          <div class="relative">
+            <select
+              (ngModelChange)="onRoomIssueTypeChanged($event)"
+              [(ngModel)]="roomType"
+              class="appearance-none w-full text-black dark:text-zinc-100 text-sm font-incosolata border border-gray-300 bg-white dark:bg-zinc-800 px-4 py-2 pr-8 rounded leading-tight focus:outline-none focus:bg-white dark:focus:bg-transparent focus:border-gray-500"
+            >
+              <option
+                value="Select room type"
+                class="hover:bg-zinc-800 text-neutral-600 dark:text-primary text-sm font-incosolata bg-white dark:bg-zinc-900"
+                selected
+                disabled
+              >
+                Select room type
+              </option>
+              <option
+                *ngFor="let roomIssue of roomIssues; index as ind"
+                [value]="roomIssue.roomType"
+                class="hover:bg-zinc-800 text-neutral-600 dark:text-neutral-200 text-sm font-incosolata bg-white dark:bg-zinc-900"
+              >
+                {{ roomIssue.roomType }}
+              </option>
+            </select>
+            <span
+              class="text-black dark:text-zinc-100 top-1/2 right-2 -translate-y-1/2 absolute"
+            >
+              <i class="bi bi-chevron-compact-down"></i>
+            </span>
+          </div>
+        </div>
+        <div class="w-full mb-3 space-y-2">
+          <label
+            class="capitalize block text-sm font-incosolata text-black dark:text-zinc-100"
+            >Select room number<span
+              class="text-sm text-red-600 font-incosolata"
+              >*</span
+            >
+          </label>
+          <div class="relative">
+            <select
+              class="appearance-none w-full text-black dark:text-zinc-100 text-sm font-incosolata border border-gray-300 bg-white dark:bg-zinc-800 px-4 py-2 pr-8 rounded leading-tight focus:outline-none focus:bg-white dark:focus:bg-transparent focus:border-gray-500"
+            >
+              <option
+                value="Select room type"
+                class="hover:bg-zinc-800 text-neutral-600 dark:text-primary text-sm font-incosolata bg-white dark:bg-zinc-900"
+                selected
+                disabled
+              >
+                Select room number
+              </option>
+              <option
+                *ngFor="let roomNumber of issueRoomNumbers; index as ind"
+                [value]="roomNumber"
+                class="hover:bg-zinc-800 text-neutral-600 dark:text-neutral-200 text-sm font-incosolata bg-white dark:bg-zinc-900"
+              >
+                {{ roomNumber }}
+              </option>
+            </select>
+            <span
+              class="text-black dark:text-zinc-100 top-1/2 right-2 -translate-y-1/2 absolute"
+            >
+              <i class="bi bi-chevron-compact-down"></i>
+            </span>
+          </div>
+        </div>
+        <div class="w-full col-span-full mb-3 space-y-2">
+          <label
+            for="room-no"
+            class="capitalize block text-sm font-incosolata text-black dark:text-zinc-100"
+            >Complaint description<span
+              class="text-sm text-red-600 font-incosolata"
+              >*</span
+            >
+          </label>
+          <textarea
+            class="textarea textarea-bordered resize peer block min-h-[auto] w-full rounded border placeholder:text-neutral-500 bg-transparent px-3 py-[0.32rem] leading-[1.6] outline-none transition-all duration-200 ease-linear focus:placeholder:opacity-100 data-[te-input-state-active]:placeholder:opacity-100 motion-reduce:transition-none dark:text-neutral-200 dark:placeholder:text-neutral-100 font-incosolata [&:not([data-te-input-placeholder-active])]:placeholder:opacity-0"
+            placeholder="Enter Description"
+          ></textarea>
+        </div>
+        <div class="w-full col-span-full flex justify-end">
+          <Button
+            data-te-toggle="modal"
+            data-te-target="#loaderModal"
+            data-te-ripple-init
+            data-te-ripple-color="light"
+            class="bg-primary px-4 py-2 shadow rounded flex flex-row items-center group hover:bg-secondary duration-150"
+          >
+            <p
+              class="text-lighter group-hover:text-white font-incosolata text-sm"
+            >
+              Submit
+            </p>
+            <span class="text-lighter group-hover:text-white">
+              <i class="bi bi-arrow-right text-sm"></i>
+            </span>
+          </Button>
+        </div>
+      </div>
+    </ng-template>
+  </section>
+  <section class="flex flex-col w-full bg-white dark:bg-zinc-950 shadow-lg p-2">
+    <h4
+      class="text-2xl col-span-full lg:text-4xl dark:text-blue-100 text-black font-inspiration py-3 border-b dark:border-blue-50 border-neutral-300"
+    >
+      Complaints
+    </h4>
+    <div class="flex flex-col space-y-4">
+      <div
+        class="w-full py-4 mt-8 flex flex-row items-center justify-between col-span-full"
+      >
+        <div class="flex flex-row-items-center space-x-2">
+          <div>
+            <p
+              class="text-sm mt-2 dark:text-zinc-100 font-incosolata text-black"
+            >
+              Show(s):
+            </p>
+          </div>
+          <div class="max-w-[5rem]">
+            <select
+              [ngModel]="showing"
+              (ngModelChange)="valueChanged($event)"
+              class="appearance-none w-full text-black dark:text-zinc-100 text-sm font-incosolata border border-gray-300 bg-white dark:bg-zinc-800 px-4 py-2 pr-8 rounded leading-tight focus:outline-none focus:bg-white dark:focus:bg-transparent focus:border-gray-500"
+            >
+              <option
+                class="hover:bg-zinc-800 text-black dark:text-blue-100 text-sm font-incosolata bg-white dark:bg-zinc-900"
+                *ngFor="let show of showings"
+                [ngValue]="show"
+              >
+                {{ show }}
+              </option>
+            </select>
+          </div>
+          <div class="hidden lg:block">
+            <p
+              class="text-sm dark:text-zinc-100 mt-2 font-incosolata text-black"
+            >
+              Entries
+            </p>
+          </div>
+        </div>
+        <div class="relative mt-0 w-1/2 lg:w-1/3">
+          <div class="relative flex w-full flex-wrap items-stretch">
+            <input
+              type="search"
+              class="dark:text-zinc-100 px-2 text-black relative text-sm font-incosolata m-0 block w-[1px] min-w-0 flex-auto rounded border border-solid border-neutral-300 dark:border-zinc-100 bg-transparent dark:bg-zinc-950 font-normal leading[1.6] outline-none transition duration-200 ease-in-out focus:z-[3] focus:border-primary focus:text-neutral-700 dark:focus:text-zinc-100 focus:shadow-[inset_0_0_0_1px_rgb(59,113,202)] focus:outline-none dark:placeholder:text-neutral-400"
+              placeholder="Search"
+              aria-label="Search"
+              aria-describedby="button-addon2"
+            />
+
+            <span
+              class="input-group-text cursor-pointer flex items-center whitespace-nowrap rounded px-3 py-1.5 text-center text-base font-normal text-neutral-700"
+              id="basic-addon2"
+            >
+              <i class="bi bi-search"></i>
+            </span>
+          </div>
+        </div>
+      </div>
+      <div class="relative hidden max-h-96 lg:block overflow-auto">
+        <table #complaintsTable class="relative w-full">
+          <thead>
+            <tr class="shadow-2xl bg-primary">
+              <th
+                #tableContainer
+                [attr.data-column]="i !== headers.length - 1 ? header : ''"
+                [attr.data-order]="i !== headers.length - 1 ? 'desc' : ''"
+                *ngFor="let header of headers; index as i"
+                class="sticky top-0 px-3 py-3 text-lighter bg-primary font-incosolata font-bold bg-grey2 {{
+                  i === 0 ? 'rounded-tl-xl' : ''
+                }}"
+              >
+                <p class="font-primary text-lighter">
+                  {{ header }}
+                  <span
+                    *ngIf="
+                      tableContainer.dataset['order'] == 'desc' &&
+                      i !== headers.length - 1
+                    "
+                    ><i class="bi bi-caret-up"></i>
+                  </span>
+                  <span
+                    *ngIf="
+                      tableContainer.dataset['order'] == 'asc' &&
+                      i !== headers.length - 1
+                    "
+                    ><i class="bi bi-caret-down"></i>
+                  </span>
+                </p>
+              </th>
+              <th
+                class="sticky text-lighter bg-primary rounded-tr-xl top-0 px-3 py-3 font-incosolata font-bold bg-grey2"
+              >
+                Action
+              </th>
+            </tr>
+          </thead>
+          <tbody class="bg-white dark:bg-transparent">
+            <tr
+              *ngFor="let complaint of complaints; index as ind"
+              [class]="ind % 2 === 0 ? 'dark:bg-zinc-800' : 'dark:bg-zinc-900'"
+            >
+              <td
+                class="p-3 text-center text-black dark:text-zinc-100 border dark:border-none font-incosolata border-grey2"
+              >
+                {{ complaint.admin }}
+              </td>
+              <td
+                class="p-3 text-center text-black dark:text-zinc-100 border dark:border-none font-incosolata border-grey2"
+              >
+                {{ complaint.type }}
+              </td>
+              <td
+                class="p-3 text-center text-black dark:text-zinc-100 border dark:border-none font-incosolata border-grey2"
+              >
+                {{ complaint.complaint }}
+              </td>
+              <td
+                class="p-3 text-center text-black dark:text-zinc-100 border dark:border-none font-incosolata border-grey2"
+              >
+                {{ complaint.created.toLocaleDateString() }}
+              </td>
+              <td class="text-md font-incosolata text-center p-2">
+                <dialog [id]="'my_modal_' + ind" class="modal">
+                  <form method="dialog" class="modal-box">
+                    <h3 class="font-bold text-lg">Hello!</h3>
+                    <p class="py-4">
+                      Press ESC key or click the button below to close
+                    </p>
+                    <div class="modal-action">
+                      <button class="btn">Close</button>
+                    </div>
+                  </form>
+                </dialog>
+                <button
+                  (click)="openDialog(ind)"
+                  [class]="
+                    !complaint.resolved
+                      ? 'text-sm font-incosolata text-lighter px-2 py-1 rounded-lg shadow bg-primary'
+                      : 'dark:text-zinc-100 text-black'
+                  "
+                >
+                  {{
+                    complaint.resolved
+                      ? complaint.resolved.toLocaleDateString()
+                      : "Resolve"
+                  }}
+                </button>
+              </td>
+              <td class="text-md font-incosolata text-center w-40">
+                <button
+                  [class]="
+                    !complaint.resolved
+                      ? 'text-sm font-incosolata text-lighter px-2 py-1 rounded-lg shadow bg-sunset'
+                      : 'dark:text-zinc-100 text-black'
+                  "
+                >
+                  {{ complaint.resolved ? "$" + complaint.budget : "Pending" }}
+                </button>
+              </td>
+              <td class="p-3 text-center border dark:border-none border-grey2">
+                <button
+                  data-te-dropdown-toggle-ref
+                  aria-expanded="false"
+                  data-te-ripple-init
+                  data-te-ripple-color="light"
+                  data-te-toggle="tooltip"
+                  title="options"
+                >
+                  <i class="bi bi-three-dots-vertical"></i>
+                </button>
+                <ul
+                  class="absolute z-[1000] float-left m-0 hidden min-w-max list-none overflow-hidden rounded-lg border-none bg-white dark:bg-zinc-900 bg-clip-padding text-left text-base shadow-lg [&[data-te-dropdown-show]]:block"
+                  aria-labelledby="dropdownMenuButton1"
+                  data-te-dropdown-menu-ref
+                >
+                  <li>
+                    <a
+                      class="w-full cursor-pointer hover:dark:bg-zinc-800 whitespace-nowrap bg-transparent px-4 py-2 hover:bg-neutral-100 active:text-neutral-800 active:no-underline disabled:pointer-events-none disabled:bg-transparent disabled:text-neutral-400 flex flex-row items-center"
+                      data-te-dropdown-item-ref
+                    >
+                      <span
+                        class="text-red-600 text-sm font-incosolata font-normal"
+                        ><i class="bi bi-trash"></i> remove
+                      </span>
+                    </a>
+                  </li>
+                </ul>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div
+        class="relative grid gap-x-2 gap-y-4 sm:grid-cols-2 md:grid-cols-3 lg:hidden"
+      >
+        <div
+          *ngFor="let complaint of complaints; let ind = index"
+          [class]="
+            ind % 2 === 0
+              ? 'bg-mgrey dark:bg-[#4F4557] border-none'
+              : 'border border-mgrey bg-transparent'
+          "
+          class="w-full bg-mgrey flex flex-col px-4 rounded-lg shadow"
+        >
+          <div class="flex flex-row items-center justify-between py-2">
+            <p class="text-sm font-incosolata">{{ complaint.admin }}</p>
+            <p class="text-sm font-incosolata">
+              {{ complaint.created.toLocaleDateString() }}
+            </p>
+          </div>
+          <div class="flex flex-row items-center justify-between py-2">
+            <p class="text-sm font-incosolata">{{ complaint.complaint }}</p>
+          </div>
+          <div class="flex flex-row items-center justify-between py-2">
+            <p class="text-sm font-incosolata">{{ complaint.type }}</p>
+            <button
+              [class]="
+                !complaint.resolved
+                  ? 'text-sm font-incosolata text-lighter px-2 py-1 rounded-lg shadow bg-primary'
+                  : ''
+              "
+            >
+              {{
+                complaint.resolved
+                  ? complaint.resolved.toLocaleDateString()
+                  : "Resolve"
+              }}
+            </button>
+          </div>
+          <div class="flex flex-row items-center justify-between py-2">
+            <button
+              [class]="
+                !complaint.resolved
+                  ? 'text-sm font-incosolata text-lighter px-2 py-1 rounded-lg shadow bg-sunset'
+                  : ''
+              "
+            >
+              {{ complaint.resolved ? "$" + complaint.budget : "Pending" }}
+            </button>
+            <div>
+              <button
+                data-te-dropdown-toggle-ref
+                aria-expanded="false"
+                data-te-ripple-init
+                data-te-ripple-color="light"
+                data-te-toggle="tooltip"
+                title="options"
+              >
+                <i class="bi bi-three-dots-vertical"></i>
+              </button>
+              <ul
+                class="absolute z-[1000] float-left m-0 hidden min-w-max list-none overflow-hidden rounded-lg border-none bg-white dark:bg-zinc-900 bg-clip-padding text-left text-base shadow-lg [&[data-te-dropdown-show]]:block"
+                aria-labelledby="dropdownMenuButton1"
+                data-te-dropdown-menu-ref
+              >
+                <li>
+                  <a
+                    class="w-full cursor-pointer hover:dark:bg-zinc-800 whitespace-nowrap bg-transparent px-4 py-2 hover:bg-neutral-100 active:text-neutral-800 active:no-underline disabled:pointer-events-none disabled:bg-transparent disabled:text-neutral-400 flex flex-row items-center"
+                    data-te-dropdown-item-ref
+                  >
+                    <span
+                      class="text-red-600 text-sm font-incosolata font-normal"
+                      ><i class="bi bi-trash"></i> remove
+                    </span>
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="flex flex-row items-center justify-between">
+        <p class="font-incosolata text-sm font-normal">
+          Showing 5 of 20 entries
+        </p>
+        <app-pagination
+          [limit]="pageLimit"
+          (setPagePlus)="pagePlus()"
+          (setPageMinus)="pageMinus()"
+          [page]="page"
+        ></app-pagination>
+      </div>
+    </div>
+  </section>
+</div>

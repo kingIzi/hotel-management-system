@@ -15,13 +15,6 @@ const routes: Routes = [
           ),
       },
       {
-        path: 'staff',
-        loadChildren: () =>
-          import('../../../pages/staff-module/staff-module.module').then(
-            (m) => m.StaffModuleModule
-          ),
-      },
-      {
         path: 'front',
         loadChildren: () =>
           import('../../../pages/frontal-office/frontal-office.module').then(

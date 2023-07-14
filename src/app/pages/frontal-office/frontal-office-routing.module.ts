@@ -28,6 +28,13 @@ const routes: Routes = [
             (m) => m.ManageRoomsComponent
           ),
       },
+      {
+        path: 'house',
+        loadComponent: () =>
+          import('./house-keeping/house-keeping.component').then(
+            (m) => m.HouseKeepingComponent
+          ),
+      },
     ],
   },
 ];

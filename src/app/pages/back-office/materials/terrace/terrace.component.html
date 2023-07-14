@@ -1,0 +1,208 @@
+<div class="space-y-4 h-full py-4 flex flex-col">
+  <div class="bg-white dark:bg-zinc-950 p-4 shadow flex flex-col space-y-4">
+    <div
+      class="flex flex-row items-center justify-between w-full border-b dark:border-blue-50 border-neutral-300"
+    >
+      <h4
+        class="text-2xl col-span-full lg:text-4xl dark:text-blue-100 text-black font-inspiration py-3"
+      >
+        Terrace Inventory
+      </h4>
+      <button
+        data-te-ripple-init
+        data-te-ripple-color="light"
+        class="bg-primary relative w-1/6 m-2 h-14 px-4 py-2 flex flex-row items-center group duration-150"
+      >
+        <div
+          class="absolute group flex space-x-1 flex-row items-center top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"
+        >
+          <i
+            class="text-lighter lg:text-2xl group-hover:text-white mt-1 bi bi-plus"
+          ></i>
+          <p
+            class="font-incosolata text-sm lg:text-2xl text-lighter group-hover:text-white"
+          >
+            Add
+          </p>
+        </div>
+      </button>
+    </div>
+    <div class="flex flex-col space-y-4">
+      <div
+        class="w-full py-4 mt-8 flex flex-row items-center justify-between col-span-full"
+      >
+        <div class="flex flex-row-items-center space-x-2">
+          <div>
+            <p
+              class="text-sm mt-2 dark:text-zinc-100 font-incosolata text-black"
+            >
+              Show(s):
+            </p>
+          </div>
+          <div class="max-w-[5rem]">
+            <select
+              [ngModel]="showing"
+              (ngModelChange)="valueChanged($event)"
+              class="appearance-none w-full text-black dark:text-zinc-100 text-sm font-incosolata border border-gray-300 bg-white dark:bg-zinc-800 px-4 py-2 pr-8 rounded leading-tight focus:outline-none focus:bg-white dark:focus:bg-transparent focus:border-gray-500"
+            >
+              <option
+                class="hover:bg-zinc-800 text-black dark:text-blue-100 text-sm font-incosolata bg-white dark:bg-zinc-900"
+                *ngFor="let show of showings"
+                [ngValue]="show"
+              >
+                {{ show }}
+              </option>
+            </select>
+          </div>
+          <div class="hidden lg:block">
+            <p
+              class="text-sm dark:text-zinc-100 mt-2 font-incosolata text-black"
+            >
+              Entries
+            </p>
+          </div>
+        </div>
+        <div class="relative mt-0 w-1/2 lg:w-1/3">
+          <div class="relative flex w-full flex-wrap items-stretch">
+            <input
+              type="search"
+              class="dark:text-zinc-100 px-2 text-black relative text-sm font-incosolata m-0 block w-[1px] min-w-0 flex-auto rounded border border-solid border-neutral-300 dark:border-zinc-100 bg-transparent dark:bg-zinc-950 font-normal leading[1.6] outline-none transition duration-200 ease-in-out focus:z-[3] focus:border-primary focus:text-neutral-700 dark:focus:text-zinc-100 focus:shadow-[inset_0_0_0_1px_rgb(59,113,202)] focus:outline-none dark:placeholder:text-neutral-400"
+              placeholder="Search"
+              aria-label="Search"
+              aria-describedby="button-addon2"
+            />
+
+            <span
+              class="input-group-text cursor-pointer flex items-center whitespace-nowrap rounded px-3 py-1.5 text-center text-base font-normal text-neutral-700"
+              id="basic-addon2"
+            >
+              <i class="bi bi-search"></i>
+            </span>
+          </div>
+        </div>
+      </div>
+      <div class="relative hidden max-h-96 lg:block overflow-auto">
+        <table #terraceTable class="relative w-full">
+          <thead>
+            <tr class="shadow-2xl bg-primary">
+              <th
+                #tableContainer
+                [attr.data-column]="
+                  i !== terraceHeaders.length - 1 ? header : ''
+                "
+                [attr.data-order]="
+                  i !== terraceHeaders.length - 1 ? 'desc' : ''
+                "
+                *ngFor="let header of terraceHeaders; index as i"
+                class="sticky top-0 px-3 py-3 text-lighter bg-primary font-incosolata font-bold bg-grey2 {{
+                  i === 0 ? 'rounded-tl-xl' : ''
+                }}"
+              >
+                <p class="font-primary text-lighter">
+                  {{ header }}
+                  <span
+                    *ngIf="
+                      tableContainer.dataset['order'] == 'desc' &&
+                      i !== terraceHeaders.length - 1
+                    "
+                    ><i class="bi bi-caret-up"></i>
+                  </span>
+                  <span
+                    *ngIf="
+                      tableContainer.dataset['order'] == 'asc' &&
+                      i !== terraceHeaders.length - 1
+                    "
+                    ><i class="bi bi-caret-down"></i>
+                  </span>
+                </p>
+              </th>
+            </tr>
+          </thead>
+          <tbody
+            *ngFor="let terrace of terraceData[0].items; index as ind"
+            class="bg-white dark:bg-transparent"
+          >
+            <tr
+              *ngFor="let variant of terrace.variants; index as i"
+              [class]="ind % 2 === 0 ? 'dark:bg-zinc-800' : 'dark:bg-zinc-900'"
+            >
+              <td
+                class="p-3 text-center text-black dark:text-zinc-100 border dark:border-none font-incosolata border-grey2"
+              >
+                {{ terrace.type }}
+              </td>
+              <td
+                class="p-3 text-center text-black dark:text-zinc-100 border dark:border-none font-incosolata border-grey2"
+              >
+                {{ variant.name }}
+              </td>
+              <td
+                class="p-3 text-center text-black dark:text-zinc-100 border dark:border-none font-incosolata border-grey2"
+              >
+                {{ variant.quantity }}
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div
+        class="relative gap-x-2 gap-y-4 sm:grid-cols-2 md:grid-cols-3 lg:hidden grid"
+      >
+        <div
+          *ngFor="let inventory of terraceData[0].items; index as ind"
+          [class]="
+            ind % 2 === 0
+              ? 'bg-mgrey dark:bg-[#4F4557] border-none'
+              : 'border border-mgrey bg-transparent'
+          "
+          class="w-full bg-mgrey flex flex-col px-4 rounded-lg shadow hover:opacity-80 cursor-pointer"
+        >
+          <p class="text-lg font-bold font-incosolata text-center">
+            {{ inventory.type }}
+          </p>
+          <div
+            *ngFor="let variant of inventory.variants; index as i"
+            class="flex flex-row items-center justify-between py-2"
+            [class]="i === inventory.variants.length - 1 ? '' : 'border-b'"
+          >
+            <p class="text-sm font-incosolata">{{ variant.name }}</p>
+            <p class="text-sm font-incosolata">{{ variant.quantity }}</p>
+          </div>
+        </div>
+      </div>
+      <!-- <div class="relative grid gap-x-2 gap-y-4 sm:grid-cols-2 md:grid-cols-3">
+        <div
+          *ngFor="let inventory of terraceData[0].items; index as ind"
+          [class]="
+            ind % 2 === 0
+              ? 'bg-mgrey dark:bg-[#4F4557] border-none'
+              : 'border border-mgrey bg-transparent'
+          "
+          class="w-full bg-mgrey flex flex-col px-4 rounded-lg shadow"
+        >
+          <p class="text-sm font-incosolata">
+            {{ inventory.type }}
+          </p>
+          <div
+            *ngFor="let variant of inventory.variants; index as i"
+            class="flex flex-row items-center justify-between py-2"
+          >
+            <p class="text-sm font-incosolata">{{ variant.name }}</p>
+            <p class="text-sm font-incosolata">{{ variant.quantity }}</p>
+          </div>
+        </div>
+      </div> -->
+      <div class="flex flex-row items-center justify-between">
+        <p class="font-incosolata text-sm font-normal">
+          Showing 5 of 20 entries
+        </p>
+        <app-pagination
+          [limit]="pageLimit"
+          (setPagePlus)="pagePlus()"
+          (setPageMinus)="pageMinus()"
+          [page]="page"
+        ></app-pagination>
+      </div>
+    </div>
+  </div>
+</div>

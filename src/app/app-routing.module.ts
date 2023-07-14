@@ -43,7 +43,20 @@ const routes: Routes = [
         (m) => m.RestaurantModule
       ),
   },
-  { path: 'pages/back-office', loadChildren: () => import('./pages/back-office/back-office.module').then(m => m.BackOfficeModule) },
+  {
+    path: 'pages/back-office',
+    loadChildren: () =>
+      import('./pages/back-office/back-office.module').then(
+        (m) => m.BackOfficeModule
+      ),
+  },
+  {
+    path: 'pages/back-office/materials',
+    loadChildren: () =>
+      import('./pages/back-office/materials/materials.module').then(
+        (m) => m.MaterialsModule
+      ),
+  },
 ];
 
 @NgModule({

@@ -8,6 +8,11 @@ const routes: Routes = [
     component: StaffModuleComponent,
     children: [
       {
+        path: 'list',
+        loadComponent: () =>
+          import('./list/list.component').then((m) => m.ListComponent),
+      },
+      {
         path: 'add',
         loadComponent: () =>
           import('./staff-add/staff-add.component').then(

@@ -1,0 +1,205 @@
+<div class="space-y-4 h-full py-4 flex flex-col">
+  <div class="bg-white dark:bg-zinc-950 p-4 shadow flex flex-col space-y-4">
+    <div
+      class="flex flex-row items-center justify-between w-full border-b dark:border-blue-50 border-neutral-300"
+    >
+      <h4
+        class="text-2xl col-span-full lg:text-4xl dark:text-blue-100 text-black font-inspiration py-3"
+      >
+        Rooms Inventory
+      </h4>
+      <button
+        data-te-ripple-init
+        data-te-ripple-color="light"
+        class="bg-primary relative w-1/6 m-2 h-14 px-4 py-2 flex flex-row items-center group duration-150"
+      >
+        <div
+          class="absolute group flex space-x-1 flex-row items-center top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"
+        >
+          <i
+            class="text-lighter lg:text-2xl group-hover:text-white mt-1 bi bi-plus"
+          ></i>
+          <p
+            class="font-incosolata text-sm lg:text-2xl text-lighter group-hover:text-white"
+          >
+            Add
+          </p>
+        </div>
+      </button>
+    </div>
+    <div class="lg:hidden flex flex-col">
+      <ul #tabs class="tabs mb-8">
+        <a
+          #tab
+          (click)="categoryUlClicked(tab)"
+          class="tab tab-lifted"
+          *ngFor="let inventory of inventoryList; index as ind"
+        >
+          {{ inventory.category }}
+        </a>
+      </ul>
+      <div class="relative flex w-full flex-wrap items-stretch pb-4">
+        <input
+          type="search"
+          class="dark:text-zinc-100 px-2 text-black relative text-sm font-incosolata m-0 block w-[1px] min-w-0 flex-auto rounded border border-solid border-neutral-300 dark:border-zinc-100 bg-transparent dark:bg-zinc-950 font-normal leading[1.6] outline-none transition duration-200 ease-in-out focus:z-[3] focus:border-primary focus:text-neutral-700 dark:focus:text-zinc-100 focus:shadow-[inset_0_0_0_1px_rgb(59,113,202)] focus:outline-none dark:placeholder:text-neutral-400"
+          placeholder="Search"
+          aria-label="Search"
+          aria-describedby="button-addon2"
+        />
+
+        <span
+          class="input-group-text cursor-pointer flex items-center whitespace-nowrap rounded px-3 py-1.5 text-center text-base font-normal text-neutral-700"
+          id="basic-addon2"
+        >
+          <i class="bi bi-search"></i>
+        </span>
+      </div>
+      <div class="relative grid gap-x-2 gap-y-4 sm:grid-cols-2 md:grid-cols-3">
+        <div
+          *ngFor="let inventory of currentInventory.items; index as ind"
+          [class]="
+            ind % 2 === 0
+              ? 'bg-mgrey dark:bg-[#4F4557] border-none'
+              : 'border border-mgrey bg-transparent'
+          "
+          class="w-full bg-mgrey flex flex-col px-4 rounded-lg shadow"
+        >
+          <div class="flex flex-row items-center justify-between py-2">
+            <p class="text-sm font-incosolata">
+              {{ currentInventory.category }}
+            </p>
+            <p class="text-sm font-incosolata">
+              {{ inventory.type }}
+            </p>
+          </div>
+          <div
+            *ngFor="let variant of inventory.variants; index as i"
+            class="flex flex-row items-center justify-between py-2"
+          >
+            <p class="text-sm font-incosolata">{{ variant.name }}</p>
+            <p class="text-sm font-incosolata">{{ variant.quantity }}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="w-full py-4 mt-8 flex-row items-center justify-between col-span-full hidden lg:flex"
+    >
+      <div class="max-h-[35rem] w-2/3 h-[35rem] flex flex-col space-y-4 px-2">
+        <div
+          class="w-full flex flex-row items-center justify-between col-span-full"
+        >
+          <div></div>
+          <div class="relative mt-0 w-1/2 lg:w-1/3">
+            <div class="relative flex w-full flex-wrap items-stretch">
+              <input
+                type="search"
+                class="dark:text-zinc-100 px-2 text-black relative text-sm font-incosolata m-0 block w-[1px] min-w-0 flex-auto rounded border border-solid border-neutral-300 dark:border-zinc-100 bg-transparent dark:bg-zinc-950 font-normal leading[1.6] outline-none transition duration-200 ease-in-out focus:z-[3] focus:border-primary focus:text-neutral-700 dark:focus:text-zinc-100 focus:shadow-[inset_0_0_0_1px_rgb(59,113,202)] focus:outline-none dark:placeholder:text-neutral-400"
+                placeholder="Search"
+                aria-label="Search"
+                aria-describedby="button-addon2"
+              />
+
+              <span
+                class="input-group-text cursor-pointer flex items-center whitespace-nowrap rounded px-3 py-1.5 text-center text-base font-normal text-neutral-700"
+                id="basic-addon2"
+              >
+                <i class="bi bi-search"></i>
+              </span>
+            </div>
+          </div>
+        </div>
+        <div class="relative overflow-auto max-h-[35rem]">
+          <table class="w-full relative">
+            <thead>
+              <tr>
+                <th
+                  *ngFor="let header of inventoryHeaders; index as ins"
+                  class="sticky top-0 px-3 py-3 text-lighter bg-primary font-incosolata font-bold bg-grey2 {{
+                    ins === 0 ? 'rounded-tl-xl' : ''
+                  }}"
+                >
+                  {{ header }}
+                </th>
+              </tr>
+            </thead>
+            <tbody
+              *ngFor="let inventory of currentInventory.items; index as ind"
+              [class]="
+                ind % 2 === 0
+                  ? 'dark:bg-zinc-800 bg-transparent'
+                  : 'dark:bg-zinc-900 bg-neutral-100'
+              "
+            >
+              <tr *ngFor="let variant of inventory.variants; index as i">
+                <td
+                  class="px-3 py-3 text-center text-black dark:text-zinc-100 border dark:border-none font-incosolata border-grey2"
+                >
+                  {{ currentInventory.category }}
+                </td>
+                <td
+                  class="px-3 py-3 text-center text-black dark:text-zinc-100 border dark:border-none font-incosolata border-grey2"
+                >
+                  {{ inventory.type }}
+                </td>
+                <td
+                  class="px-3 py-3 text-center text-black dark:text-zinc-100 border dark:border-none font-incosolata border-grey2"
+                >
+                  {{ variant.name }}
+                </td>
+                <td
+                  class="px-3 py-3 text-center text-black dark:text-zinc-100 border dark:border-none font-incosolata border-grey2"
+                >
+                  {{ variant.quantity }}
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div
+        class="relative max-h-[35rem] h-[35rem] overflow-y-auto mt-0 w-1/2 lg:w-1/3 dark:bg-zinc-900"
+      >
+        <table class="w-full">
+          <thead>
+            <tr>
+              <th
+                class="sticky text-lighter bg-primary text-left dark:bg-primary dark:text-lighter top-0 px-3 font-incosolata font-bold bg-grey2"
+              >
+                Product name
+              </th>
+              <th
+                class="sticky text-lighter bg-primary text-left dark:bg-primary dark:text-lighter top-0 px-3 font-incosolata font-bold bg-grey2"
+              >
+                Quantity
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr
+              *ngFor="let inventory of inventoryList; index as ind"
+              [class]="
+                ind % 2 === 0
+                  ? 'dark:bg-zinc-800 bg-transparent'
+                  : 'dark:bg-zinc-950 bg-neutral-100'
+              "
+              class="cursor-pointer hover:opacity-80"
+              (click)="changeCurrentInventory(inventory)"
+            >
+              <td
+                class="px-3 py-4 text-left text-black dark:text-zinc-100 border dark:border-none font-incosolata border-grey2"
+              >
+                {{ inventory.category }}
+              </td>
+              <td
+                class="px-3 py-4 text-left text-black dark:text-zinc-100 border dark:border-none font-incosolata border-grey2"
+              >
+                {{ calculateInventoryCategoryTotal(inventory) }}
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>

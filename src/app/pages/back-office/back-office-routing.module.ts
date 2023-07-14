@@ -12,6 +12,25 @@ const routes: Routes = [
         loadComponent: () =>
           import('./explore/explore.component').then((m) => m.ExploreComponent),
       },
+      {
+        path: 'maintenance',
+        loadComponent: () =>
+          import('./complaint-management/complaint-management.component').then(
+            (m) => m.ComplaintManagementComponent
+          ),
+      },
+      {
+        path: 'materials',
+        loadChildren: () =>
+          import('./materials/materials.module').then((m) => m.MaterialsModule),
+      },
+      {
+        path: 'staff',
+        loadChildren: () =>
+          import('./staff-module/staff-module.module').then(
+            (m) => m.StaffModuleModule
+          ),
+      },
     ],
   },
 ];

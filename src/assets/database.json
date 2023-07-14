@@ -1,5 +1,43 @@
 {
-  "users": [],
+  "users": {
+    "staffs": [
+      {
+        "fullName": "Jane Doe",
+        "staff": "Receptionist",
+        "since": "2012-04-23T18:25:43.511Z",
+        "salary": 200,
+        "shift": "10:00 AM - 4:00 PM"
+      },
+      {
+        "fullName": "John Doe",
+        "staff": "Manager",
+        "since": "2022-04-23T18:25:43.511Z",
+        "salary": 400,
+        "shift": "5:00 AM - 10:00 AM"
+      },
+      {
+        "fullName": "Kalunga Aluka",
+        "staff": "Manager",
+        "since": "2023-04-23T18:25:43.511Z",
+        "salary": 600,
+        "shift": "4:00 PM - 5:00 AM"
+      },
+      {
+        "fullName": "Jane Doe",
+        "staff": "Receptionist",
+        "since": "2023-05-23T18:25:43.511Z",
+        "salary": 200,
+        "shift": "10:00 AM - 4:00 PM"
+      },
+      {
+        "fullName": "John Doe",
+        "staff": "Manager",
+        "since": "2023-05-23T19:25:43.511Z",
+        "salary": 400,
+        "shift": "5:00 AM - 10:00 AM"
+      }
+    ]
+  },
   "food": {
     "productions": {
       "stock": [
@@ -1860,6 +1898,595 @@
           }
         ]
       }
+    }
+  },
+  "rooms": {
+    "types": [
+      {
+        "roomType": "Standard Double",
+        "rooms": [
+          {
+            "roomNumber": "101",
+            "occupancy": 2,
+            "price": 100
+          },
+          {
+            "roomNumber": "102",
+            "occupancy": 2,
+            "price": 100
+          }
+        ]
+      },
+      {
+        "roomType": "Deluxe",
+        "rooms": [
+          {
+            "roomNumber": "201",
+            "occupancy": 2,
+            "price": 150
+          },
+          {
+            "roomNumber": "202",
+            "occupancy": 2,
+            "price": 150
+          },
+          {
+            "roomNumber": "301",
+            "occupancy": 4,
+            "price": 250
+          }
+        ]
+      },
+      {
+        "roomType": "Suite",
+        "rooms": [
+          {
+            "roomNumber": "401",
+            "occupancy": 4,
+            "price": 300
+          },
+          {
+            "roomNumber": "402",
+            "occupancy": 4,
+            "price": 300
+          }
+        ]
+      },
+      {
+        "roomType": "Executive",
+        "rooms": [
+          {
+            "roomNumber": "501",
+            "occupancy": 2,
+            "price": 200
+          }
+        ]
+      }
+    ],
+    "issues": {
+      "issues": [
+        {
+          "issue": "Plumbing Problems",
+          "sub_issues": [
+            "Leaky faucets or showerheads",
+            "Clogged drains or toilets",
+            "Malfunctioning flush mechanisms",
+            "Broken or dripping pipes"
+          ]
+        },
+        {
+          "issue": "HVAC (Heating, Ventilation, and Air Conditioning) Issues",
+          "sub_issues": [
+            "Inadequate heating or cooling",
+            "Faulty thermostats",
+            "Airflow problems or noisy HVAC units",
+            "Blocked or dirty air filters"
+          ]
+        },
+        {
+          "issue": "Electrical Troubles",
+          "sub_issues": [
+            "Power outages or tripped circuit breakers",
+            "Faulty switches, outlets, or light fixtures",
+            "Non-functional or flickering lights",
+            "Malfunctioning TV, telephone, or Wi-Fi connections"
+          ]
+        },
+        {
+          "issue": "Door and Lock Problems",
+          "sub_issues": [
+            "Jammed or misaligned doors",
+            "Broken door handles or locks",
+            "Faulty keycard systems or keycard reader issues"
+          ]
+        },
+        {
+          "issue": "Furniture and Fixture Maintenance",
+          "sub_issues": [
+            "Loose or broken chairs, tables, or beds",
+            "Worn-out or damaged upholstery",
+            "Deteriorating or chipped furniture surfaces",
+            "Broken or missing fixtures, such as lamps or mirrors"
+          ]
+        },
+        {
+          "issue": "Safety and Security Concerns",
+          "sub_issues": [
+            "Non-functioning smoke detectors or fire alarms",
+            "Broken or damaged window locks",
+            "Malfunctioning electronic safes",
+            "Defective security cameras or access control systems"
+          ]
+        },
+        {
+          "issue": "General Repairs and Maintenance",
+          "sub_issues": [
+            "Paint touch-ups or wall repairs",
+            "Flooring repairs or carpet cleaning",
+            "Water leaks or dampness issues",
+            "Pest control and prevention measures"
+          ]
+        },
+        {
+          "issue": "Housekeeping Support",
+          "sub_issues": [
+            "Replacing light bulbs or batteries in remote controls",
+            "Fixing loose or broken hangers",
+            "Repairing or replacing damaged bathroom fixtures",
+            "Assisting with room setups or furniture rearrangement"
+          ]
+        }
+      ],
+      "locations": [
+        "Rooftop Terrace",
+        "Poolside Terrace",
+        "Garden Terrace",
+        "Restaurant Terrace",
+        "Spa Terrace",
+        "Bar/Lounge Terrace",
+        "Event Terrace",
+        "Private Suite Terrace",
+        "Balcony Terraces",
+        "Conference Terrace"
+      ]
+    },
+    "roomTypes": [
+      {
+        "type": "Deluxe",
+        "rooms": [11, 12, 14, 15, 16]
+      },
+      {
+        "type": "Standard",
+        "rooms": [1, 2, 3, 4, 5]
+      },
+      {
+        "type": "Studio",
+        "rooms": [6, 7, 8, 9, 10]
+      },
+      {
+        "type": "Double",
+        "rooms": [17, 18, 19, 20, 21]
+      }
+    ],
+    "inventories": {
+      "rooms": [
+        {
+          "category": "Bedroom",
+          "items": [
+            {
+              "type": "Bed",
+              "variants": [
+                { "name": "Single Bed", "quantity": 2 },
+                { "name": "Double Bed", "quantity": 1 }
+              ]
+            },
+            {
+              "type": "Mattress",
+              "variants": [{ "name": "Standard Mattress", "quantity": 3 }]
+            },
+            {
+              "type": "Bed sheets",
+              "variants": [
+                { "name": "Cotton Sheets", "quantity": 5 },
+                { "name": "Silk Sheets", "quantity": 3 }
+              ]
+            },
+            {
+              "type": "Pillow",
+              "variants": [
+                { "name": "Standard Pillow", "quantity": 4 },
+                { "name": "Memory Foam Pillow", "quantity": 2 }
+              ]
+            },
+            {
+              "type": "Pillow covers",
+              "variants": [
+                { "name": "Cotton Pillow Covers", "quantity": 6 },
+                { "name": "Silk Pillow Covers", "quantity": 4 }
+              ]
+            },
+            {
+              "type": "Blankets",
+              "variants": [
+                { "name": "Fleece Blanket", "quantity": 3 },
+                { "name": "Wool Blanket", "quantity": 2 }
+              ]
+            },
+            {
+              "type": "Duvet",
+              "variants": [{ "name": "All-Season Duvet", "quantity": 2 }]
+            },
+            {
+              "type": "Duvet cover",
+              "variants": [
+                { "name": "Patterned Duvet Cover", "quantity": 4 },
+                { "name": "Plain Duvet Cover", "quantity": 3 }
+              ]
+            },
+            {
+              "type": "Curtains",
+              "variants": [
+                { "name": "Blackout Curtains", "quantity": 3 },
+                { "name": "Sheer Curtains", "quantity": 2 }
+              ]
+            },
+            {
+              "type": "Wardrobe",
+              "variants": [{ "name": "Wooden Wardrobe", "quantity": 1 }]
+            }
+          ]
+        },
+        {
+          "category": "Bathroom",
+          "items": [
+            {
+              "type": "Towels",
+              "variants": [
+                { "name": "Bath Towels", "quantity": 6 },
+                { "name": "Hand Towels", "quantity": 4 }
+              ]
+            },
+            {
+              "type": "Bath mat",
+              "variants": [{ "name": "Cotton Bath Mat", "quantity": 2 }]
+            },
+            {
+              "type": "Shower curtain",
+              "variants": [{ "name": "Fabric Shower Curtain", "quantity": 1 }]
+            },
+            {
+              "type": "Toilet paper",
+              "variants": [{ "name": "Toilet Paper Rolls", "quantity": 8 }]
+            },
+            {
+              "type": "Soap",
+              "variants": [{ "name": "Bar Soap", "quantity": 3 }]
+            },
+            {
+              "type": "Shampoo",
+              "variants": [{ "name": "Shampoo Bottles", "quantity": 3 }]
+            },
+            {
+              "type": "Conditioner",
+              "variants": [{ "name": "Conditioner Bottles", "quantity": 3 }]
+            },
+            {
+              "type": "Body wash",
+              "variants": [{ "name": "Body Wash Bottles", "quantity": 3 }]
+            },
+            {
+              "type": "Hairdryer",
+              "variants": [{ "name": "Hairdryer", "quantity": 1 }]
+            }
+          ]
+        },
+        {
+          "category": "Living Area",
+          "items": [
+            {
+              "type": "Sofa",
+              "variants": [{ "name": "Leather Sofa", "quantity": 1 }]
+            },
+            {
+              "type": "Coffee table",
+              "variants": [{ "name": "Glass Coffee Table", "quantity": 1 }]
+            },
+            {
+              "type": "TV",
+              "variants": [{ "name": "Smart TV", "quantity": 1 }]
+            },
+            {
+              "type": "Remote control",
+              "variants": [
+                { "name": "Universal Remote Control", "quantity": 1 }
+              ]
+            },
+            {
+              "type": "Cable/satellite box",
+              "variants": [{ "name": "Cable/Satellite Box", "quantity": 1 }]
+            },
+            {
+              "type": "DVD player",
+              "variants": [{ "name": "DVD Player", "quantity": 1 }]
+            },
+            {
+              "type": "Bookshelf",
+              "variants": [{ "name": "Wooden Bookshelf", "quantity": 1 }]
+            },
+            {
+              "type": "Lamps",
+              "variants": [{ "name": "Bedside Lamps", "quantity": 2 }]
+            }
+          ]
+        },
+        {
+          "category": "Kitchenette",
+          "items": [
+            {
+              "type": "Microwave",
+              "variants": [{ "name": "Microwave Oven", "quantity": 1 }]
+            },
+            {
+              "type": "Mini-fridge",
+              "variants": [{ "name": "Mini-fridge", "quantity": 1 }]
+            },
+            {
+              "type": "Sink",
+              "variants": [{ "name": "Kitchen Sink", "quantity": 1 }]
+            },
+            {
+              "type": "Cups",
+              "variants": [{ "name": "Drinking Cups", "quantity": 4 }]
+            },
+            {
+              "type": "Plates",
+              "variants": [{ "name": "Dinner Plates", "quantity": 4 }]
+            },
+            {
+              "type": "Utensils",
+              "variants": [{ "name": "Cutlery Set", "quantity": 4 }]
+            },
+            {
+              "type": "Kettle",
+              "variants": [{ "name": "Electric Kettle", "quantity": 1 }]
+            },
+            {
+              "type": "Coffee maker",
+              "variants": [{ "name": "Coffee Maker", "quantity": 1 }]
+            },
+            {
+              "type": "Toaster",
+              "variants": [{ "name": "Toaster", "quantity": 1 }]
+            }
+          ]
+        },
+        {
+          "category": "Additional Amenities",
+          "items": [
+            {
+              "type": "Desk",
+              "variants": [{ "name": "Writing Desk", "quantity": 1 }]
+            },
+            {
+              "type": "Chair",
+              "variants": [{ "name": "Desk Chair", "quantity": 1 }]
+            },
+            {
+              "type": "Air conditioning",
+              "variants": [{ "name": "Air Conditioning Unit", "quantity": 1 }]
+            },
+            {
+              "type": "Heating",
+              "variants": [{ "name": "Heating System", "quantity": 1 }]
+            },
+            {
+              "type": "Iron",
+              "variants": [{ "name": "Iron", "quantity": 1 }]
+            },
+            {
+              "type": "Ironing board",
+              "variants": [{ "name": "Ironing Board", "quantity": 1 }]
+            },
+            {
+              "type": "Safe",
+              "variants": [{ "name": "Room Safe", "quantity": 1 }]
+            },
+            {
+              "type": "Telephone",
+              "variants": [{ "name": "Telephone", "quantity": 1 }]
+            },
+            {
+              "type": "Wi-Fi",
+              "variants": [{ "name": "Wi-Fi Router", "quantity": 1 }]
+            },
+            {
+              "type": "Room service menu",
+              "variants": [{ "name": "Room Service Menu", "quantity": 1 }]
+            }
+          ]
+        }
+      ],
+      "terrace": [
+        {
+          "category": "Terrace",
+          "items": [
+            {
+              "type": "Outdoor Seating",
+              "variants": [
+                { "name": "Lounge Chairs", "quantity": 4 },
+                { "name": "Dining Tables", "quantity": 5 },
+                { "name": "Umbrellas", "quantity": 3 }
+              ]
+            },
+            {
+              "type": "Barbecue Grill",
+              "variants": [{ "name": "Gas Grill", "quantity": 1 }]
+            },
+            {
+              "type": "Outdoor Lighting",
+              "variants": [
+                { "name": "String Lights", "quantity": 1 },
+                { "name": "Spotlights", "quantity": 4 }
+              ]
+            },
+            {
+              "type": "Outdoor Speakers",
+              "variants": [{ "name": "Wireless Speakers", "quantity": 2 }]
+            },
+            {
+              "type": "Outdoor Dining Set",
+              "variants": [{ "name": "Table and Chairs Set", "quantity": 1 }]
+            },
+            {
+              "type": "Pergola",
+              "variants": [{ "name": "Wooden Pergola", "quantity": 1 }]
+            },
+            {
+              "type": "Outdoor Planters",
+              "variants": [
+                { "name": "Flower Pots", "quantity": 6 },
+                { "name": "Herb Planters", "quantity": 4 }
+              ]
+            },
+            {
+              "type": "Outdoor Rugs",
+              "variants": [{ "name": "Patterned Rugs", "quantity": 2 }]
+            },
+            {
+              "type": "Fire Pit",
+              "variants": [{ "name": "Gas Fire Pit", "quantity": 1 }]
+            },
+            {
+              "type": "Outdoor Lounge",
+              "variants": [{ "name": "Sectional Sofa", "quantity": 1 }]
+            }
+          ]
+        }
+      ],
+      "pool": [
+        {
+          "category": "Pool",
+          "items": [
+            {
+              "type": "Sun Loungers",
+              "variants": [{ "name": "Poolside Loungers", "quantity": 10 }]
+            },
+            {
+              "type": "Pool Umbrellas",
+              "variants": [{ "name": "Large Umbrellas", "quantity": 5 }]
+            },
+            {
+              "type": "Pool Towels",
+              "variants": [{ "name": "Pool Towels", "quantity": 20 }]
+            },
+            {
+              "type": "Pool Floats",
+              "variants": [
+                { "name": "Inflatable Floats", "quantity": 8 },
+                { "name": "Pool Noodles", "quantity": 6 }
+              ]
+            },
+            {
+              "type": "Poolside Bar",
+              "variants": [{ "name": "Tiki Bar", "quantity": 1 }]
+            },
+            {
+              "type": "Poolside Tables",
+              "variants": [{ "name": "Side Tables", "quantity": 5 }]
+            },
+            {
+              "type": "Poolside Cabanas",
+              "variants": [{ "name": "Private Cabanas", "quantity": 2 }]
+            },
+            {
+              "type": "Poolside Shower",
+              "variants": [{ "name": "Outdoor Shower", "quantity": 1 }]
+            },
+            {
+              "type": "Pool Toys",
+              "variants": [
+                { "name": "Water Guns", "quantity": 4 },
+                { "name": "Diving Rings", "quantity": 6 }
+              ]
+            },
+            {
+              "type": "Pool Barbecue Grill",
+              "variants": [{ "name": "Charcoal Grill", "quantity": 1 }]
+            }
+          ]
+        }
+      ],
+      "barLounge": [
+        {
+          "category": "Bar Lounge",
+          "items": [
+            {
+              "type": "Bar Counter",
+              "variants": [{ "name": "Wooden Bar Counter", "quantity": 1 }]
+            },
+            {
+              "type": "Bar Stools",
+              "variants": [{ "name": "High Bar Stools", "quantity": 8 }]
+            },
+            {
+              "type": "Tables",
+              "variants": [
+                { "name": "High Tables", "quantity": 5 },
+                { "name": "Low Tables", "quantity": 6 }
+              ]
+            },
+            {
+              "type": "Chairs",
+              "variants": [
+                { "name": "Armchairs", "quantity": 4 },
+                { "name": "Lounge Chairs", "quantity": 6 }
+              ]
+            },
+            {
+              "type": "Bar Shelves",
+              "variants": [
+                { "name": "Glass Shelves", "quantity": 2 },
+                { "name": "Wooden Shelves", "quantity": 3 }
+              ]
+            },
+            {
+              "type": "Glassware",
+              "variants": [
+                { "name": "Wine Glasses", "quantity": 12 },
+                { "name": "Cocktail Glasses", "quantity": 8 },
+                { "name": "Beer Glasses", "quantity": 10 }
+              ]
+            },
+            {
+              "type": "Bottles",
+              "variants": [
+                { "name": "Whiskey Bottles", "quantity": 5 },
+                { "name": "Vodka Bottles", "quantity": 4 },
+                { "name": "Rum Bottles", "quantity": 3 }
+              ]
+            },
+            {
+              "type": "Bar Tools",
+              "variants": [
+                { "name": "Cocktail Shakers", "quantity": 1 },
+                { "name": "Muddlers", "quantity": 2 },
+                { "name": "Strainers", "quantity": 1 }
+              ]
+            },
+            {
+              "type": "Wine Cooler",
+              "variants": [{ "name": "Dual-Zone Wine Cooler", "quantity": 1 }]
+            },
+            {
+              "type": "Sound System",
+              "variants": [
+                { "name": "Speakers", "quantity": 4 },
+                { "name": "Amplifier", "quantity": 1 }
+              ]
+            }
+          ]
+        }
+      ]
     }
   }
 }

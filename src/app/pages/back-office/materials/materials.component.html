@@ -1,0 +1,53 @@
+<div class="space-y-4 h-full py-4 px-4 flex flex-col">
+  <app-router-navs [navLinks]="availableLinks"></app-router-navs>
+  <div class="dark:bg-zinc-900 bg-white relative p-2 shadow">
+    <ul
+      class="flex list-none space-x-0 lg:space-x-4 flex-row flex-wrap border-b-0 pl-0"
+    >
+      <li role="presentation">
+        <a
+          [routerLink]="'/main/back/explore/materials/rooms'"
+          routerLinkActive="border-b-2 border-b-blue-200 shadow bg-primary text-lighter dark:border-b-2 ark:border-b-lighter dark:text-lighter dark:bg-primary"
+          class="flex flex-row items-center p-2 hover:opacity-80 dark:text-neutral-200"
+        >
+          <img class="w-14" src="assets/img/icons8-cloakroom-100.png" alt="" />
+          <p class="font-incosolata tracking-widest text-lg p-2">Rooms</p>
+        </a>
+      </li>
+      <li role="presentation">
+        <a
+          [routerLink]="'/main/back/explore/materials/terrace'"
+          routerLinkActive="border-b-2 border-b-blue-200 shadow bg-primary text-lighter dark:border-b-2 ark:border-b-lighter dark:text-lighter dark:bg-primary"
+          class="flex flex-row items-center p-2 hover:opacity-80 dark:text-neutral-200"
+        >
+          <img class="w-14" src="assets/img/icons8-yoga-100.png" alt="" />
+          <p class="font-incosolata tracking-widest text-lg p-2">Terrace</p>
+        </a>
+      </li>
+      <li role="presentation">
+        <a
+          [routerLink]="'/main/back/explore/materials/pool'"
+          routerLinkActive="border-b-2 border-b-blue-200 shadow bg-primary text-lighter dark:border-b-2 ark:border-b-lighter dark:text-lighter dark:bg-primary"
+          class="flex flex-row items-center p-2 hover:opacity-80 dark:text-neutral-200"
+        >
+          <img class="w-14" src="assets/img/icons8-saw-100.png" alt="" />
+          <p class="font-incosolata tracking-widest text-lg p-2">Pool</p>
+        </a>
+      </li>
+      <li role="presentation">
+        <a
+          [routerLink]="'/main/back/explore/materials/bar'"
+          routerLinkActive="border-b-2 border-b-blue-200 shadow bg-primary text-lighter dark:border-b-2 ark:border-b-lighter dark:text-lighter dark:bg-primary"
+          class="flex flex-row items-center p-2 hover:opacity-80 dark:text-neutral-200"
+        >
+          <img class="w-14" src="assets/img/icons8-pint-100.png" alt="" />
+          <p class="font-incosolata tracking-widest text-lg p-2">Bar Lounge</p>
+        </a>
+      </li>
+    </ul>
+  </div>
+  <!--Tabs content-->
+  <div class="my-6">
+    <router-outlet></router-outlet>
+  </div>
+</div>
