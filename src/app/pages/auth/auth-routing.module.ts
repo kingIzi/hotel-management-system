@@ -8,9 +8,23 @@ const routes: Routes = [
     component: AuthComponent,
     children: [
       {
-        path: 'login',
+        path: '',
         loadComponent: () =>
           import('./login/login.component').then((m) => m.LoginComponent),
+      },
+      {
+        path: 'add',
+        loadComponent: () =>
+          import('./add-user/add-user.component').then(
+            (m) => m.AddUserComponent
+          ),
+      },
+      {
+        path: 'forgot',
+        loadComponent: () =>
+          import('./forgot-password/forgot-password.component').then(
+            (m) => m.ForgotPasswordComponent
+          ),
       },
     ],
   },

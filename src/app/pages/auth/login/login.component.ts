@@ -1,6 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
-import { RouterModule } from '@angular/router';
+import { Router, RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -10,7 +10,9 @@ import { RouterModule } from '@angular/router';
   imports: [CommonModule, RouterModule],
 })
 export class LoginComponent implements OnInit {
-  constructor() {}
-
+  constructor(private router: Router) {}
   ngOnInit(): void {}
+  public onLoginClicked() {
+    this.router.navigate(['/main', { param1: 'value1', param2: 'value2' }]);
+  }
 }
